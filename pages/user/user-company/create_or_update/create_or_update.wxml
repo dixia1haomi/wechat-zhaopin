@@ -1,0 +1,37 @@
+<import src="/pages/utils/template.wxml"></import>
+
+<view class="page">
+  <view class="page__bd">
+    <view class="weui-cells weui-cells_after-title">
+
+      <form bindsubmit='getFormdata'>
+
+        <input hidden="true" name="company_id" value="{{company_id}}"></input>
+
+        <!-- 公司名称 -->
+        <template is="input" data="{{...{input_view:'公司名称',input_name:'company_name',moren:'请输入公司名称',input_value:company_name} }}" />
+
+        <!-- 公司规模 -->
+        <template is="company_size_picker" data="{{ ...{range:company_size_data,index:company_size_key} }}" />
+
+        <!-- 公司性质 -->
+        <template is="company_nature_picker" data="{{ ...{range:company_nature_data,index:company_nature_key} }}" />
+
+        <!-- 所属行业 -->
+        <template is="company_industry_picker" data="{{ ...{range:company_industry_data,index:company_industry_key} }}" />
+
+        <!-- 公司地址 -->
+        <template is="input" data="{{...{input_view:'公司地址',input_name:'company_address',moren:'请输入公司地址',input_value:company_address} }}" />
+
+        <!-- 公司描述 -->
+        <template is="textarea" data="{{...{textarea_view:'公司介绍',textarea_name:'company_description', moren:'请输入公司介绍',input_value:company_description} }}" />
+
+        <!-- <view class="weui-btn-area"> -->
+        <button class="weui-btn" form-type='submit' type='primary'>确定</button>
+        <!-- </view> -->
+
+      </form>
+
+    </view>
+  </view>
+</view>

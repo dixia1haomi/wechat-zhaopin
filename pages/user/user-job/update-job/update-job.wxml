@@ -1,0 +1,114 @@
+<view class="page">
+  <view class="page__hd">
+    <view class="page__title">更新岗位页面</view>
+  </view>
+  <view class="page__bd">
+
+
+    <!-- --------------正文-------------------- -->
+    <form bindsubmit='getFormdata'>
+       <view wx:if="{{company.length > 0}}"> 
+
+        <view class="weui-cells__title">岗位由你名下的哪个公司发布</view>
+        <view class="weui-cells weui-cells_after-title">
+          <view class="weui-cell weui-cell_select">
+            <view class="weui-cell__hd weui-cell__hd_in-select-after">
+              <view class="weui-label">我的公司</view>
+            </view>
+            <view class="weui-cell__bd">
+              <picker bindchange="bindPickerCompany" name="company_id" value="{{company_array_key}}" range="{{company}}" range-key="{{'company_name'}}">
+                <view class="weui-select weui-select_in-select-after">{{company[company_array_key].company_name}}</view>
+              </picker>
+            </view>
+          </view>
+        </view>
+
+       </view> 
+      <!-- <view wx:else>还没有创建公司信息，只能发布个人岗位</view> -->
+      <!-- --------------------------------------- -->
+
+
+      <view class="weui-cells__title">表单</view>
+      <view class="weui-cells weui-cells_after-title">
+
+        <view class="weui-cell weui-cell_input">
+          <view class="weui-cell__hd">
+            <view class="weui-label">职位名称</view>
+          </view>
+          <view class="weui-cell__bd">
+            <input value='{{job.job_name}}' name="job_name" class="weui-input" placeholder="请输入职位名称" />
+          </view>
+        </view>
+
+        <view class="weui-cell weui-cell_input">
+          <view class="weui-cell__hd">
+            <view class="weui-label">薪资水平</view>
+          </view>
+          <view class="weui-cell__bd">
+            <input value='{{job.pay_level}}' name="pay_level" class="weui-input" placeholder="请输入薪资水平" type='number' />
+          </view>
+        </view>
+
+        <view class="weui-cell weui-cell_select">
+          <view class="weui-cell__hd weui-cell__hd_in-select-after">
+            <view class="weui-label">工作地区</view>
+          </view>
+          <view class="weui-cell__bd">
+            <picker name="work_area" bindchange="bindPickerChange" value="{{workArea_array_key}}" range="{{array}}">
+              <view class="weui-select weui-select_in-select-after">{{array[workArea_array_key]}}</view>
+            </picker>
+          </view>
+        </view>
+
+        <view class="weui-cell weui-cell_input">
+          <view class="weui-cell__hd">
+            <view class="weui-label">详细地址</view>
+          </view>
+          <view class="weui-cell__bd">
+            <input value='{{job.detailed_address}}' name="detailed_address" class="weui-input" placeholder="请输入详细地址" />
+          </view>
+        </view>
+
+
+
+
+      </view>
+
+      <!-- ------------岗位简介----------------- -->
+      <view class="weui-cells__title">岗位简介</view>
+      <view class="weui-cells weui-cells_after-title">
+        <view class="weui-cell">
+          <view class="weui-cell__bd">
+            <textarea value='{{job.job_description}}' name="description" class="weui-textarea" placeholder="请输入岗位简介" style="height: 5.3em" />
+            <view class="weui-textarea-counter">0/200</view>
+          </view>
+        </view>
+      </view>
+
+
+      <view class="weui-cells__tips">底部说明文字底部说明文字</view>
+
+      <!-- ------------------------------------ -->
+      <checkbox-group bindchange="bindAgreeChange">
+        <label class="weui-agree" for="weuiAgree">
+          <view class="weui-agree__text">
+            <checkbox class="weui-agree__checkbox" id="weuiAgree" value="agree" checked="{{isAgree}}" />
+            <view class="weui-agree__checkbox-icon">
+              <icon class="weui-agree__checkbox-icon-check" type="success_no_circle" size="9" wx:if="{{isAgree}}"></icon>
+            </view>
+            阅读并同意
+            <navigator url="" class="weui-agree__link">《相关条款》</navigator>
+          </view>
+        </label>
+      </checkbox-group>
+
+      <view class="weui-btn-area">
+        <button class="weui-btn" form-type='submit' type='primary'>保存</button>
+      </view>
+
+      <!-- -------------------------------------- -->
+    </form>
+  </view>
+
+
+</view>

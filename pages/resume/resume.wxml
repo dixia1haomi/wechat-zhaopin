@@ -1,0 +1,49 @@
+<!-- 普通选择器 -->
+<view class="section">
+  <view class="section__title">普通选择器</view>
+  <picker bindchange="PickerChange_resume" value="{{PickerChange_index}}" range="{{work_place_data}}">
+    <view class="picker">
+      当前选择：{{work_place_data[PickerChange_index]}}
+    </view>
+  </picker>
+</view>
+
+
+
+<view class='page'>
+
+  <view class='page_bd'>
+    <view class="weui-panel">
+
+      <block wx:for="{{resume}}" wx:key="">
+
+        <navigator url='/pages/resume/detail?id={{item.id}}' open-type='navigate'>
+
+            <view class="weui-media-box weui-media-box_text">
+
+              <view class="weui-media-box__desc">id：{{item.id}}</view>
+              <view class="weui-media-box__desc">姓名：{{item.name}}</view>
+              <view class="weui-media-box__desc">年龄：{{age_data[item.age]}}</view>
+              <view class="weui-media-box__desc">性别：{{sex_data[item.sex]}}</view>
+              <view class="weui-media-box__desc">学历：{{education_data[item.education]}}</view>
+              <view class="weui-media-box__desc">求职区域：{{work_place_data[item.work_place]}}</view>
+              <view class="weui-media-box__desc">工作性质：{{work_nature_data[item.work_nature]}}</view>
+              <view class="weui-media-box__desc">工作经验：{{work_exp_data[item.work_exp]}}</view>
+              <view class="weui-media-box__desc">求职岗位：{{expectation_position_data[item.expectation_position]}}</view>
+              <view class="weui-media-box__desc">期望薪资：{{expectation_pay_data[item.expectation_pay]}}</view>
+              <view class="weui-media-box__desc">目前状态：{{current_state_data[item.current_state]}}</view>
+              <view class="weui-media-box__desc">到岗时间：{{report_time_data[item.report_time]}}</view>
+              <view class="weui-media-box__desc">个人描述：{{item.resume_description}}</view>
+              <view class="weui-media-box__desc">电话：{{item.phone}}</view>
+
+            </view>
+
+        </navigator>
+
+      </block>
+
+    </view>
+  </view>
+
+
+</view>

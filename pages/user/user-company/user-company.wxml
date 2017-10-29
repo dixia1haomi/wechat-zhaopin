@@ -1,0 +1,23 @@
+<view>
+
+  <navigator url='/pages/user/user-company/create_or_update/create_or_update'>
+    <button size=''>新增公司</button>
+  </navigator>
+
+  <block wx:for="{{user_company}}" wx:key="">
+    <view>{{item.id}}</view>
+    <view>{{item.company_name}}</view>
+    <view>{{item.company_size}}</view>
+    <view>{{item.create_time}}</view>
+    <navigator url='/pages/user/user-company/create_or_update/create_or_update?id={{item.id}}'>
+      <!-- <view bindtap='edit_company' id="{{item.id}}"> -->
+      <button size='mini'>编辑公司</button>
+      <!-- </view> -->
+    </navigator>
+
+    <button size='mini' bindtap='delete_company' id="{{item.id}}">删除公司</button>
+    ----------------------------
+
+  </block>
+
+</view>

@@ -1,0 +1,23 @@
+<view>
+
+  <navigator url='/pages/user/user-job/create-job/create-job'>
+    <button size=''>新增岗位</button>
+  </navigator>
+
+  <block wx:for="{{user_job}}" wx:key="">
+    <!-- <view bindtap='aaa'> -->
+    <view>{{item.id}}</view>
+    <view>{{item.job_name}}</view>
+    <view>{{item.detailed_address}}</view>
+    <view>{{item.create_time}}</view>
+
+    <navigator url='/pages/user/user-job/update-job/update-job?id={{item.id}}&com={{item.company_id}}'>
+      <button size='mini' >编辑</button>
+    </navigator>
+
+    <button size='mini' bindtap='delete_Job' id="{{item.id}}">删除</button>
+    ----------------------------
+    <!-- </view> -->
+  </block>
+
+</view>

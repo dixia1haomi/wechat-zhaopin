@@ -1,0 +1,19 @@
+<view class="weui-media-box weui-media-box_text">
+
+  <view class="weui-media-box__desc">id：{{resume_detail.id}}</view>
+  <view class="weui-media-box__desc">姓名：{{resume_detail.name}}</view>
+
+  <view class="weui-media-box__desc">年龄：{{age_data[resume_detail.age]}}</view>
+  <view class="weui-media-box__desc">性别：{{sex_data[resume_detail.sex]}}</view>
+  <view class="weui-media-box__desc">学历：{{education_data[resume_detail.education]}}</view>
+  <view class="weui-media-box__desc">求职区域：{{work_place_data[resume_detail.work_place]}}</view>
+  <view class="weui-media-box__desc">工作性质：{{work_nature_data[resume_detail.work_nature]}}</view>
+  <view class="weui-media-box__desc">工作经验：{{work_exp_data[resume_detail.work_exp]}}</view>
+  <view class="weui-media-box__desc">求职岗位：{{expectation_position_data[resume_detail.expectation_position]}}</view>
+  <view class="weui-media-box__desc">期望薪资：{{expectation_pay_data[resume_detail.expectation_pay]}}</view>
+  <view class="weui-media-box__desc">目前状态：{{current_state_data[resume_detail.current_state]}}</view>
+  <view class="weui-media-box__desc">到岗时间：{{report_time_data[resume_detail.report_time]}}</view>
+
+  <view class="weui-media-box__desc">个人描述：{{resume_detail.resume_description}}</view>
+  <view class="weui-media-box__desc">电话：{{resume_detail.phone}}</view>
+</view>

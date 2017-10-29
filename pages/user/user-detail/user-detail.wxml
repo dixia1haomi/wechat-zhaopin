@@ -1,0 +1,9 @@
+<!--pages/user/user-detail/user-detail.wxml-->
+<text>携带token发送请求获取用户详细信息</text>
+
+<view>用户id:{{user_detail.id}}</view>
+
+<view>用户openid:{{user_detail.openid}}</view>
+
+<view>用户创建时间：{{user_detail.create_time}}</view>
+

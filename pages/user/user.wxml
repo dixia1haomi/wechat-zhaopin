@@ -1,0 +1,20 @@
+<!--pages/user/user.wxml-->
+
+<button catchtap='login'>登录</button>
+
+  <navigator url='/pages/user/user-detail/user-detail'>
+    <button bindtap='getUserDetail'>我的详细信息</button>
+  </navigator>
+
+  <navigator url='/pages/user/user-job/user-job'>
+    <button bindtap='getUserJob'>我发布的岗位</button>
+  </navigator>
+
+  <navigator url='/pages/user/user-company/user-company'>
+    <button>我的公司</button>
+  </navigator>
+
+  <navigator url='/pages/user/user-resume/user-resume'>
+    <button>我的简历</button>
+  </navigator>
+

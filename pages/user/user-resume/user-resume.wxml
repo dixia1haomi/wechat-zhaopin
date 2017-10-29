@@ -1,0 +1,21 @@
+<view>
+
+  <navigator url='/pages/user/user-resume/create_or_update'>
+    <button size=''>新增简历</button>
+  </navigator>
+
+  <block wx:for="{{user_resume}}" wx:key="">
+    <view>{{item.id}}</view>
+    <view>{{item.work_exp}}</view>
+    <navigator url='/pages/user/user-resume/create_or_update?id={{item.id}}'>
+      <!-- <view bindtap='edit_company' id="{{item.id}}"> -->
+      <button size='mini'>编辑简历</button>
+      <!-- </view> -->
+    </navigator>
+
+    <button size='mini' bindtap='delete_resume' id="{{item.id}}">删除简历</button>
+    ----------------------------
+
+  </block>
+
+</view>

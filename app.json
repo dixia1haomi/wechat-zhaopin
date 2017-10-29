@@ -1,0 +1,39 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/job/job",
+    "pages/resume/resume",
+        "pages/resume/detail",
+    "pages/user/user",
+    "pages/user/user-detail/user-detail",
+    "pages/user/user-company/user-company",
+    "pages/user/user-job/user-job",
+    "pages/user/user-resume/user-resume",
+    "pages/user/user-resume/create_or_update",
+    "pages/user/user-job/create-job/create-job",
+    "pages/user/user-job/update-job/update-job",
+    "pages/user/user-company/create_or_update/create_or_update"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "WeChat",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "找工作"
+      },
+      {
+        "pagePath": "pages/resume/resume",
+        "text": "找人才"
+      },
+      {
+        "pagePath": "pages/user/user",
+        "text": "我的"
+      }
+    ]
+  }
+}

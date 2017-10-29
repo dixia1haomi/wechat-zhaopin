@@ -1,0 +1,50 @@
+<import src="/pages/utils/template.wxml" />
+
+<form bindsubmit='getFormdata'>
+
+  <!-- id隐藏域 -->
+  <input hidden="true" name="id" value="{{id}}"></input>
+
+  <!-- 姓名 -->
+  <template is="input" data="{{ ...{input_view:'姓名',input_name:'name',moren:'请输入姓名',input_value:name} }}" />
+
+  <!-- 性别 -->
+  <template is="resume_sex" data="{{ ...{range:sex_data,index:sex_key} }}" />
+
+  <!-- 联系电话 -->
+  <template is="input" data="{{ ...{input_view:'联系电话',input_name:'phone',moren:'请输入联系电话',input_value:phone} }}" />
+
+  <!-- 年龄 -->
+  <template is="resume_age" data="{{ ...{range:age_data,index:age_key} }}" />
+
+  <!-- 工作经验 -->
+  <template is="resume_work_exp" data="{{ ...{range:work_exp_data,index:work_exp_key} }}" />
+
+  <!-- 学历 -->
+  <template is="resume_education" data="{{ ...{range:education_data,index:education_key} }}" />
+
+  <!-- 期望薪资 -->
+  <template is="resume_expectation_pay" data="{{ ...{range:expectation_pay_data,index:expectation_pay_key} }}" />
+
+  <!-- 工作性质 -->
+  <template is="resume_work_nature" data="{{ ...{range:work_nature_data,index:work_nature_key} }}" />
+
+  <!-- 到岗时间 -->
+  <template is="resume_report_time" data="{{ ...{range:report_time_data,index:report_time_key} }}" />
+
+  <!-- 工作地点 -->
+  <template is="resume_work_place" data="{{ ...{range:work_place_data,index:work_place_key} }}" />
+
+  <!-- 目前状态 -->
+  <template is="resume_current_state" data="{{ ...{range:current_state_data,index:current_state_key} }}" />
+
+  <!-- 意向职位 -->
+  <template is="resume_expectation_position" data="{{ ...{range:expectation_position_data,index:expectation_position_key} }}" />
+
+  <!-- 个人-简历-描述 -->
+  <template is="textarea" data="{{...{textarea_view:'个人简介',textarea_name:'resume_description', moren:'请输入个人简介',input_value:resume_description} }}" />
+
+  <!-- 提交按钮 -->
+  <button class="weui-btn" form-type='submit' type='primary'>确定</button>
+
+</form>

@@ -1,0 +1,11 @@
+
+<view>岗位id:{{job_detail_data.id}}</view>
+<view>岗位名:{{job_detail_data.job_name}}</view>
+<view>工作范围:{{job_detail_data.work_area}}</view>
+<view>工作地址:{{job_detail_data.detailed_address}}</view>
+<view>岗位创建时间:{{job_detail_data.create_time}}</view>
+<view>公司id:{{job_detail_data.company.id}}</view>
+<view>公司名称:{{job_detail_data.company_name}}</view>
+<view>公司规模:{{job_detail_data.company.company_size}}</view>
+<view>公司创建时间:{{job_detail_data.company.create_time}}</view>
+
