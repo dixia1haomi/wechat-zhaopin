@@ -1,4 +1,5 @@
 import { Resume } from '../resume/resume-model.js'
+import { Config } from '../utils/config.js'
 
 const resumeModel = new Resume()
 
@@ -9,25 +10,25 @@ Page({
    */
   data: {
     // 年龄
-    age_data: Resume.age_data,
+    age_data: Config.age_data,
     // 性别
-    sex_data: Resume.sex_data,
+    sex_data: Config.sex_data,
     // 经验
-    work_exp_data: Resume.work_exp_data,
+    work_exp_data: Config.work_exp_data,
     // 学历
-    education_data: Resume.education_data,
+    education_data: Config.education_data,
     // 意向职位
-    expectation_position_data: Resume.expectation_position_data,
+    expectation_position_data: Config.expectation_position_data,
     // 期望薪资
-    expectation_pay_data: Resume.expectation_pay_data,
+    expectation_pay_data: Config.expectation_pay_data,
     // 求职区域
-    work_place_data: Resume.work_place_data,
+    work_place_data: Config.work_place_data,
     // 工作性质
-    work_nature_data: Resume.work_nature_data,
+    work_nature_data: Config.work_nature_data,
     // 到岗时间
-    report_time_data: Resume.report_time_data,
+    report_time_data: Config.report_time_data,
     // 目前状态
-    current_state_data: Resume.current_state_data,
+    current_state_data: Config.current_state_data,
   
   },
 

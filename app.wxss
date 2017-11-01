@@ -47,3 +47,144 @@ page {
   text-align: left;
   font-size: 14px;
 }
+
+
+/* ------------------------------- */
+/** margin **/
+
+.ma-zuoyou {
+  margin-left: 30rpx;
+  margin-right: 30rpx;
+}
+
+.ma-shangxia {
+  margin-top: 30rpx;
+  margin-bottom: 30rpx;
+}
+
+.ma-zuo {
+  margin-left: 30rpx;
+}
+
+.ma-you {
+  margin-right: 30rpx;
+}
+
+.ma-shang {
+  margin-top: 30rpx;
+}
+
+.ma-xia {
+  margin-bottom: 30rpx;
+}
+
+/** padding **/
+
+.pa-zuoyou {
+  padding-left: 30rpx;
+  padding-right: 30rpx;
+}
+
+.pa-shangxia {
+  padding-top: 30rpx;
+  padding-bottom: 30rpx;
+}
+
+.pa-zuo {
+  padding-left: 30rpx;
+}
+
+.pa-you {
+  padding-right: 30rpx;
+}
+
+.pa-shang {
+  padding-top: 30rpx;
+}
+
+.pa-xia {
+  padding-bottom: 30rpx;
+}
+
+/** font-size **/
+
+.h1 {
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.h2 {
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.h3 {
+  font-size: 14px;
+  color: #999;
+}
+
+/** text **/
+
+.txt-center {
+  text-align: center;
+}
+
+.txt-right {
+  text-align: right;
+}
+
+/** float **/
+
+.fl-left {
+  float: left;
+}
+
+.fl-right {
+  float: right;
+}
+
+.col-tomato {
+  color: tomato;
+}
+
+/** border **/
+
+.border-xuxian-top {
+  border-top: 1px dashed #d9d9d9;
+}
+
+.border-xuxian-botton {
+  border-bottom: 1px dashed #d9d9d9;
+}
+
+/*  标签  */
+
+.biaoqian {
+  border: 1px solid tomato;
+  border-radius: 2px;
+  padding: 3px 5px 1px 5px;
+  font-size: 12px;
+  color: tomato;
+  margin: 8px 6px 0 6px;
+}
+
+/* 块 */
+.block {
+  position: relative;
+  margin-top: 1em;
+  padding: 10px;
+  background-color: #fff;
+  line-height: 1.41176471;
+}
+
+/* flex */
+.flex-jiange{
+  display: flex;
+  justify-content: space-around;
+}
+
+.flex-wrap{
+  display: flex;
+  /* justify-content: space-around; */
+  flex-wrap: wrap-reverse;
+}

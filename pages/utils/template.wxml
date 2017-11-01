@@ -254,3 +254,102 @@
   </view>
 
 </template>
+
+
+
+
+<!---------------------------------------------- 岗位模板 ------------------------------------------------>
+<!---------------------------------------------- 岗位模板 ------------------------------------------------>
+
+<!-- 我的公司 -->
+<template name="job_company_picker">
+
+  <view class="weui-cell weui-cell_select">
+    <view class="weui-cell__hd weui-cell__hd_in-select-after">
+      <view class="weui-label">我的公司</view>
+    </view>
+    <view class="weui-cell__bd">
+      <picker name="company_id" bindchange="job_company_picker" value="{{range[index].id}}" range="{{range}}" range-key='company_name'>
+        <view class="weui-select weui-select_in-select-after">{{range[index].company_name}}</view>
+      </picker>
+    </view>
+  </view>
+</template>
+
+
+<!-- 岗位薪资 -->
+<template name="pay_level_picker">
+
+  <view class="weui-cell weui-cell_select">
+    <view class="weui-cell__hd weui-cell__hd_in-select-after">
+      <view class="weui-label">薪资水平</view>
+    </view>
+    <view class="weui-cell__bd">
+      <picker name="pay_level" bindchange="pay_level_picker" value="{{index}}" range="{{range}}" >
+        <view class="weui-select weui-select_in-select-after">{{range[index]}}</view>
+      </picker>
+    </view>
+  </view>
+</template>
+
+
+<!-- 工作经验-要求 -->
+<template name="ments_exp_picker">
+
+  <view class="weui-cell weui-cell_select">
+    <view class="weui-cell__hd weui-cell__hd_in-select-after">
+      <view class="weui-label">工作经验</view>
+    </view>
+    <view class="weui-cell__bd">
+      <picker name="ments_exp" bindchange="ments_exp_picker" value="{{index}}" range="{{range}}" >
+        <view class="weui-select weui-select_in-select-after">{{range[index]}}</view>
+      </picker>
+    </view>
+  </view>
+</template>
+
+
+<!-- 工作学历-要求 -->
+<template name="ments_education_picker">
+
+  <view class="weui-cell weui-cell_select">
+    <view class="weui-cell__hd weui-cell__hd_in-select-after">
+      <view class="weui-label">学历</view>
+    </view>
+    <view class="weui-cell__bd">
+      <picker name="ments_education" bindchange="ments_education_picker" value="{{index}}" range="{{range}}" >
+        <view class="weui-select weui-select_in-select-after">{{range[index]}}</view>
+      </picker>
+    </view>
+  </view>
+</template>
+
+<!-- 工作性别要求 -->
+<template name="ments_sex_picker">
+
+  <view class="weui-cell weui-cell_select">
+    <view class="weui-cell__hd weui-cell__hd_in-select-after">
+      <view class="weui-label">性别</view>
+    </view>
+    <view class="weui-cell__bd">
+      <picker name="ments_sex" bindchange="ments_sex_picker" value="{{index}}" range="{{range}}" >
+        <view class="weui-select weui-select_in-select-after">{{range[index]}}</view>
+      </picker>
+    </view>
+  </view>
+</template>
+
+<!-- 工作区域 -->
+<template name="work_area_picker">
+
+  <view class="weui-cell weui-cell_select">
+    <view class="weui-cell__hd weui-cell__hd_in-select-after">
+      <view class="weui-label">工作区域</view>
+    </view>
+    <view class="weui-cell__bd">
+      <picker name="work_area" bindchange="work_area_picker" value="{{index}}" range="{{range}}" >
+        <view class="weui-select weui-select_in-select-after">{{range[index]}}</view>
+      </picker>
+    </view>
+  </view>
+</template>

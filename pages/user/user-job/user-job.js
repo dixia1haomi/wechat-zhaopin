@@ -1,6 +1,8 @@
 import { User } from '../user-model.js'
+import { Job } from '../../job/job-model.js'
 
 var user = new User()
+var job = new Job()
 
 Page({
 
@@ -23,35 +25,23 @@ Page({
   getUserJob: function () {
     user.getUserJob_Model((res) => {
       console.log(res)
-      this.setData({
-        user_job: res.user_job
-      })
+      this.setData({ user_job: res.user_job })
     })
   },
 
 
   //删除岗位
   delete_Job: function (e) {
-    var job_id = e.currentTarget.id
-
     user.tip_Modal({ content: '删除这个岗位？' }, (res) => {
       if (res.confirm) {
-        user.request({
-          url: 'job/delete',
-          method: 'POST',
-          data: {
-            'token_key': wx.getStorageSync('token_key'),
-            'id': job_id
-          },
-          sCallback: function (res) {
-            //判断发布是否成功
-            console.log('job_delete', res)
-            if (res.code == 201) { user.tip_Toast('删除成功') } else { user.tip_Toast('删除失败') }
-          }
+        job.delete_Job(e.currentTarget.id, (res) => {
+          if (res.code == 201) { base.tip_Toast('删除成功') } else { base.tip_Toast('删除失败') }
         })
       }
     })
   },
+
+
 
 
 

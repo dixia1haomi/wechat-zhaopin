@@ -1,5 +1,6 @@
 import { User } from '../../user-model.js'
 import { Validata } from '../../../utils/validata.js'
+import { Job } from '../../../job/job-model.js'
 
 var validata = new Validata()
 var user = new User()
@@ -29,10 +30,7 @@ Page({
   getUserCompany: function () {
     user.getUserCompany_Model((res) => {
       console.log('用户关联的公司', res.user_company)
-      this.setData({
-        company: res.user_company,
-        // company_id: res.user_company[0].id  //取公司id默认值
-      })
+      this.setData({ company: res.user_company })
     })
   },
 
@@ -40,13 +38,7 @@ Page({
   //公司选择器
   bindPickerCompany: function (e) {
     console.log('picker公司选择改变，携带值为', e.detail.value)
-    //获取真实的公司id
-    // var company = this.data.company
-
-    this.setData({
-      // company_id: company[e.detail.value].id,
-      company_key: e.detail.value
-    })
+    this.setData({ company_key: e.detail.value })
   },
 
 
@@ -60,45 +52,35 @@ Page({
 
   //获取form提交的数据
   getFormdata: function (e) {
-    let { job_name, detailed_address, pay_level, work_area, picker, description} = e.detail.value
+    let { job_name, detailed_address, pay_level, work_area, picker, description } = e.detail.value
 
 
     if (validata.isEmpty(job_name)) {
-      user.tip_Modal({ content:'职位名称不能为空'})
+      user.tip_Modal({ content: '职位名称不能为空' })
       return
     }
     if (validata.isEmpty(detailed_address)) {
-      user.tip_Modal({ content:'详细地址不能为空'})
+      user.tip_Modal({ content: '详细地址不能为空' })
       return
     }
     if (validata.isEmpty(description) || (description).length < 10) {
-      user.tip_Modal({ content:'职位描述不能为空且必须大于10个字符'})
+      user.tip_Modal({ content: '职位描述不能为空且必须大于10个字符' })
       return
     }
 
+    // 组织数据
+    let data = {
+      'company_id': this.data.company[picker].id,
+      'job_name': job_name,
+      'pay_level': pay_level,
+      'work_area': work_area,
+      'detailed_address': detailed_address,
+      'job_description': description
+    }
 
-    //请求给接口
-    user.request({
-      url: 'job/create',
-      method: 'POST',
-      data: {
-        'token_key': wx.getStorageSync('token_key'),
-        'company_id': this.data.company[picker].id,
-        'job_name': job_name,
-        'pay_level': pay_level,
-        'work_area': work_area,
-        'detailed_address': detailed_address,
-        'job_description': description
-      },
-      sCallback: function (res) {
-        console.log('s', res)
-        //判断发布是否成功
-        if (res.code == 201) {
-          user.tip_Toast('发布成功')
-        } else {
-          user.tip_Toast('发布失败')
-        }
-      }
+    //调用接口
+    new Job().create_job(data, (res) => {
+      if (res.code == 201) { user.tip_Toast('发布成功') } else { user.tip_Toast('发布失败') }
     })
 
   },

@@ -1,6 +1,8 @@
 import { User } from '../user-model.js'
+import { Company } from '../user-company/user-company-model.js'
 
-var user = new User()
+const user = new User()
+const company = new Company()
 
 Page({
 
@@ -23,9 +25,7 @@ Page({
   getUserCompany: function () {
     user.getUserCompany_Model((res) => {
       console.log(res)
-      this.setData({
-        user_company: res.user_company
-      })
+      this.setData({ user_company: res.user_company })
     })
   },
 
@@ -35,18 +35,8 @@ Page({
   delete_company: function (e) {
     user.tip_Modal({ content: '删除这个公司？' }, (res) => {
       if (res.confirm) {
-        user.request({
-          url: 'company/delete',
-          method: 'POST',
-          data: {
-            'token_key': wx.getStorageSync('token_key'),
-            'id': e.currentTarget.id
-          },
-          sCallback: function (res) {
-            //判断发布是否成功
-            console.log('company_delete', res)
+        company.delete_Company(e.currentTarget.id,(res)=>{
             if (res.code == 201) { user.tip_Toast('删除成功') } else { user.tip_Toast('删除失败') }
-          }
         })
       }
     })

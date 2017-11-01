@@ -17,7 +17,7 @@
 				{
 					"id": 0,
 					"name": "我的岗位",
-					"pathName": "pages/resume/resume",
+					"pathName": "pages/user/user-job/user-job",
 					"query": ""
 				}
 			]

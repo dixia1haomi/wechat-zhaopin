@@ -6,7 +6,7 @@
 
       <form bindsubmit='getFormdata'>
 
-        <input hidden="true" name="company_id" value="{{company_id}}"></input>
+        <input hidden="true" name="id" value="{{id}}"></input>
 
         <!-- 公司名称 -->
         <template is="input" data="{{...{input_view:'公司名称',input_name:'company_name',moren:'请输入公司名称',input_value:company_name} }}" />

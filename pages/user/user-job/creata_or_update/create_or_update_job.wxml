@@ -1,0 +1,62 @@
+<import src="/pages/utils/template.wxml"></import>
+
+<view class="page">
+  <view class="page__bd">
+    <view class="weui-cells weui-cells_after-title">
+
+      <form bindsubmit='getFormdata'>
+
+        <input hidden="true" name="id" value="{{id}}"></input>
+
+        <!-- 我的公司 -->
+        <view hidden="{{company_data?0:1}}">
+          <template is="job_company_picker" data="{{ ...{range: company_data, index: company_key} }}" />
+        </view>
+
+        <!-- 岗位名称 -->
+        <template is="input" data="{{...{input_view:'岗位名称',input_name:'job_name',moren:'请输入岗位名称',input_value:job_name} }}" />
+
+        <!-- 岗位薪资 -->
+        <template is="pay_level_picker" data="{{ ...{range: pay_level_data, index: pay_level_key} }}" />
+
+        <!-- 要求人数 -->
+        <template is="input" data="{{...{input_view:'招聘人数',input_name:'ments_number',moren:'请输入招聘人数',input_value:ments_number} }}" />
+
+        <!-- 要求经验 -->
+        <template is="ments_exp_picker" data="{{ ...{range: ments_exp_data, index: ments_exp_key} }}" />
+
+        <!-- 要求学历 -->
+        <template is="ments_education_picker" data="{{ ...{range: ments_education_data, index: ments_education_key} }}" />
+
+        <!-- 要求性别 -->
+        <template is="ments_sex_picker" data="{{ ...{range: ments_sex_data, index: ments_sex_key} }}" />
+
+        <!-- 岗位福利--多选 -->
+        <checkbox-group name="welfare" bindchange="checkboxChange">
+          <label class="" wx:for="{{job_welfare_data}}" wx:key="">
+            <view class='{{item.checked? "box":""}}' style=''>
+              {{item.value}}
+            </view>
+            <checkbox hidden='true' value="{{item.value}}" checked="{{item.checked}}" />
+          </label>
+        </checkbox-group>
+
+
+        <!-- 工作区域 -->
+        <template is="work_area_picker" data="{{ ...{range: work_area_data, index: work_area_key} }}" />
+
+        <!-- 工作地址 -->
+        <template is="input" data="{{...{input_view:'工作地址',input_name:'detailed_address',moren:'请输入工作地址',input_value:detailed_address} }}" />
+
+        <!-- 职位描述 -->
+        <template is="textarea" data="{{...{textarea_view:'职位描述',textarea_name:'job_description', moren:'请输入职位描述',input_value:job_description} }}" />
+
+        <!-- <view class="weui-btn-area"> -->
+        <button class="weui-btn" form-type='submit' type='primary'>确定</button>
+        <!-- </view> -->
+
+      </form>
+
+    </view>
+  </view>
+</view>

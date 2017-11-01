@@ -4,6 +4,7 @@ class Base {
 
   constructor() {
     // this.baseRequestUrl = Config.restUrl
+    
   }
 
   //网络请求封装

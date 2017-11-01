@@ -1,60 +1,65 @@
-
-
-
-
-
-
-
-
 <!-- 普通选择器 -->
-<view class="section">
-  <view class="section__title">普通选择器</view>
-  <picker bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
+<!-- <view class="picker-view" > -->
+<view class=' aaa txt-center' bindtap='xuanze'>{{work_place[PickerChange_index]}}</view>
+<picker-view class='picker-view' hidden='{{hid?1:0}}' indicator-style="height: 50px;" style="width: 100%; height: 200px;" mask-style="color: tomato;" value="{{value}}" bindchange="bindPickerChange">
+  <picker-view-column>
+    <view wx:for="{{work_place}}" wx:key="" style="line-height: 50px" class='txt-center'>{{item}}</view>
+  </picker-view-column>
+</picker-view>
+
+<!-- </view> -->
+
+
+<!-- <view class="section__title">普通选择器</view>
+  <picker bindchange="bindPickerChange" value="{{PickerChange_index}}" range="{{work_place}}">
     <view class="picker">
-      当前选择：{{array[index]}}
+      当前选择：{{work_place[PickerChange_index]}}
     </view>
-  </picker>
-</view>
+  </picker> -->
 
 
 
 
-<!--index.wxml-->
 
-<!-- <view>
-<block wx:for="{{ceshi}}">
-{{item.id}}
-{{item.job_name}}
-</block>
+<view class='picker-view' style=''>
 
-</view> -->
-<view class='page'>
+  <block wx:for="{{job_list_data}}" wx:key="">
 
-  <view class='page_bd'>
-    <view class="weui-panel">
+    <navigator url='/pages/job/job?id={{item.id}}' open-type='navigate'>
 
-      <block wx:for="{{ceshi}}" wx:key="">
-        <!-- <view class="weui-panel__hd">{{item.id}}</view> -->
-         <navigator url='/pages/job/job?id={{item.id}}' open-type='navigate'> 
-        <view class="weui-panel__bd" bindtap='' data-id='{{item.id}}' >
-          <view class="weui-media-box weui-media-box_text">
-            <view class="weui-media-box__title weui-media-box__title_in-text">{{item.job_name}}</view>
-            <view class="weui-media-box__desc">{{item.company_name}}</view>
-            <view class="weui-media-box__desc">浏览量：{{item.page_view}}</view>
-            <view class="weui-media-box__info">
-              <view class="weui-media-box__info__meta">{{item.detailed_address}}</view>
-              <view class="weui-media-box__info__meta">{{item.create_time}}</view>
-              <view class="weui-media-box__info__meta weui-media-box__info__meta_extra">{{item.work_area}}</view>
-            </view>
-          </view>
+      <view class='block'>
+        <!-- <view class='ma-zuoyou '> -->
+        <view class="pa-shangxia h2">{{item.job_name}}</view>
+
+        <view class='pa-xia'>
+          <view class='fl-left col-tomato h2'>{{pay_level_data[item.pay_level]}}</view>
+          <view class="txt-center h3">浏览量：{{item.page_view}}</view>
         </view>
-         </navigator> 
 
-      </block>
+        <view class='shenglve'>
+          <block class='' wx:for="{{item.welfare}}" wx:for-item="aa" wx:key="">
 
-    </view>
-  </view>
+            <!-- <view class=''>{{aa}}</view> -->
+             <text class='biaoqian'>{{aa}}</text>  
+            <!-- <view class='biaoqian'>{{aa}}</view>   -->
+            <!-- <text class='biaoqian'>周末双休</text>  -->
+          </block>
+        </view>
 
-  <view class='page_ft'>aaaa</view>
+        <view class='pa-shang border-xuxian-top'>
+          <view class="fl-left h3">{{item.company_name}}</view>
+          <view class="txt-right h3">{{work_place_data[item.work_area]}}</view>
+        </view>
+
+
+        <!-- <view class="">{{item.detailed_address}}</view> -->
+        <!-- <view class="">{{item.create_time}}</view> -->
+
+        <!-- </view> -->
+      </view>
+
+    </navigator>
+
+  </block>
 
 </view>

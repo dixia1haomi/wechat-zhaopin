@@ -94,22 +94,14 @@ Page({
   bindPickerCompany: function (e) {
     console.log('picker公司选择改变，携带值为', e.detail.value)
     console.log('picker公司选择改变，携带id为', this.data.company[e.detail.value].id)
-    //获取真实的公司id
-    // var company = this.data.company
-
-    this.setData({
-      // company_id: this.data.company[e.detail.value].id,
-      company_array_key: e.detail.value
-    })
+    this.setData({ company_array_key: e.detail.value })
   },
 
 
   //地区选择器
   bindPickerChange: function (e) {
     console.log('picker发送选择改变，携带值为', e.detail.value)
-    this.setData({
-      workArea_array_key: e.detail.value
-    })
+    this.setData({ workArea_array_key: e.detail.value })
   },
 
 
@@ -119,57 +111,40 @@ Page({
   getFormdata: function (e) {
     var value = e.detail.value
 
-    // console.log(value.description.length)
-    // return
 
     if (validata.isEmpty(value.job_name)) {
-      job.tip_Modal({ content:'职位名称不能为空'})
+      job.tip_Modal({ content: '职位名称不能为空' })
       return
     }
     if (validata.isEmpty(value.detailed_address)) {
-      job.tip_Modal({ content:'详细地址不能为空'})
+      job.tip_Modal({ content: '详细地址不能为空' })
       return
     }
     if (validata.isEmpty(value.description) || (value.description).length < 10) {
-      job.tip_Modal({ content:'职位描述不能为空且必须大于10个字符'})
+      job.tip_Modal({ content: '职位描述不能为空且必须大于10个字符' })
       return
     }
 
-
-
-
-    //请求给接口
-
-    var params = {
-      url: 'job/update',
-      method: 'POST',
-      data: {
-        'token_key': wx.getStorageSync('token_key'),  //携带token
-        'id': this.data.job.id,
-        'company_id': 0,
-        'job_name': value.job_name,
-        'pay_level': value.pay_level,
-        'work_area': value.work_area,
-        'detailed_address': value.detailed_address,
-        'job_description': value.description
-      },
-      sCallback: function (res) {
-        // console.log('s', res)
-        //判断发布是否成功
-        if (res.code == 201) {
-          job.tip_Toast('更新成功')
-        } else {
-          job.tip_Toast('更新成功')
-        }
-      }
+    // 组织数据
+    const data = {
+      'id': this.data.job.id,
+      'company_id': 0,
+      'job_name': value.job_name,
+      'pay_level': value.pay_level,
+      'work_area': value.work_area,
+      'detailed_address': value.detailed_address,
+      'job_description': value.description
     }
 
-    //如果有公司，就取公司id传入，没得公司默认=0
+    // 组织数据 -> 如果有公司，就取公司id传入，没得公司默认=0
     if (this.data.company) {
-      params.data.company_id = this.data.company[value.company_id].id
+      data.company_id = this.data.company[value.company_id].id
     }
 
-    user.request(params)
+    // 调用请求 -> 更新岗位
+    job.update_job(data, (res) => {
+      if (res.code == 201) { job.tip_Toast('更新成功') } else { job.tip_Toast('更新成功') }
+    })
 
   },
 
