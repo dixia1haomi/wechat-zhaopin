@@ -14,49 +14,100 @@
   </view>
 
 
-
-
+  <!-- 岗位福利 -->
   <view>
-    <view>岗位福利:</view>
+    <view class=''>岗位福利</view>
     <view class='flex-wrap'>
       <block wx:for="{{data.welfare}}" wx:key="">
         <text class='biaoqian'>{{item}}</text>
       </block>
     </view>
   </view>
-
-
-  <!-- </view> -->
 </view>
 
 <!-- 要求 -->
 
 <view class='block'>
   <view>
-    任职要求:
+    任职要求
   </view>
-  <view class='flex-jiange pa-shang'>
-    <text class='h3'>招聘人数:{{data.ments_number}}</text>
-    <text class='h3'>工作经验:{{ments_exp_data[data.ments_exp]}}</text>
-    <text class='h3'>学历:{{ments_education_data[data.ments_education]}}</text>
-    <text class='h3'>性别:{{ments_sex_data[data.ments_sex]}}</text>
+  <view class='pa-shang'>
+    <view class='h3'>
+      <image src='/pages/img/number.png' class='icon-img' />人数: {{data.ments_number}}</view>
+    <view class='h3'>
+      <image src='/pages/img/exp.png' class='icon-img' />经验:{{ments_exp_data[data.ments_exp]}}</view>
+    <view class='h3'>
+      <image src='/pages/img/education.png' class='icon-img' />学历:{{ments_education_data[data.ments_education]}}</view>
+    <view class='h3'>
+      <image src='/pages/img/sex.png' class='icon-img' />性别:{{ments_sex_data[data.ments_sex]}}</view>
   </view>
 </view>
 
 <view class='block'>
-  <view>工作区域:{{work_area_data[data.work_area]}}</view>
-  <view>工作地址:{{data.detailed_address}}</view>
+  <view class='ma-xia'>工作区域:{{work_area_data[data.work_area]}}</view>
+  <view>工作地址(地图*):{{data.detailed_address}}</view>
 </view>
 
 <view class='block'>
-  <view>职位描述:{{data.job_description}}</view>
+  <view>职位描述</view>
+  <view class='h3'>{{data.job_description}}</view>
 </view>
 
+<!-- 公司信息 -->
 <view class='block'>
-  <view>公司信息:{{}}</view>
-  <view>公司id:{{data.company.id}}</view>
-  <view>公司名称:{{data.company_name}}</view>
-  <view>公司规模:{{data.company.company_size}}</view>
+  <view class='ma-xia'>公司信息</view>
+  <view class='ma-zuo h3'>公司名称:{{data.company_name}}</view>
+  <view class='ma-zuo h3'>公司规模:{{company_size_data[data.company.company_size]}}</view>
+  <view class='ma-zuo h3'>公司性质:{{company_nature_data[data.company.company_nature]}}</view>
+  <view class=' {{zhankai_data ? "zhankai":"zhedie"}} '>
+    <view class='ma-zuo h3'>所属行业:{{company_industry_data[data.company.company_industry]}}</view>
+    <view class='ma-zuo h3'>公司地址:{{data.company.company_address}}</view>
+    <view class='ma-zuo h3'>公司描述:{{data.company.company_description}}</view>
+  </view>
+  <!-- 展开-折叠 -->
+</view>
+<view class='flex-center' bindtap='zhankai'>
+  <view wx:if="{{zhankai_data}}">折叠<image src='/pages/img/zhankai.png' class='icon-img' /></view>
+  <view wx:else>展开<image src='/pages/img/zhedie.png' class='icon-img' /></view>
 </view>
 
+<!----------------- 公司其他岗位 ------------------>
+<view class='block'>
+  <view class='ma-shangxia h2'>公司其他岗位</view>
+</view>
+<!-- <view class='picker-view' style=''> -->
+<block wx:for="{{data.company.company_in_job}}" wx:key="">
+  <navigator url='/pages/job/job?id={{item.id}}' open-type='redirect'>
+
+    <view class='block'>
+      <view class="pa-xia h2">{{item.job_name}}</view>
+
+      <view class='pa-xia flex-ceshi'>
+        <view class='col-tomato'>{{pay_level_data[item.pay_level]}}</view>
+        <view class="h3">浏览:{{item.page_view}}</view>
+        <view class="h3">{{item.update_time}}</view>
+      </view>
+
+      <view class='shenglve'>
+        <block class='' wx:for="{{item.welfare}}" wx:for-item="aa" wx:key="">
+          <text class='biaoqian'>{{aa}}</text>
+        </block>
+      </view>
+
+      <view class='pa-shang border-xuxian-top'>
+        <view class="fl-left h3">{{data.company_name}}</view>
+        <view class="txt-right h3">
+          <image src='/pages/img/address.png' class='icon-img' />{{work_area_data[data.work_area]}}</view>
+      </view>
+
+    </view>
+
+  </navigator>
+</block>
+<!-- </view> -->
+<!-- </view> -->
+
+
+
+<!-- <view>公司id:{{data.company.id}}</view> -->
 <!-- <view>岗位id:{{data.id}}</view> -->

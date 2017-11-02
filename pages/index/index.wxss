@@ -112,14 +112,10 @@
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+  margin-bottom: 5px;
 }
 
-.cells {
-  position: relative;
-  margin-top: 1em;
-  background-color: #fff;
-  line-height: 1.41176471;
-}
+
 
 /* aaaaaaaa */
 
@@ -135,4 +131,10 @@
   /* position: absolute; */
   margin-top: 55px;
   /* z-index: 999; *//* top: 0; *//* left: 0; */
+}
+
+
+.exp_png{
+  height: 26rpx;
+  width: 26rpx;
 }

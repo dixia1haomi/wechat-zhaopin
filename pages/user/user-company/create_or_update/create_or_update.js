@@ -30,6 +30,7 @@ Page({
   //编辑公司 -》 取id -》 查公司信息 -》 传值给页面 -》 再提交
   edit_company: function (id) {
     company.get_Company_Detail(id, (res) => {
+      console.log('查公司信息',res)
       this.setData({
         id: res.id,
         company_name: res.company_name,

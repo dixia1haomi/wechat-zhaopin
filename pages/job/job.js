@@ -1,7 +1,9 @@
 import { Job } from '../job/job-model.js'
+import { Company } from '../user/user-company/user-company-model.js'
 import { Config } from '../utils/config.js'
 
-var job = new Job()
+const job = new Job()
+const company = new Company()
 
 Page({
 
@@ -21,7 +23,19 @@ Page({
     ments_sex_data: Config.ments_sex,
 
     work_area_data: Config.work_place_data,
+
+    // 公司规模
+    company_size_data: Config.company_size_data,
+    // 公司性质
+    company_nature_data: Config.company_nature_data,
+    // 公司所属行业
+    company_industry_data: Config.company_industry_data,
+
+    //------zhankai-----
+    zhankai_data: false
   },
+
+
 
   /**
    * 生命周期函数--监听页面加载
@@ -33,12 +47,27 @@ Page({
   //查询job详细信息
   get_Job_Detail: function (id) {
     job.get_Job_Detail(id, (res) => {
-      //把welfare福利字段转为数组
-      res.welfare = JSON.parse(res.welfare)
 
-      console.log(res)
+
+      res.welfare = JSON.parse(res.welfare) //把welfare福利字段转为数组
+      res.update_time = job.time(res.update_time) //处理update_time
+
+      //赋值公司关联的岗位
+      let company_in_job = res.company.company_in_job
+      for (let i in company_in_job) {
+        company_in_job[i].update_time = job.time(company_in_job[i].update_time)     //处理公司关联的岗位里的update_time
+        company_in_job[i].welfare = JSON.parse(company_in_job[i].welfare)           //处理公司关联的岗位里的welfare
+      }
+
+      console.log('job详细信息', res)
       this.setData({ data: res })
     })
+  },
+
+
+  //-----------------zhankai--------------------
+  zhankai: function () {
+    this.setData({ zhankai_data: !this.data.zhankai_data })
   },
 
   /**

@@ -1,63 +1,12 @@
-/* pages/resume/resume.wxss */
 
-.m-top{
-  margin-top: 10px;
+.touxiang{
+  height: 80px;
+  width: 80px;
+  border-radius: 50%;
+  /* background-color: wheat */
 }
 
-.m-bot{
-  margin-bottom: 10px;
-}
-
-.center{
-  text-align: center;
-}
-
-.radius{
-  border-radius: 5px;
-  border:1px solid rgba(0, 0, 0, 0.2);
-}
-
-
-
-
-.but {
-  position: relative;
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  padding-left: 14px;
-  padding-right: 14px;
-  box-sizing: border-box;
-  font-size: 18px;
-  text-align: center;
-  text-decoration: none;
-  line-height: 2.55555556;
-  border-radius: 5px;
-  -webkit-tap-highlight-color: transparent;
-  overflow: hidden;
-  color: #000;
-   background-color: #f8f8f8; 
-  /* border:1px solid rgba(0, 0, 0, 0.2); */
-
-}
-
-.but-hover {
-color:rgba(0, 0, 0, 0.6);
-background-color:#DEDEDE;
-}
-
-.but::after {
-content:" ";
-width:200%;
-height:200%;
-position:absolute;
-top:0;
-left:0;
-border:1px solid rgba(0, 0, 0, 0.2);
--webkit-transform:scale(0.5);
-transform:scale(0.5);
--webkit-transform-origin:0 0;
-transform-origin:0 0;
-box-sizing:border-box;
-border-radius:10px;
+.touxiang-img{
+  height: 80px;
+  width: 80px;
 }

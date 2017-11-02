@@ -1,6 +1,8 @@
 .box{
-  background-color: tomato;
+  background-color: #84c1ff;
+  color: white;
 }
+
 
 .box-xuanzhong{
   background-color: greenyellow;

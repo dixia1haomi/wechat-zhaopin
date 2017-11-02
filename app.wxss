@@ -1,3 +1,4 @@
+
 /**app.wxss**/
 
 /* .container {
@@ -14,7 +15,15 @@
 page {
   background-color: #f8f8f8;
   font-size: 16px;
-  font-family: -apple-system-font, Helvetica Neue, Helvetica, sans-serif;
+  font-family: "Helvetica Neue",
+                 Helvetica,
+                 Arial,
+                 "PingFang SC",
+                 "Hiragino Sans GB",
+                 "Heiti SC",
+                 "Microsoft YaHei",
+                 "WenQuanYi Micro Hei",
+                 sans-serif;
 }
 
 .page__hd {
@@ -48,8 +57,8 @@ page {
   font-size: 14px;
 }
 
-
 /* ------------------------------- */
+
 /** margin **/
 
 .ma-zuoyou {
@@ -160,31 +169,58 @@ page {
 /*  标签  */
 
 .biaoqian {
-  border: 1px solid tomato;
+  border: 1px solid #84c1ff;
   border-radius: 2px;
-  padding: 3px 5px 1px 5px;
+  padding: 3px 5px 2px 5px;
   font-size: 12px;
-  color: tomato;
-  margin: 8px 6px 0 6px;
+  font-weight: 500;
+  color: #84c1ff;
+  margin: 8px 6px 0 0;
+  background-color: #fff;
 }
 
 /* 块 */
+
 .block {
   position: relative;
-  margin-top: 1em;
+  margin-bottom: 1em;
   padding: 10px;
   background-color: #fff;
   line-height: 1.41176471;
+   /* box-shadow: 0 0 5px 1px #888888;  */
 }
 
+/* 图标 */
+.icon-img{
+  height: 32rpx;
+  width: 32rpx;
+  margin-right: 20rpx;
+}
+
+
 /* flex */
-.flex-jiange{
+
+.flex-jiange {
   display: flex;
   justify-content: space-around;
 }
 
-.flex-wrap{
+.flex-wrap {
   display: flex;
   /* justify-content: space-around; */
   flex-wrap: wrap-reverse;
 }
+
+/* 居中 */
+.flex-center {
+  display: flex;
+  justify-content: center;
+}
+
+.flex-ceshi {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+
