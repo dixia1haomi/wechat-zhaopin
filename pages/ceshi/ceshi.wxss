@@ -1,0 +1,48 @@
+.a{
+height: 100px;
+/* width: 100px; */
+background-color: antiquewhite;
+flex-grow: 1;
+}
+
+.b{
+  height: 100px;
+  /* width: 100px; */
+  background-color: brown;
+  flex-grow: 1;
+}
+
+.c{
+ height: 100px; 
+ /* width: 100px; */
+ background-color: cadetblue;
+    /* flex-grow: 1;  */
+}
+
+
+.d{
+  height: 100px;
+  /* width: 100px; */
+  background-color: darkgoldenrod;
+   flex-grow: 2; 
+}
+
+.flex{
+  display: flex;
+  justify-content: center;
+}
+
+.touxiang-img{
+  height: 100px;
+  width: 100px;
+}
+
+.touxiang-img::after{
+  content: 'aaa';
+  height: 50px;
+  width: 50px;
+  background-color: antiquewhite;
+}
+
+
+

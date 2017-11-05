@@ -31,15 +31,11 @@
   <view>
     任职要求
   </view>
-  <view class='pa-shang'>
-    <view class='h3'>
-      <image src='/pages/img/number.png' class='icon-img' />人数: {{data.ments_number}}</view>
-    <view class='h3'>
-      <image src='/pages/img/exp.png' class='icon-img' />经验:{{ments_exp_data[data.ments_exp]}}</view>
-    <view class='h3'>
-      <image src='/pages/img/education.png' class='icon-img' />学历:{{ments_education_data[data.ments_education]}}</view>
-    <view class='h3'>
-      <image src='/pages/img/sex.png' class='icon-img' />性别:{{ments_sex_data[data.ments_sex]}}</view>
+  <view class=' flex-col'>
+    <icon class="iconfont icon-zhaopin"><text class='h3'> 人数: {{data.ments_number}}</text></icon>
+    <icon class="iconfont icon-jingyan"><text class='h3'> 经验:{{ments_exp_data[data.ments_exp]}}</text></icon>
+    <icon class="iconfont icon-xueli"><text class='h3'> 学历:{{ments_education_data[data.ments_education]}}</text></icon>
+    <icon class="iconfont icon-xingbie"><text class='h3'> 性别:{{ments_sex_data[data.ments_sex]}}</text></icon>
   </view>
 </view>
 
@@ -59,17 +55,22 @@
   <view class='ma-zuo h3'>公司名称:{{data.company_name}}</view>
   <view class='ma-zuo h3'>公司规模:{{company_size_data[data.company.company_size]}}</view>
   <view class='ma-zuo h3'>公司性质:{{company_nature_data[data.company.company_nature]}}</view>
-  <view class=' {{zhankai_data ? "zhankai":"zhedie"}} '>
+  <view class='zhedie {{zhankai_data ? "zhankai":""}}'>
     <view class='ma-zuo h3'>所属行业:{{company_industry_data[data.company.company_industry]}}</view>
     <view class='ma-zuo h3'>公司地址:{{data.company.company_address}}</view>
     <view class='ma-zuo h3'>公司描述:{{data.company.company_description}}</view>
   </view>
   <!-- 展开-折叠 -->
+  <view class='flex-center ma-shang title' bindtap='zhankai'>
+    <view wx:if="{{zhankai_data}}">折叠
+      <image src='/pages/img/zhankai.png' class='icon-img' />
+    </view>
+    <view wx:else>展开
+      <image src='/pages/img/zhedie.png' class='icon-img' />
+    </view>
+  </view>
 </view>
-<view class='flex-center' bindtap='zhankai'>
-  <view wx:if="{{zhankai_data}}">折叠<image src='/pages/img/zhankai.png' class='icon-img' /></view>
-  <view wx:else>展开<image src='/pages/img/zhedie.png' class='icon-img' /></view>
-</view>
+
 
 <!----------------- 公司其他岗位 ------------------>
 <view class='block'>
@@ -94,11 +95,10 @@
         </block>
       </view>
 
-      <view class='pa-shang border-xuxian-top'>
-        <view class="fl-left h3">{{data.company_name}}</view>
-        <view class="txt-right h3">
-          <image src='/pages/img/address.png' class='icon-img' />{{work_area_data[data.work_area]}}</view>
-      </view>
+        <view class='pa-shang border-xuxian-top flex-bet'>
+          <icon class="iconfont icon-jingjide"><text class='h3'>{{data.company_name}}</text></icon>
+          <icon class="h3 iconfont icon-dizhi"><text class='h3'>{{work_area_data[item.work_area]}}</text></icon>
+        </view>
 
     </view>
 

@@ -1,21 +1,40 @@
-<view>
+<!-- 如果没有简历，显示新增按钮 -->
+<view class='block meiyou' wx:if="{{user_resume == null}}">
+  <text class=''>你还没有简历.赶快新增简历</text>
 
-  <navigator url='/pages/user/user-resume/create_or_update'>
-    <button size=''>新增简历</button>
+  <navigator class='' url='/pages/user/user-resume/create_or_update'>
+    <view class='xinzeng'>新增简历</view>
   </navigator>
 
-  <block wx:for="{{user_resume}}" wx:key="">
-    <view>{{item.id}}</view>
-    <view>{{item.work_exp}}</view>
-    <navigator url='/pages/user/user-resume/create_or_update?id={{item.id}}'>
-      <!-- <view bindtap='edit_company' id="{{item.id}}"> -->
-      <button size='mini'>编辑简历</button>
-      <!-- </view> -->
+</view>
+
+<!-- 如果有简历，正常显示简历 -->
+<view wx:else class='block'>
+  <view class='h3'>
+    <view>id：{{user_resume.id}}</view>
+    <view>名字：{{user_resume.name}}</view>
+    <view>性别：{{sex_data[user_resume.sex]}}</view>
+    <view>出生年份：{{user_resume.age}}</view>
+    <view>工作经验：{{work_exp_data[user_resume.work_exp]}}</view>
+    <view>最高学历：{{education_data[user_resume.education]}}</view>
+    <view>期望薪资：{{expectation_pay_data[user_resume.expectation_pay]}}</view>
+    <view>工作性质：{{work_nature_data[user_resume.work_nature]}}</view>
+    <view>入职时间：{{report_time_data[user_resume.report_time]}}</view>
+    <view>工作区域：{{work_place_data[user_resume.work_place]}}</view>
+    <view>当前状态：{{current_state_data[user_resume.current_state]}}</view>
+    <view>求职岗位：{{expectation_position_data[user_resume.expectation_position]}}</view>
+    <view>个人电话：{{user_resume.phone}}</view>
+    <view>个人描述：{{user_resume.resume_description}}</view>
+    <view>更新时间：{{user_resume.update_time}}</view>
+  </view>
+
+  <view class='anniu-view shixian-shang'>
+    <navigator url='/pages/user/user-resume/create_or_update?id={{user_resume.id}}'>
+      <view class='anniu h3'>编辑简历</view>
     </navigator>
 
-    <button size='mini' bindtap='delete_resume' id="{{item.id}}">删除简历</button>
-    ----------------------------
-
-  </block>
-
+    <view class='anniu h3' bindtap='delete_resume' id="{{user_resume.id}}">删除简历</view>
+  </view>
 </view>
+
+

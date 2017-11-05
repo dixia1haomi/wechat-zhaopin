@@ -1,5 +1,6 @@
 import { User } from '../user-model.js'
 import { Job } from '../../job/job-model.js'
+import { Config } from '../../utils/config.js'
 
 var user = new User()
 var job = new Job()
@@ -10,7 +11,8 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    work_place_data: Config.work_place_data,
+    pay_level_data: Config.expectation_pay_data,
   },
 
   /**
@@ -24,8 +26,17 @@ Page({
   //获取用户关联的岗位
   getUserJob: function () {
     user.getUserJob_Model((res) => {
-      console.log(res)
-      this.setData({ user_job: res.user_job })
+      console.log('用户关联的岗位', res)
+      let user_job = res.user_job
+
+      for (let i in user_job) {
+        //把welfare福利字段转为数组
+        user_job[i].welfare = JSON.parse(user_job[i].welfare)
+        // 处理update_time
+        user_job[i].update_time = job.time(user_job[i].update_time)
+      }
+
+      this.setData({ user_job: user_job })
     })
   },
 
@@ -35,7 +46,8 @@ Page({
     user.tip_Modal({ content: '删除这个岗位？' }, (res) => {
       if (res.confirm) {
         job.delete_Job(e.currentTarget.id, (res) => {
-          if (res.code == 201) { base.tip_Toast('删除成功') } else { base.tip_Toast('删除失败') }
+          console.log('删除岗位',res)
+          if (res.code == 201) { job.tip_Toast('删除成功') } else { job.tip_Toast('删除失败') }
         })
       }
     })

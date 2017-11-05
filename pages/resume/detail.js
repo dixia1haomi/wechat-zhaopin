@@ -29,6 +29,9 @@ Page({
     report_time_data: Config.report_time_data,
     // 目前状态
     current_state_data: Config.current_state_data,
+
+    //当前年份
+    year: (new Date).getFullYear()
   
   },
 

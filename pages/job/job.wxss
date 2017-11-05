@@ -8,10 +8,22 @@
 }
 
 .zhedie {
-  display: none;
+  max-height: 0px;
+  opacity: 0;
+  visibility: hidden;
+  /* transform: translate(0px, -10px);  */
+  transition: all 0.2s ease;
 }
 
-.kaizhan {
-  display: block;
-  /* transition: all 2s; */
+.zhankai {
+  max-height: 200px;
+  opacity: 1;
+  visibility: visible;
+  /* transform: translate(0, 0px);  */
+  transition: all .8s ease;
+}
+
+.flex-col{
+  display: flex;
+  flex-flow: column
 }

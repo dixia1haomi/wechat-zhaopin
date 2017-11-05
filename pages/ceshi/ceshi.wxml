@@ -1,0 +1,25 @@
+<view class='flex'>
+  <view class='a'>a</view>
+
+  <view class='b'>b</view>
+
+  <view class='c'>c</view>
+
+  <view class='d'>d</view>
+</view>
+
+
+
+      <view class=''>
+        <image src='/pages/img/touxiang.png' class='touxiang-img' />
+        <!-- <view class='sex-icon'>
+          <view wx:if="{{item.sex == 0}}">
+            <image src='/pages/img/nan.png' class='icon-aa' />
+          </view>
+          <view wx:else>
+            <image src='/pages/img/nv.png' class='icon-aa' />
+          </view>
+        </view> -->
+      </view>
+
+      <view class='aaa'>aaaaaa</view>

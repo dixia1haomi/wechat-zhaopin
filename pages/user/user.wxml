@@ -1,20 +1,72 @@
 <!--pages/user/user.wxml-->
 
-<button catchtap='login'>登录</button>
 
-  <navigator url='/pages/user/user-detail/user-detail'>
-    <button bindtap='getUserDetail'>我的详细信息</button>
-  </navigator>
+<!-- 头像 -->
+<view class='block'>
+  <view class='touxiang'>
+    <image src='/pages/img/touxiang.png' class='touxiang-img' />
+  </view>
 
-  <navigator url='/pages/user/user-job/user-job'>
-    <button bindtap='getUserJob'>我发布的岗位</button>
-  </navigator>
+  <view class="txt-center ma-shangxia">先生/女士</view>
+  <!-- <view class="weui-media-box__desc">性别：{{sex_data[resume_detail.sex]}}</view> -->
 
-  <navigator url='/pages/user/user-company/user-company'>
-    <button>我的公司</button>
-  </navigator>
+  <view bindtap='login' class='txt-center login' hover-class='hover'>登录</view>
 
-  <navigator url='/pages/user/user-resume/user-resume'>
-    <button>我的简历</button>
-  </navigator>
+</view>
 
+
+<view class='block aaa'>
+
+  <view class='a'>
+    <navigator class='fangkuai1' url='/pages/user/user-detail/user-detail'>
+      <icon class="iconfont icon-wode size50 flex-center"></icon>
+      <view class='txt-center h3' bindtap='getUserDetail'>详细信息</view>
+    </navigator>
+
+    <navigator class='fangkuai3' url='/pages/user/user-job/user-job'>
+      <icon class="iconfont icon-liebiao size50 flex-center"></icon>
+      <view class='txt-center h3' bindtap='getUserJob'>我的岗位</view>
+    </navigator>
+  </view>
+
+  <view class='b'>
+    <navigator class='fangkuai2' url='/pages/user/user-company/user-company'>
+      <icon class="iconfont icon-jingjide size50 flex-center"></icon>
+      <view class='txt-center h3'>我的公司</view>
+    </navigator>
+
+
+    <navigator class='fangkuai4' url='/pages/user/user-resume/user-resume'>
+      <icon class="iconfont icon-yijianfankui size50  flex-center"></icon>
+      <view class='txt-center h3'>我的简历</view>
+    </navigator>
+  </view>
+
+</view>
+
+
+
+<icon class="iconfont icon-icon32216 size50">领带</icon>
+<view class="iconfont icon-ji col-tomato size50">急聘</view>
+<view class="iconfont icon-iconfontiocnnv2 size50">女</view>
+<view class="iconfont icon-nan size50">男</view>
+<view class="iconfont icon-zhankai size50"></view>
+<view class="iconfont icon-zhankai-copy size50"></view>
+<view class="iconfont icon-dizhi1 size50"></view>
+<view class="iconfont icon-shouqi size50"></view>
+<view class="iconfont icon-xiala size50"></view>
+<view class="iconfont icon-tabshouqi size50"></view>
+<view class="iconfont icon-tabxiala size50"></view>
+<view class="iconfont icon-jianyuede size50"></view>
+<view class="iconfont icon-jingjide size50"></view>
+<view class="iconfont icon-zengjia size50"></view>
+<view class="iconfont icon-zhuyi size50"></view>
+<view class="iconfont icon-dizhi size50"></view>
+<view class="iconfont icon-xueli size50"></view>
+<view class="iconfont icon-jingyan size50"></view>
+<view class="iconfont icon-liebiao size50"></view>
+<view class="iconfont icon-xiangqing size50"></view>
+<view class="iconfont icon-wode size50"></view>
+<view class="iconfont icon-yijianfankui size50">我的简历</view>
+<view class="iconfont icon-xingbie size50"></view>
+<view class="iconfont icon-zhaopin size50"></view>

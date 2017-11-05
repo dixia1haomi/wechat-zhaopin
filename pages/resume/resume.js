@@ -32,7 +32,10 @@ Page({
     current_state_data: Config.current_state_data,
 
     //地区选择器——
-    PickerChange_index: 0
+    PickerChange_index: 0,
+
+    //当前年份
+    year: (new Date).getFullYear()
 
   },
 
@@ -41,7 +44,7 @@ Page({
    */
   onLoad: function (options) {
     this.get_Resume_List()  //获取简历列表
-
+console.log(this.data.year)
   },
 
 

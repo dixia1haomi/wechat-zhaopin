@@ -8,30 +8,54 @@
   </picker>
 </view>
 
-
+<view class='fa-id-card'></view>
 
 
 <block wx:for="{{resume}}" wx:key="">
   <navigator url='/pages/resume/detail?id={{item.id}}' open-type='navigate'>
 
-    <view class='block'>
+    <view class='block flex-page'>
+
       <view class='touxiang'>
         <image src='/pages/img/touxiang.png' class='touxiang-img' />
+        <view class='sex-icon'>
+          <view wx:if="{{item.sex == 0}}">
+            <image src='/pages/img/nan.png' class='icon-aa' />
+          </view>
+          <view wx:else>
+            <image src='/pages/img/nv.png' class='icon-aa' />
+          </view>
+        </view>
       </view>
-      <!-- <view class="h3">id：{{item.id}}</view> -->
-       <view class="h3">姓名：{{item.name}}</view> 
-      <!-- <view class="h3">年龄：{{age_data[item.age]}}</view> -->
-      <!-- <view class="h3">性别：{{sex_data[item.sex]}}</view> -->
-       <view class="h3">学历：{{education_data[item.education]}}</view> 
-      <!-- <view class="h3">求职区域：{{work_place_data[item.work_place]}}</view> -->
-      <!-- <view class="h3">工作性质：{{work_nature_data[item.work_nature]}}</view> -->
-      <!-- <view class="h3">工作经验：{{work_exp_data[item.work_exp]}}</view> -->
-       <view class="h3">求职岗位：{{expectation_position_data[item.expectation_position]}}</view> 
-      <!-- <view class="h3">期望薪资：{{expectation_pay_data[item.expectation_pay]}}</view> -->
-      <!-- <view class="h3">目前状态：{{current_state_data[item.current_state]}}</view> -->
-      <!-- <view class="h3">到岗时间：{{report_time_data[item.report_time]}}</view> -->
-      <!-- <view class="h3">个人描述：{{item.resume_description}}</view> -->
-      <!-- <view class="h3">电话：{{item.phone}}</view> -->
+
+      <view class='flex-wanquanjuzhong aa'>
+
+        <!-- <view class='flex-wanquanjuzhong'> -->
+        <!-- <view class="h3">id：{{item.id}}</view> -->
+        <view class="">姓名:{{item.name}}</view>
+
+        <view>
+          <!-- 年龄 -->
+          <text class="h3 ma-you">{{year - item.age}}岁</text>
+          <!-- 经验 -->
+          <text class="h3 ma-you">{{work_exp_data[item.work_exp]}}</text>
+          <text class="h3">求职区域:{{work_place_data[item.work_place]}}</text>
+        </view>
+
+      
+          <view class="h3">在找:{{expectation_position_data[item.expectation_position]}}</view>
+          <view class="h3">薪资:<text class='col-tomato'>{{expectation_pay_data[item.expectation_pay]}}</text></view>
+     
+        <!-- <view class="h3">工作性质：{{work_nature_data[item.work_nature]}}</view> -->
+        <!-- <view class="h3">性别{{sex_data[item.sex]}}</view> -->
+        <!-- <view class="h3 ">学历:{{education_data[item.education]}}</view> -->
+        <!-- <view class="h3">目前状态：{{current_state_data[item.current_state]}}</view> -->
+        <!-- <view class="h3">到岗时间：{{report_time_data[item.report_time]}}</view> -->
+        <!-- <view class="h3">个人描述：{{item.resume_description}}</view> -->
+        <!-- <view class="h3">电话：{{item.phone}}</view> -->
+        <!-- </view> -->
+      </view>
+
     </view>
 
   </navigator>

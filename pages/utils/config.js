@@ -13,7 +13,9 @@ Config.restUrl = 'http://zhaopin.com/api/'
 // 年龄
 const date = new Date()
 let age_data = []
-for (let i = date.getFullYear(); i >= 1962; i--) { age_data.push(i) }
+let year = date.getFullYear()
+let year_data = year - 18   //最小18岁
+for (let i = year_data; i >= 1962; i--) { age_data.push(i) }    
 
 Config.age_data = age_data
 

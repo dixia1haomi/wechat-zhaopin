@@ -11,7 +11,7 @@ Page({
 
   data: {
     // 年龄
-    age_data: Config.age_data, age_key: 27,
+    age_data: Config.age_data, age_key: 9,
     // 性别
     sex_data: Config.sex_data, sex_key: 0,
     // 经验
@@ -43,6 +43,8 @@ Page({
   //编辑简历 -》 取id -》 查简历信息 -》 传值给页面 -》 再提交
   edit_resume: function (id) {
     new Resume().get_Resume_Detail(id, (res) => {
+
+      res.age = (new Date).getFullYear() - res.age - 18   //处理年龄，获取出生年对应的年龄数组下标
       this.setData({
         id: res.id,
         name: res.name,
@@ -75,6 +77,7 @@ Page({
     if (check) { return } //验证不通过不执行下面的
 
     // 组织数据 -》 判断是新增还是更新
+    value.age = this.data.age_data[value.age] //从年龄数组下标取对应的出生年份
     if (validata.isEmpty(value.id)) {
       new Resume().create_resume(value, (res) => { if (res.code == 201) { base.tip_Toast('发布成功') } else { base.tip_Toast('发布失败') } })
     } else {

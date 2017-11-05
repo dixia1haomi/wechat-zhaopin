@@ -1,19 +1,59 @@
-<view class="weui-media-box weui-media-box_text">
+<!-- <view class="weui-media-box weui-media-box_text"> -->
 
-  <view class="weui-media-box__desc">id：{{resume_detail.id}}</view>
-  <view class="weui-media-box__desc">姓名：{{resume_detail.name}}</view>
+<!-- 头像 -->
+<view class='block'>
+  <view class='touxiang'>
+    <image src='/pages/img/touxiang.png' class='touxiang-img' />
+    <view class='sex-icon'>
+      <view wx:if="{{item.sex == 0}}">
+        <image src='/pages/img/nan.png' class='icon-aa' />
+      </view>
+      <view wx:else>
+        <image src='/pages/img/nv.png' class='icon-aa' />
+      </view>
+    </view>
+  </view>
 
-  <view class="weui-media-box__desc">年龄：{{age_data[resume_detail.age]}}</view>
-  <view class="weui-media-box__desc">性别：{{sex_data[resume_detail.sex]}}</view>
-  <view class="weui-media-box__desc">学历：{{education_data[resume_detail.education]}}</view>
+  <view class="txt-center ma-shangxia">{{resume_detail.name}}先生/女士</view>
+  <view class='flex-center'>
+    <text class="ma-zuoyou h3">{{year - resume_detail.age}}岁</text>
+    <text class="ma-zuoyou h3">{{work_exp_data[resume_detail.work_exp]}}</text>
+    <text class="ma-zuoyou h3">{{education_data[resume_detail.education]}}</text>
+  </view>
+  <!-- <view class="weui-media-box__desc">性别：{{sex_data[resume_detail.sex]}}</view> -->
+</view>
+
+<!-- 求职意向 -->
+<view class='block'>
+  <view class='ma-xia'>求职意向</view>
   <view class="weui-media-box__desc">求职区域：{{work_place_data[resume_detail.work_place]}}</view>
-  <view class="weui-media-box__desc">工作性质：{{work_nature_data[resume_detail.work_nature]}}</view>
-  <view class="weui-media-box__desc">工作经验：{{work_exp_data[resume_detail.work_exp]}}</view>
   <view class="weui-media-box__desc">求职岗位：{{expectation_position_data[resume_detail.expectation_position]}}</view>
   <view class="weui-media-box__desc">期望薪资：{{expectation_pay_data[resume_detail.expectation_pay]}}</view>
+  <view class="weui-media-box__desc">工作性质：{{work_nature_data[resume_detail.work_nature]}}</view>
   <view class="weui-media-box__desc">目前状态：{{current_state_data[resume_detail.current_state]}}</view>
   <view class="weui-media-box__desc">到岗时间：{{report_time_data[resume_detail.report_time]}}</view>
+</view>
 
+<!-- 工作经验 -->
+<view class='block'>
+  未实现
+</view>
+
+<!-- 教育经历 -->
+<view class='block'>
+  未实现
+</view>
+
+<!-- 个人信息 -->
+<view class='block'>
+  <view class='ma-xia'>个人信息</view>
   <view class="weui-media-box__desc">个人描述：{{resume_detail.resume_description}}</view>
   <view class="weui-media-box__desc">电话：{{resume_detail.phone}}</view>
+
 </view>
+
+
+<view class="weui-media-box__desc">id：{{resume_detail.id}}</view>
+
+
+<!-- </view> -->

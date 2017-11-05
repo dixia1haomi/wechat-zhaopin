@@ -1,8 +1,11 @@
+
+
 {
   "pages": [
     "pages/index/index",
-    "pages/job/job",
+    "pages/ceshi/ceshi",
     "pages/resume/resume",
+    "pages/job/job",
     "pages/resume/detail",
     "pages/user/user",
     "pages/user/user-detail/user-detail",
@@ -10,8 +13,6 @@
     "pages/user/user-job/user-job",
     "pages/user/user-resume/user-resume",
     "pages/user/user-resume/create_or_update",
-    "pages/user/user-job/create-job/create-job",
-    "pages/user/user-job/update-job/update-job",
     "pages/user/user-company/create_or_update/create_or_update",
     "pages/user/user-job/creata_or_update/create_or_update_job"
   ],

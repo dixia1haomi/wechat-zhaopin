@@ -25,6 +25,8 @@ class Base {
       },
       method: params.method,
       success: function (res) {
+        // let aaa = res.statusCode.toString()
+        // console.log('job列表code', aaa)
         params.sCallback && params.sCallback(res.data)
       },
       fail: function (err) {

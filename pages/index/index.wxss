@@ -116,6 +116,15 @@
 }
 
 
+/* 宽 */
+.wit33{
+  width: 33%;
+}
+
+.wit50{
+  width: 50%;
+}
+
 
 /* aaaaaaaa */
 
@@ -127,14 +136,30 @@
   z-index: 999;
 }
 
-.picker-view {
-  /* position: absolute; */
-  margin-top: 55px;
-  /* z-index: 999; *//* top: 0; *//* left: 0; */
+
+.zhedie {
+  height: 0px;
+  opacity: 0;
+  visibility: hidden;
+  /* transform: translate(0px, -10px);  */
+  transition: all 0.6s ease;
 }
 
-
-.exp_png{
-  height: 26rpx;
-  width: 26rpx;
+.zhankai {
+  height: 140px;
+  opacity: 1;
+  visibility: visible;
+  /* transform: translate(0, 0px);  */
+  transition: all .8s ease;
 }
+
+ .picker-view{
+  position: relative;
+  height: 200px;
+}
+
+ .picker-column{
+  position: relative;
+  top: -60px;
+} 
+

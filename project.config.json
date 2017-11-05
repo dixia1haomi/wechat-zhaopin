@@ -4,24 +4,14 @@
 		"urlCheck": false,
 		"es6": true,
 		"postcss": true,
-		"minified": true
+		"minified": true,
+		"newFeature": true
 	},
-	"compileType": "weapp",
+	"compileType": "miniprogram",
 	"libVersion": "1.6.0",
 	"appid": "wxc5c3c565cfe8cf9f",
 	"projectname": "%E6%8B%9B%E8%81%98",
 	"condition": {
-		"weapp": {
-			"current": -1,
-			"list": [
-				{
-					"id": 0,
-					"name": "我的岗位",
-					"pathName": "pages/user/user-job/user-job",
-					"query": ""
-				}
-			]
-		},
 		"search": {
 			"current": -1,
 			"list": []
@@ -29,6 +19,17 @@
 		"conversation": {
 			"current": -1,
 			"list": []
+		},
+		"miniprogram": {
+			"current": 0,
+			"list": [
+				{
+					"id": 0,
+					"name": "我的岗位",
+					"pathName": "pages/user/user",
+					"query": ""
+				}
+			]
 		}
 	}
 }

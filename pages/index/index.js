@@ -9,7 +9,7 @@ Page({
     pay_level_data: Config.expectation_pay_data,
     PickerChange_index: 0,
 
-    hid: true
+    hid: false
   },
 
   onLoad: function (work) {
@@ -22,6 +22,8 @@ Page({
   get_Job_List: function (work = 0) {
     job.get_Job_List(work, (res) => {
       console.log('job列表', res)
+      
+  
 
       for (let i in res) {
       //把welfare福利字段转为数组

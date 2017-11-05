@@ -52,12 +52,15 @@ Page({
       res.welfare = JSON.parse(res.welfare) //把welfare福利字段转为数组
       res.update_time = job.time(res.update_time) //处理update_time
 
-      //赋值公司关联的岗位
-      let company_in_job = res.company.company_in_job
-      for (let i in company_in_job) {
-        company_in_job[i].update_time = job.time(company_in_job[i].update_time)     //处理公司关联的岗位里的update_time
-        company_in_job[i].welfare = JSON.parse(company_in_job[i].welfare)           //处理公司关联的岗位里的welfare
+      //判断是否有公司-》赋值公司关联的岗位
+      if (res.company != null) {
+        let company_in_job = res.company.company_in_job
+        for (let i in company_in_job) {
+          company_in_job[i].update_time = job.time(company_in_job[i].update_time)     //处理公司关联的岗位里的update_time
+          company_in_job[i].welfare = JSON.parse(company_in_job[i].welfare)           //处理公司关联的岗位里的welfare
+        }
       }
+
 
       console.log('job详细信息', res)
       this.setData({ data: res })
