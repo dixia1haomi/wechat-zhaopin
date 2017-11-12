@@ -1,37 +1,66 @@
 <import src="/pages/utils/template.wxml"></import>
 
-<view class="page">
-  <view class="page__bd">
-    <view class="weui-cells weui-cells_after-title">
 
-      <form bindsubmit='getFormdata'>
+<view class="beijing">
 
-        <input hidden="true" name="id" value="{{id}}"></input>
+  <form bindsubmit='getFormdata'>
 
-        <!-- 公司名称 -->
-        <template is="input" data="{{...{input_view:'公司名称',input_name:'company_name',moren:'请输入公司名称',input_value:company_name} }}" />
 
-        <!-- 公司规模 -->
-        <template is="company_size_picker" data="{{ ...{range:company_size_data,index:company_size_key} }}" />
+    <input hidden="true" name="id" value="{{id}}"></input>
 
-        <!-- 公司性质 -->
-        <template is="company_nature_picker" data="{{ ...{range:company_nature_data,index:company_nature_key} }}" />
-
-        <!-- 所属行业 -->
-        <template is="company_industry_picker" data="{{ ...{range:company_industry_data,index:company_industry_key} }}" />
-
-        <!-- 公司地址 -->
-        <template is="input" data="{{...{input_view:'公司地址',input_name:'company_address',moren:'请输入公司地址',input_value:company_address} }}" />
-
-        <!-- 公司描述 -->
-        <template is="textarea" data="{{...{textarea_view:'公司介绍',textarea_name:'company_description', moren:'请输入公司介绍',input_value:company_description} }}" />
-
-        <!-- <view class="weui-btn-area"> -->
-        <button class="weui-btn" form-type='submit' type='primary'>确定</button>
-        <!-- </view> -->
-
-      </form>
-
+    <!-- 公司名称 -->
+    <view class="flex-shangxia-zhong shixian-xia gao">
+      <text class="flex1">公司名称</text>
+      <input class="flex3" name="company_name" value="{{company_name}}" placeholder='请输入公司名称'></input>
     </view>
-  </view>
+
+
+    <!-- 公司规模 -->
+    <view class="flex-shangxia-zhong shixian-xia gao">
+      <text class="flex1">公司规模</text>
+      <picker class='flex3' name="company_size" bindchange="company_size_picker" value="{{company_size_key}}" range="{{company_size_data}}">
+        <view class="">{{company_size_data[company_size_key]}}</view>
+      </picker>
+    </view>
+
+    <!-- 公司性质 -->
+    <view class="flex-shangxia-zhong shixian-xia gao">
+      <text class="flex1">公司性质</text>
+      <picker class='flex3' name="company_nature" bindchange="company_nature_picker" value="{{company_nature_key}}" range="{{company_nature_data}}">
+        <view class="">{{company_nature_data[company_nature_key]}}</view>
+      </picker>
+    </view>
+
+    <!-- 所属行业 -->
+    <view class="flex-shangxia-zhong shixian-xia gao">
+      <text class="flex1">所属行业</text>
+      <picker class='flex3' name="company_industry" bindchange="company_industry_picker" value="{{company_industry_key}}" range="{{company_industry_data}}">
+        <view class="">{{company_industry_data[company_industry_key]}}</view>
+      </picker>
+    </view>
+
+
+    <!-- 公司地址 -->
+    <view class="flex-shangxia-zhong shixian-xia gao">
+      <text class="flex1">公司地址</text>
+      <input class="flex3" name="company_address" value="{{company_address}}" placeholder='请输入公司地址'></input>
+    </view>
+
+
+    <!-- 公司描述 -->
+    <view class='shixian-xia ma-xia'>
+      <view class="flex-shangxia-zhong gao">公司描述</view>
+      <view class="">
+        <textarea class='kuang' value='{{company_description}}' name="company_description" placeholder="请输入公司介绍" />
+        <view class="text-you desc">0/200</view>
+      </view>
+    </view>
+
+
+    <!-- 提交 -->
+    <button class="weui-btn" form-type='submit' type='primary'>确定</button>
+
+
+  </form>
+
 </view>

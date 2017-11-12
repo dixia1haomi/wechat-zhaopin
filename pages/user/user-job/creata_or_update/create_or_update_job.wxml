@@ -1,59 +1,129 @@
 <import src="/pages/utils/template.wxml"></import>
 
 
-<view class="weui-cells weui-cells_after-title">
+<view class="beijing">
 
   <form bindsubmit='getFormdata'>
 
+    <!-- 岗位id -->
     <input hidden="true" name="id" value="{{id}}"></input>
+    <!-- 公司id -->
+    <input hidden="true" name="company_id" value="{{company_id}}"></input>
+
 
     <!-- 我的公司 -->
-    <view hidden="{{company_data?0:1}}">
-      <template is="job_company_picker" data="{{ ...{range: company_data, index: company_key} }}" />
+    <view hidden="{{company_id == 0}}">
+      <view class="flex-shangxia-zhong shixian-shang gao">
+        <text class="flex1">我的公司</text>
+        <view class="flex3">{{company_name}}</view>
+      </view>
     </view>
 
+
     <!-- 岗位名称 -->
-    <template is="input" data="{{...{input_view:'岗位名称',input_name:'job_name',moren:'请输入岗位名称',input_value:job_name} }}" />
+    <view class="flex-shangxia-zhong shixian-xia shixian-shang gao">
+      <text class="flex1">岗位名称</text>
+      <input class='flex3' name="job_name" value="{{job_name}}"></input>
+    </view>
+
 
     <!-- 岗位薪资 -->
-    <template is="pay_level_picker" data="{{ ...{range: pay_level_data, index: pay_level_key} }}" />
+    <view class="flex-shangxia-zhong shixian-xia gao">
+      <text class="flex1">薪资水平</text>
+      <picker class='flex3' name="pay_level" bindchange="pay_level_picker" value="{{pay_level_key}}" range="{{pay_level_data}}">
+        <view class="">{{pay_level_data[pay_level_key]}}</view>
+      </picker>
+    </view>
+
 
     <!-- 要求人数 -->
-    <template is="input" data="{{...{input_view:'招聘人数',input_name:'ments_number',moren:'请输入招聘人数',input_value:ments_number} }}" />
+    <view class="flex-shangxia-zhong shixian-xia gao">
+      <text class="flex1">招聘人数</text>
+      <input class="flex3" name="ments_number" value="{{ments_number}}"></input>
+    </view>
 
-    <!-- 要求经验 -->
-    <template is="ments_exp_picker" data="{{ ...{range: ments_exp_data, index: ments_exp_key} }}" />
-
-    <!-- 要求学历 -->
-    <template is="ments_education_picker" data="{{ ...{range: ments_education_data, index: ments_education_key} }}" />
-
-    <!-- 要求性别 -->
-    <template is="ments_sex_picker" data="{{ ...{range: ments_sex_data, index: ments_sex_key} }}" />
 
     <!-- 岗位福利--多选 -->
-    <view class='block'>
-      <checkbox-group class="flex-ceshi" name="welfare" bindchange="checkboxChange">
-        <label class="biaoqian" style="" wx:for="{{job_welfare_data}}" wx:key="">
-          <view class='{{item.checked? "box":""}}' style=''>
-            {{item.value}}
-          </view>
+    <view class='shixian-xia pa-shang-x'>
+      <view class="flex-shangxia-zhong gao">岗位福利</view>
+      <checkbox-group class="box-wrap" name="welfare" bindchange="checkboxChange">
+        <label class=" {{item.checked?'box-xuanzhong':'box'}} " wx:for="{{job_welfare_data}}" wx:key="">
+          <text class=''>{{item.value}}</text>
           <checkbox hidden='true' value="{{item.value}}" checked="{{item.checked}}" />
         </label>
       </checkbox-group>
     </view>
 
+
+    <!-- 要求经验 -->
+    <view class="flex-shangxia-zhong shixian-xia gao">
+      <text class="flex1">工作经验</text>
+      <picker class='flex3' name="ments_exp" bindchange="ments_exp_picker" value="{{ments_exp_key}}" range="{{ments_exp_data}}">
+        <view class="">{{ments_exp_data[ments_exp_key]}}</view>
+      </picker>
+    </view>
+
+
+    <!-- 要求学历 -->
+    <view class="flex-shangxia-zhong shixian-xia gao">
+      <text class="flex1">学历要求</text>
+      <picker class='flex3' name="ments_education" bindchange="ments_education_picker" value="{{ments_education_key}}" range="{{ments_education_data}}">
+        <view class="">{{ments_education_data[ments_education_key]}}</view>
+      </picker>
+    </view>
+
+
+    <!-- 要求性别 -->
+    <view class="flex-shangxia-zhong shixian-xia gao">
+      <text class="flex1">要求性别</text>
+      <picker class='flex3' name="ments_sex" bindchange="ments_sex_picker" value="{{ments_sex_key}}" range="{{ments_sex_data}}">
+        <view class="">{{ments_sex_data[ments_sex_key]}}</view>
+      </picker>
+    </view>
+
+
     <!-- 工作区域 -->
-    <template is="work_area_picker" data="{{ ...{range: work_area_data, index: work_area_key} }}" />
+    <view class="flex-shangxia-zhong shixian-xia gao">
+      <text class="flex1">工作区域</text>
+      <picker class='flex3' name="work_area" bindchange="work_area_picker" value="{{work_area_key}}" range="{{work_area_data}}">
+        <view class="">{{work_area_data[work_area_key]}}</view>
+      </picker>
+    </view>
+
 
     <!-- 工作地址 -->
-    <template is="input" data="{{...{input_view:'工作地址',input_name:'detailed_address',moren:'请输入工作地址',input_value:detailed_address} }}" />
+    <view class="flex-shangxia-zhong shixian-xia gao">
+      <text class="flex1">工作地址</text>
+      <input class="flex3" name="detailed_address" value="{{detailed_address}}"></input>
+    </view>
+
+
+    <!-- 你的称呼 -->
+    <view class="flex-shangxia-zhong shixian-xia gao">
+      <text class="flex1">你的称呼</text>
+      <input class="flex3" name="job_user_name" value="{{job_user_name}}"></input>
+    </view>
+
+
+    <!-- 联系电话 -->
+    <view class="flex-shangxia-zhong shixian-xia gao">
+      <text class="flex1">联系电话</text>
+      <input class="flex3" name="phone" value="{{phone}}"></input>
+    </view>
+
 
     <!-- 职位描述 -->
-    <template is="textarea" data="{{...{textarea_view:'职位描述',textarea_name:'job_description', moren:'请输入职位描述',input_value:job_description} }}" />
+    <view class='shixian-xia ma-xia'>
+      <view class="flex-shangxia-zhong gao">职位描述</view>
+      <view class="">
+        <textarea class='kuang' value='{{job_description}}' name="job_description" placeholder="请输入职位描述" />
+        <view class="text-you desc">0/200</view>
+      </view>
+    </view>
 
-    <!-- <view class="weui-btn-area"> -->
+
+    <!-- 提交 -->
     <button class="weui-btn" form-type='submit' type='primary'>确定</button>
-    <!-- </view> -->
 
   </form>
 

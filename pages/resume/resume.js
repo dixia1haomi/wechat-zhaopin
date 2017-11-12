@@ -44,7 +44,7 @@ Page({
    */
   onLoad: function (options) {
     this.get_Resume_List()  //获取简历列表
-console.log(this.data.year)
+    console.log(this.data.year)
   },
 
 
@@ -52,7 +52,12 @@ console.log(this.data.year)
   //获取简历列表
   get_Resume_List: function (area = 0) {
     resume.get_Resume_List(area, (res) => {
-      console.log(res)
+      console.log('获取简历列表',res)
+
+      //处理更新时间
+      for(let i in res){
+        res[i].update_time = base.time(res[i].update_time)
+      }
       this.setData({ resume: res })
     })
   },

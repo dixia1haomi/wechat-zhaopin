@@ -10,7 +10,7 @@
   width: 160rpx;
 }
 
-.aaa {
+.zidingyi {
   height: 493rpx;
   display: flex;
   justify-content: center;
@@ -25,7 +25,7 @@
   border: 1px solid #f2f2f2;
 }
 
-.hover{
+.hover {
   background-color: #f2f2f2;
 }
 
@@ -57,29 +57,28 @@
   margin: 5px;
 }
 
-
-
-.ma0{
+.ma0 {
   margin: 0 auto;
 }
-.ma-auto{
+
+.ma-auto {
   margin: auto 0;
 }
 
-
-.col-tomato{
+.col-tomato {
   color: tomato;
 }
 
-
-
-
-.size20{
+.size20 {
   font-size: 20px;
 }
-.size22{
+
+.size22 {
   font-size: 22px;
 }
-.size50{
+
+.size50 {
   font-size: 50px;
 }
+
+

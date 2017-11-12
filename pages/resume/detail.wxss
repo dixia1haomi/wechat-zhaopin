@@ -1,30 +1,39 @@
-/* pages/resume/detail.wxss */
+
+.zidingyi-nan {
+  border: 2px solid white;
+  border-radius: 50%;
+  position: relative;
+  top: -40rpx;
+  left: 140rpx;
+}
+
+.zidingyi-nv {
+  color: tomato;
+  border-radius: 50%;
+  border: 2px solid white;
+  position: relative;
+  top: -40rpx;
+  left: 140rpx;
+}
 
 .touxiang {
   position: relative;
-  height: 160rpx;
-  width: 160rpx;
-   /* border-radius: 50%;  */
+  height: 180rpx;
+  width: 180rpx;
   margin: 0 auto;
-    /* background-color: wheat   */
 }
 
 .touxiang-img {
-  height: 160rpx;
-  width: 160rpx;
+  height: 180rpx;
+  width: 180rpx;
 }
 
-.sex-icon {
-  position: relative;
-  top: -60rpx;
-  left: 120rpx;
-  /* border: 2px solid firebrick; */
-  /* bottom: 0; */
-}
-
-.icon-aa{
-  height: 20px;
-  width: 20px;
-     border-radius: 50%; 
-   border: 2px solid white; 
+/* 固定底部 */
+.job-css-flod{
+  height: 100rpx;
+  width: 100%;
+  /* background-color: antiquewhite; */
+  position: fixed;
+  bottom: 0;
+  line-height: 100rpx;
 }

@@ -1,59 +1,65 @@
-<!-- <view class="weui-media-box weui-media-box_text"> -->
-
 <!-- 头像 -->
-<view class='block'>
+<view class='block ma-xia'>
+
   <view class='touxiang'>
-    <image src='/pages/img/touxiang.png' class='touxiang-img' />
-    <view class='sex-icon'>
-      <view wx:if="{{item.sex == 0}}">
-        <image src='/pages/img/nan.png' class='icon-aa' />
-      </view>
-      <view wx:else>
-        <image src='/pages/img/nv.png' class='icon-aa' />
-      </view>
-    </view>
+    <image src='/pages/img/touxiang.png' class='touxiang-img'>
+      <block wx:if="{{resume_detail.sex == 0}}">
+        <text class="iconfont icon-nan zidingyi-nan"></text>
+      </block>
+      <block wx:else>
+        <text class="iconfont icon-iconfontiocnnv2 zidingyi-nv"></text>
+      </block>
+    </image>
   </view>
 
-  <view class="txt-center ma-shangxia">{{resume_detail.name}}先生/女士</view>
-  <view class='flex-center'>
-    <text class="ma-zuoyou h3">{{year - resume_detail.age}}岁</text>
-    <text class="ma-zuoyou h3">{{work_exp_data[resume_detail.work_exp]}}</text>
-    <text class="ma-zuoyou h3">{{education_data[resume_detail.education]}}</text>
+  <view class="text-zhong ma-shangxia">{{resume_detail.name}}先生/女士</view>
+
+  <view class='flex-zhong'>
+    <text class="ma-zuoyou">{{year - resume_detail.age}}岁</text>
+    <text class="ma-zuoyou">{{work_exp_data[resume_detail.work_exp]}}</text>
+    <text class="ma-zuoyou">{{education_data[resume_detail.education]}}</text>
+    <!-- <view class="">性别：{{sex_data[resume_detail.sex]}}</view> -->
   </view>
-  <!-- <view class="weui-media-box__desc">性别：{{sex_data[resume_detail.sex]}}</view> -->
+
 </view>
 
+
 <!-- 求职意向 -->
-<view class='block'>
+<view class='block ma-xia'>
   <view class='ma-xia'>求职意向</view>
-  <view class="weui-media-box__desc">求职区域：{{work_place_data[resume_detail.work_place]}}</view>
-  <view class="weui-media-box__desc">求职岗位：{{expectation_position_data[resume_detail.expectation_position]}}</view>
-  <view class="weui-media-box__desc">期望薪资：{{expectation_pay_data[resume_detail.expectation_pay]}}</view>
-  <view class="weui-media-box__desc">工作性质：{{work_nature_data[resume_detail.work_nature]}}</view>
-  <view class="weui-media-box__desc">目前状态：{{current_state_data[resume_detail.current_state]}}</view>
-  <view class="weui-media-box__desc">到岗时间：{{report_time_data[resume_detail.report_time]}}</view>
+  <view class="h4 desc">求职区域：{{work_place_data[resume_detail.work_place]}}</view>
+  <view class="h4 desc">求职岗位：{{expectation_position_data[resume_detail.expectation_position]}}</view>
+  <view class="h4 desc">期望薪资：{{expectation_pay_data[resume_detail.expectation_pay]}}</view>
+  <view class="h4 desc">工作性质：{{work_nature_data[resume_detail.work_nature]}}</view>
+  <view class="h4 desc">目前状态：{{current_state_data[resume_detail.current_state]}}</view>
+  <view class="h4 desc">到岗时间：{{report_time_data[resume_detail.report_time]}}</view>
 </view>
 
 <!-- 工作经验 -->
-<view class='block'>
+<view class='block ma-xia'>
   未实现
 </view>
 
 <!-- 教育经历 -->
-<view class='block'>
+<view class='block ma-xia'>
   未实现
 </view>
 
 <!-- 个人信息 -->
-<view class='block'>
+<view class='block ma-xia'>
   <view class='ma-xia'>个人信息</view>
-  <view class="weui-media-box__desc">个人描述：{{resume_detail.resume_description}}</view>
-  <view class="weui-media-box__desc">电话：{{resume_detail.phone}}</view>
+  <view class="h4 desc">描述：{{resume_detail.resume_description}}</view>
 
 </view>
 
+  <!-- 固定在底部 -->
+  <view class='flex job-css-flod'>
+    <view class='flex2 text-zhong' style='background-color:#fff;'>{{resume_detail.name}}</view>
+    <!-- 电话 -->
+    <view class='flex1 text-zhong' style='background-color:tomato;' bindtap='phone_tap' >
+      <text class="iconfont icon-phone" style='color:#fff;' />
+    </view>
+  </view>
 
-<view class="weui-media-box__desc">id：{{resume_detail.id}}</view>
-
-
-<!-- </view> -->
+<!-- <view class="h4">电话：{{resume_detail.phone}}</view> -->
+<!-- <view class="">id：{{resume_detail.id}}</view> -->

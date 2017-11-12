@@ -2,10 +2,51 @@ import { Validata } from '../../utils/validata.js'
 import { Base } from '../../utils/base.js'
 import { Resume } from '../../resume/resume-model.js'
 import { Config } from '../../utils/config.js'
+import  WxValidate  from '../../../wx-validate/WxValidate.js'
 
 const validata = new Validata()
 const base = new Base()
 
+
+//初始化表单验证
+const rules = {
+  // 岗位名称
+  name: {
+    required: true,
+    maxlength: 2  //最多输入2个字符
+  },
+
+  // 电话号码
+  phone: {
+    required: true,
+    tel: true
+  },
+  // 岗位描述
+  resume_description: {
+    required: true,
+    minlength: 5  //最少输入5个字符
+  }
+}
+
+const messages = {
+  // 岗位名称
+  name: {
+    required: '姓不能为空',
+    maxlength: '名称最多输入2个字符'
+  },
+  // 电话号码
+  phone: {
+    required: '电话号码不能为空',
+    tel: '请输入正确的电话号码'
+  },
+  // 个人描述
+  resume_description: {
+    required: '描述不能为空',
+    minlength: '描述最少输入5个字符'
+  }
+}
+
+const wxValidate = new WxValidate(rules, messages)  // 实例化表单验证
 
 Page({
 
@@ -72,12 +113,16 @@ Page({
     console.log('form',e.detail.value)
     let value = e.detail.value
 
-    //验证
-    let check = this.valueCheck({ name: value.name, phone: value.phone, resume_description: value.resume_description })
-    if (check) { return } //验证不通过不执行下面的
+    //验证数据 **********************************************************
+    if (!wxValidate.checkForm(e)) {
+      const error = wxValidate.errorList[0]
+      base.tip_Modal({ content: error.msg })
+      return false
+    }
 
     // 组织数据 -》 判断是新增还是更新
     value.age = this.data.age_data[value.age] //从年龄数组下标取对应的出生年份
+
     if (validata.isEmpty(value.id)) {
       new Resume().create_resume(value, (res) => { if (res.code == 201) { base.tip_Toast('发布成功') } else { base.tip_Toast('发布失败') } })
     } else {
@@ -87,21 +132,7 @@ Page({
 
 
 
-  //验证
-  valueCheck: function (obj) {
-    if (validata.isEmpty(obj.name)) {
-      base.tip_Modal({ content: '姓名不能为空' })
-      return true
-    }
-    if (validata.isEmpty(obj.phone)) {
-      base.tip_Modal({ content: '请输入正确的电话号码' })
-      return true
-    }
-    if (validata.isEmpty(obj.resume_description)) {
-      base.tip_Modal({ content: '个人简介不能为空' })
-      return true
-    }
-  },
+
 
 
 

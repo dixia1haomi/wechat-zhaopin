@@ -1,9 +1,8 @@
-
-
 {
   "pages": [
     "pages/index/index",
     "pages/ceshi/ceshi",
+    "pages/ceshi1/ceshi1",
     "pages/resume/resume",
     "pages/job/job",
     "pages/resume/detail",

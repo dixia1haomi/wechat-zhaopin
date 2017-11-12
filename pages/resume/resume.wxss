@@ -1,48 +1,55 @@
-.sex-icon {
+
+.zidingyi-nan {
+  border: 2px solid white;
+  border-radius: 50%;
   position: relative;
-  top: -60rpx;
-  left: 120rpx;
-  /* border: 2px solid firebrick; */
-  /* bottom: 0; */
+  top: -40rpx;
+  left: 140rpx;
 }
 
-.icon-aa{
-  height: 20px;
-  width: 20px;
-     border-radius: 50%; 
-   border: 2px solid white; 
+.zidingyi-nv {
+  color: tomato;
+  border-radius: 50%;
+  border: 2px solid white;
+  position: relative;
+  top: -40rpx;
+  left: 140rpx;
 }
 
 .touxiang {
   position: relative;
-  height: 160rpx;
-  width: 160rpx;
-   /* border-radius: 50%;  */
-  margin: 0 0 0 0;
-    /* background-color: wheat   */
+  height: 180rpx;
+  width: 180rpx;
 }
 
 .touxiang-img {
-  height: 160rpx;
-  width: 160rpx;
+  height: 180rpx;
+  width: 180rpx;
 }
 
-.flex-page {
-  display: flex;
-}
-
-.flex-grow1 {
-  flex: 1 0 auto;
-}
-
-.flex-wanquanjuzhong {
-  display: flex;
-  flex-flow: column;
-  /* align-content: center; *//* align-items: center; */
-  justify-content: center;
-  /* align-self: center; */
-}
-
-.aa {
+.ma-zuo40 {
   margin: 0 0 0 40rpx;
+}
+
+/* 地区选择 */
+.jieshao-view {
+  padding: 60rpx;
+}
+
+.index-css-yuan {
+  display: inline-block;
+  background-color: #fff;
+  border-radius: 20rpx;
+  border: 1px solid #d9d9d9;
+}
+
+.index-css-xiala {
+  font-size: 24rpx;
+  color: #888;
+}
+
+.resume-css-zuo{
+  /* margin-left: 250rpx; */
+  /* width:  */
+  /* float: right */
 }

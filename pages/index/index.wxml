@@ -1,41 +1,66 @@
-<view class='txt-center' bindtap='xuanze'>{{work_place_data[PickerChange_index]}}</view>
+<!-- 地区选择器 -->
+<!-- <view class="block text-zhong">
+  <picker bindchange="bindPickerChange" value="{{PickerChange_index}}" range="{{work_place_data}}">
+    <view>{{work_place_data[PickerChange_index]}}</view>
+  </picker>
+</view> -->
 
-<view class='zhedie {{hid?"zhankai":""}}'>
-  <picker-view class='picker-view' indicator-style="height: 40px;" value="{{value}}" bindchange="bindPickerChange">
-    <picker-view-column class='picker-column'>
-      <view wx:for="{{work_place_data}}" wx:key="" class='flex-center'>{{item}}</view>
-    </picker-view-column>
-  </picker-view>
+<!-- 介绍 -->
+<view class='jieshao-view'>
+
+  <view class='text-you'>
+      <picker class='index-css-yuan' bindchange="bindPickerChange" value="{{PickerChange_index}}" range="{{work_place_data}}">
+        <view class='pa-zuoyou h4'>{{work_place_data[PickerChange_index]}} <text class="iconfont icon-tabxiala index-css-xiala"></text></view>
+      </picker>
+  </view>
+
+  <view class='h2 ma-xia'>袋鼠招聘</view>
+
+  <text class='h4'>一个只面向曲靖地区的招聘,求职类服务平台.
+  提供免费发布企业、个体招聘，个人简历信息.
+  </text>
 </view>
-
 
 <!-- index列表 -->
-<view class='' style=''>
-  <block wx:for="{{job_list_data}}" wx:key="">
-    <navigator url='/pages/job/job?id={{item.id}}' open-type='navigate'>
+<block wx:for="{{job_list_data}}" wx:key="">
+  <navigator url='/pages/job/job?id={{item.id}}' open-type='navigate'>
+    <view class='block ma-xia'>
+      <!-- 岗位名称 -->
+      <view class="pa-xia">{{item.job_name}}</view>
 
-      <view class='block'>
-        <view class="pa-xia h2">{{item.job_name}}</view>
-
-        <view class='pa-xia flex-ceshi'>
-          <text class='col-tomato wit33'>{{pay_level_data[item.pay_level]}}</text>
-          <text class="h3 wit33 txt-center">{{item.update_time}}</text>
-          <text class="h3 wit33 txt-center">浏览:{{item.page_view}}</text>
-        </view>
-
-        <view class='shenglve'>
-          <block class='' wx:for="{{item.welfare}}" wx:for-item="aa" wx:key="">
-            <text class='biaoqian'>{{aa}}</text>
-          </block>
-        </view>
-
-        <view class='pa-shang border-xuxian-top flex-bet'>
-          <icon class="iconfont icon-jingjide"><text class='h3'>{{item.company_name}}</text></icon>
-          <icon class="h3 iconfont icon-dizhi"><text class='h3'>{{work_place_data[item.work_area]}}</text></icon>
-        </view>
-
+      <!-- 薪资-时间-浏览量 -->
+      <view class='pa-xia flex-zhong'>
+        <text class='col-tomato flex1'>{{pay_level_data[item.pay_level]}}</text>
+        <text class="h4 desc flex1 text-zhong">{{item.update_time}}</text>
+        <text class="h4 desc flex1 text-you">浏览:{{item.page_view}}</text>
       </view>
 
-    </navigator>
-  </block>
-</view>
+      <!-- 福利 -->
+      <view class='text-shenglve'>
+        <block wx:for="{{item.welfare}}" wx:for-item="welfare_item" wx:key="">
+          <text class='box ma-you-x'>{{welfare_item}}</text>
+        </block>
+      </view>
+
+      <!-- 个人-公司-地址 -->
+      <view class='xuxian-shang flex-b'>
+        <!-- 判断显示-有公司 -->
+        <view wx:if="{{item.company_id != 0}}">
+          <icon class="iconfont icon-qiye" style='color:#1296db;'></icon>
+          <text class='h4'> {{item.company_name}}</text>
+        </view>
+        <!-- 个人发布-没有公司 -->
+        <view wx:else>
+          <icon class="iconfont icon-qiye1" style='color:#e0620d;'>
+          </icon>
+          <text class='h4'> {{item.job_user_name}}</text>
+        </view>
+        <!-- 地址 -->
+        <icon class="h4 desc iconfont icon-dizhi">
+          <text class='h4'> {{work_place_data[item.work_area]}}</text>
+        </icon>
+      </view>
+
+    </view>
+  </navigator>
+</block>

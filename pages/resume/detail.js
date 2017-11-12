@@ -48,6 +48,7 @@ Page({
   //查询resume详细信息
   get_Resume_Detail: function (id) {
     resumeModel.get_Resume_Detail(id, (res) => {
+      console.log('resume详细信息',res)
       this.setData({
         resume_detail: res
       })
@@ -55,7 +56,12 @@ Page({
   },
 
 
-
+  phone_tap(){
+  console.log('phone', this.data.resume_detail.phone)
+  wx.makePhoneCall({
+    phoneNumber: this.data.resume_detail.phone //仅为示例，并非真实的电话号码
+  })
+},
 
 
 

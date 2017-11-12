@@ -1,22 +1,4 @@
-/* pages/user/user-job/user-job.wxss */
 
-.shenglve {
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  margin-bottom: 5px;
-}
-
-.neirong {
-  border-bottom: 1rpx solid #f2f2f2;
-  padding: 0 0 10px 0;
-}
-
-.anniu-view {
-  display: flex;
-  justify-content: space-around;
-  margin: 10px 0 0 0;
-}
 
 .anniu {
   padding: 5px 20px 5px 20px;
@@ -26,9 +8,9 @@
 .xinzeng-view {
   display: flex;
   justify-content: center;
-  margin: 0 0 15px 0;
+  margin: 0 0 15rpx 0;
   background-color: #fff;
-  padding: 10px 0 10px 0;
+  padding: 20rpx 0 20rpx 0;
   border: 1px solid #f2f2f2;
 }
 

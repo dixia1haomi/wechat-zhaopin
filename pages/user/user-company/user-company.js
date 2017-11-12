@@ -1,5 +1,6 @@
 import { User } from '../user-model.js'
 import { Company } from '../user-company/user-company-model.js'
+import { Config } from '../../utils/config.js'
 
 const user = new User()
 const company = new Company()
@@ -10,7 +11,9 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    company_industry_data:Config.company_industry_data,
+    company_size_data: Config.company_size_data,
+    company_nature_data: Config.company_nature_data,
   },
 
   /**

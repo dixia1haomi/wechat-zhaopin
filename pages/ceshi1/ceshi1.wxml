@@ -1,0 +1,15 @@
+<block wx:for="{{data}}" id="{{index}}" wx:key="">
+  <view>{{item.start_date}} ~ {{item.end_date}}</view>
+  <view>{{item.company_name}} / {{item.you_job}}</view>
+  <view>{{item.job_neirong}}</view>
+
+
+<navigator url='/pages/ceshi/ceshi?id={{ index}}' open-type='navigateBack' delta="1">
+  <view>编辑</view>
+</navigator>
+
+  <view>删除</view>
+</block>
+
+<view>继续添加</view>
+<view>完成</view>

@@ -24,7 +24,6 @@ Page({
       console.log('job列表', res)
       
   
-
       for (let i in res) {
       //把welfare福利字段转为数组
         res[i].welfare = JSON.parse(res[i].welfare)

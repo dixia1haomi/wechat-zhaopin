@@ -11,8 +11,24 @@ Page({
    * 页面的初始数据
    */
   data: {
-    work_place_data: Config.work_place_data,
+
+    //薪资水平
     pay_level_data: Config.expectation_pay_data,
+
+    //经验要求
+    ments_exp_data: Config.ments_exp,
+
+    //学历要求
+    ments_education_data: Config.ments_education,
+
+    //性别要求
+    ments_sex_data: Config.ments_sex,
+
+    //工作区域
+    work_area_data: Config.work_place_data,
+
+    //工作福利
+    job_welfare_data: Config.job_welfare,
   },
 
   /**

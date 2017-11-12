@@ -1,52 +1,53 @@
 <!--pages/user/user.wxml-->
 
+<view class=''>
+  <!-- 头像 -->
+  <view class='block ma-xia'>
+    <view class='touxiang'>
+      <image src='/pages/img/touxiang.png' class='touxiang-img' />
+    </view>
 
-<!-- 头像 -->
-<view class='block'>
-  <view class='touxiang'>
-    <image src='/pages/img/touxiang.png' class='touxiang-img' />
+    <view class="text-zhong ma-shangxia">先生/女士</view>
+    <!-- <view class="weui-media-box__desc">性别：{{sex_data[resume_detail.sex]}}</view> -->
+
+    <view bindtap='login' class='text-zhong login' hover-class='hover'>登录</view>
+
   </view>
 
-  <view class="txt-center ma-shangxia">先生/女士</view>
-  <!-- <view class="weui-media-box__desc">性别：{{sex_data[resume_detail.sex]}}</view> -->
 
-  <view bindtap='login' class='txt-center login' hover-class='hover'>登录</view>
+  <view class='block shixian-shang zidingyi'>
+
+    <view class=''>
+      <navigator class='fangkuai1 flex-col-zhong' url='/pages/user/user-detail/user-detail'>
+        <icon class="iconfont icon-wode size50 flex-zhong"></icon>
+        <view class='text-zhong h3' bindtap='getUserDetail'>详细信息</view>
+      </navigator>
+
+      <navigator class='fangkuai3 flex-col-zhong' url='/pages/user/user-job/user-job'>
+        <icon class="iconfont icon-liebiao size50 flex-zhong"></icon>
+        <view class='text-zhong h3' bindtap='getUserJob'>我的岗位</view>
+      </navigator>
+    </view>
+
+    <view class=''>
+      <navigator class='fangkuai2 flex-col-zhong' url='/pages/user/user-company/user-company'>
+        <icon class="iconfont icon-jingjide size50 flex-zhong"></icon>
+        <view class='text-zhong h3'>我的公司</view>
+      </navigator>
+
+
+      <navigator class='fangkuai4 flex-col-zhong' url='/pages/user/user-resume/user-resume'>
+        <icon class="iconfont icon-yijianfankui size50  flex-zhong"></icon>
+        <view class='text-zhong h3'>我的简历</view>
+      </navigator>
+    </view>
+
+  </view>
+
 
 </view>
 
-
-<view class='block aaa'>
-
-  <view class='a'>
-    <navigator class='fangkuai1' url='/pages/user/user-detail/user-detail'>
-      <icon class="iconfont icon-wode size50 flex-center"></icon>
-      <view class='txt-center h3' bindtap='getUserDetail'>详细信息</view>
-    </navigator>
-
-    <navigator class='fangkuai3' url='/pages/user/user-job/user-job'>
-      <icon class="iconfont icon-liebiao size50 flex-center"></icon>
-      <view class='txt-center h3' bindtap='getUserJob'>我的岗位</view>
-    </navigator>
-  </view>
-
-  <view class='b'>
-    <navigator class='fangkuai2' url='/pages/user/user-company/user-company'>
-      <icon class="iconfont icon-jingjide size50 flex-center"></icon>
-      <view class='txt-center h3'>我的公司</view>
-    </navigator>
-
-
-    <navigator class='fangkuai4' url='/pages/user/user-resume/user-resume'>
-      <icon class="iconfont icon-yijianfankui size50  flex-center"></icon>
-      <view class='txt-center h3'>我的简历</view>
-    </navigator>
-  </view>
-
-</view>
-
-
-
-<icon class="iconfont icon-icon32216 size50">领带</icon>
+<!-- <icon class="iconfont icon-icon32216 size50">领带</icon>
 <view class="iconfont icon-ji col-tomato size50">急聘</view>
 <view class="iconfont icon-iconfontiocnnv2 size50">女</view>
 <view class="iconfont icon-nan size50">男</view>
@@ -69,4 +70,4 @@
 <view class="iconfont icon-wode size50"></view>
 <view class="iconfont icon-yijianfankui size50">我的简历</view>
 <view class="iconfont icon-xingbie size50"></view>
-<view class="iconfont icon-zhaopin size50"></view>
+<view class="iconfont icon-zhaopin size50"></view> -->

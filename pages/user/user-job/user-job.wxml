@@ -1,60 +1,60 @@
-<!-- <view>
-
-
-  <block wx:for="{{user_job}}" wx:key="">
-
-    <view>id:{{item.id}}</view>
-    <view>{{item.job_name}}</view>
-    <view>{{item.detailed_address}}</view>
-    <view>创建时间：{{item.create_time}}</view>
-    <view>更新时间：{{item.update_time}}</view>
-
-    ----------------------------
-  </block>
-
-</view> -->
-
-<view  class='xinzeng-view'>
+<view class='xinzeng-view'>
   <navigator url='/pages/user/user-job/creata_or_update/create_or_update_job'>
     <view class='xinzeng' size=''>新增岗位</view>
   </navigator>
 </view>
+
+
 <!-- 岗位卡片列表 -->
 <block wx:for="{{user_job}}" wx:key="">
-  <!-- <view class='kapian-page'> -->
+  <view class='block ma-xia'>
 
+    <view class='shixian-xia pa-xia'>
 
-  <view class='block'>
+      <!-- 岗位名称 -->
+      <view class="pa-xia">{{item.job_name}}</view>
 
-    <view class='neirong'>
-      <view class="pa-xia h2">{{item.job_name}}</view>
-
-      <view class='pa-xia flex-ceshi'>
-        <view class='col-tomato'>{{pay_level_data[item.pay_level]}}</view>
-        <view class="h3">浏览:{{item.page_view}}</view>
-        <view class="h3">{{item.update_time}}</view>
+      <!-- 薪资-浏览量-时间 -->
+      <view class='pa-xia flex-b h4'>
+        <text class='col-tomato flex1'>{{pay_level_data[item.pay_level]}}</text>
+        <text class="flex1 text-zhong">浏览:{{item.page_view}}</text>
+        <text class="flex1 text-you">{{item.update_time}}</text>
       </view>
 
-      <view class='shenglve'>
-        <block class='' wx:for="{{item.welfare}}" wx:for-item="aa" wx:key="">
-          <text class='biaoqian'>{{aa}}</text>
+      <!-- 福利 -->
+      <view class='text-shenglve pa-xia'>
+        <block class='' wx:for="{{item.welfare}}" wx:for-item="welfare_item" wx:key="">
+          <text class='box h5'>{{welfare_item}}</text>
         </block>
       </view>
+
+      <!-- 要求->人数-经验-学历-性别 -->
+      <view class="h4 decs">招聘:{{item.ments_number}} 人</view>
+      <view class="h4 decs">性别:{{ments_sex_data[item.ments_sex]}}</view>
+      <view class="h4 decs">经验:{{ments_exp_data[item.ments_exp]}}</view>
+      <view class="h4 decs">学历:{{ments_education_data[item.ments_education]}}</view>
+
+      <!-- 称呼-电话 -->
+      <view class="h4 decs">称呼:{{item.job_user_name}}</view>
+      <view class="h4 decs">电话:{{item.phone}}</view>
+
+      <!-- 岗位描述 -->
+      <view class="h4 decs pa-shangxia">岗位描述:</view>
+      <text class="h5 decs">{{item.job_description}}</text>
+
+
     </view>
-    <!-- <view class='pa-shang border-xuxian-top'>
-          <view class="fl-left h3">{{item.company_name}}</view>
-          <view class="txt-right h3"><image src='/pages/img/address.png' class='icon-img' />{{work_place_data[item.work_area]}}</view>
-        </view> -->
-        
-    <view class='anniu-view'>
+
+
+    <view class='flex-a ma-shang'>
+
       <navigator url='/pages/user/user-job/creata_or_update/create_or_update_job?job_id={{item.id}}&company_id={{item.company_id}}'>
-        <view class='anniu h3' >编辑</view>
+        <view class='anniu h5'>编辑</view>
       </navigator>
 
-      <view class='anniu h3'  bindtap='delete_Job' id="{{item.id}}">删除</view>
+      <view class='anniu h5' bindtap='delete_Job' id="{{item.id}}">删除</view>
+
     </view>
 
   </view>
-
-  <!-- </view> -->
 </block>

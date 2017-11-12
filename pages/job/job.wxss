@@ -1,11 +1,5 @@
 /* pages/job/job.wxss */
 
-.shenglve {
-  /* width: 100%; */
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}
 
 .zhedie {
   max-height: 0px;
@@ -26,4 +20,13 @@
 .flex-col{
   display: flex;
   flex-flow: column
+}
+
+.job-css-flod{
+  height: 100rpx;
+  width: 100%;
+  /* background-color: antiquewhite; */
+  position: fixed;
+  bottom: 0;
+  line-height: 100rpx;
 }

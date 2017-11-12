@@ -1,23 +1,34 @@
-<view>
+<!-- 如果没有简历，显示新增按钮 -->
+<view class='block meiyou' wx:if="{{user_company == null}}">
+  <text class=''>你还没有公司.赶快新增公司</text>
 
-  <navigator url='/pages/user/user-company/create_or_update/create_or_update'>
-    <button size=''>新增公司</button>
+  <navigator class='' url='/pages/user/user-company/create_or_update/create_or_update'>
+    <view class='xinzeng'>新增公司</view>
   </navigator>
 
-  <block wx:for="{{user_company}}" wx:key="">
-    <view>{{item.id}}</view>
-    <view>{{item.company_name}}</view>
-    <view>{{item.company_size}}</view>
-    <view>{{item.create_time}}</view>
-    <navigator url='/pages/user/user-company/create_or_update/create_or_update?id={{item.id}}'>
-      <!-- <view bindtap='edit_company' id="{{item.id}}"> -->
-      <button size='mini'>编辑公司</button>
-      <!-- </view> -->
+</view>
+
+<!-- 如果有简历，正常显示简历 -->
+<view wx:else class='block'>
+  <view class='h3'>
+    <!-- <view>id：{{user_company.id}}</view> -->
+    <view class='shixian-xia pa-shangxia'>公司名称：{{user_company.company_name}}</view>
+    <view class='shixian-xia pa-shangxia'>公司规模：{{company_size_data[user_company.company_size]}}</view>
+    <view class='shixian-xia pa-shangxia'>所属行业：{{company_industry_data[user_company.company_industry]}}</view>
+    <view class='shixian-xia pa-shangxia'>公司地址：{{user_company.company_address}}</view>
+    <view class='shixian-xia pa-shangxia'>公司性质：{{company_nature_data[user_company.company_nature]}}</view>
+    <view class='shixian-xia pa-shangxia'>更新时间：{{user_company.update_time}}</view>
+    <view class='pa-shangxia'>
+      <view>公司描述：</view>
+      <text>{{user_company.company_description}}</text>
+    </view>
+  </view>
+
+  <view class='anniu-view shixian-shang'>
+    <navigator url='/pages/user/user-company/create_or_update/create_or_update?id={{user_company.id}}'>
+      <view class='anniu h3'>编辑公司</view>
     </navigator>
 
-    <button size='mini' bindtap='delete_company' id="{{item.id}}">删除公司</button>
-    ----------------------------
-
-  </block>
-
+    <view class='anniu h3' bindtap='delete_company' id="{{user_company.id}}">删除公司</view>
+  </view>
 </view>

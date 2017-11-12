@@ -1,9 +1,52 @@
 import { Validata } from '../../../utils/validata.js'
 import { Company } from '../user-company-model.js'
 import { Config } from '../../../utils/config.js'
+import  WxValidate  from '../../../../wx-validate/WxValidate.js'
 
 const company = new Company
 const validata = new Validata()
+
+
+
+//初始化表单验证
+const rules = {
+  // 公司名称
+  company_name: {
+    required: true
+  },
+
+  // 公司地址
+  company_address: {
+    required: true,
+    minlength: 5  //最少输入5个字符
+  },
+  // 公司描述
+  company_description: {
+    required: true,
+    minlength: 5  //最少输入5个字符
+  }
+}
+
+const messages = {
+  // 公司名称
+  company_name: {
+    required: '公司名不能为空'
+  },
+  // 公司地址
+  company_address: {
+    required: '公司地址不能为空',
+    minlength: '地址最少输入5个字符'
+  },
+  // 公司描述
+  company_description: {
+    required: '描述不能为空',
+    minlength: '描述最少输入5个字符'
+  }
+}
+
+const wxValidate = new WxValidate(rules, messages)  // 实例化表单验证
+
+
 Page({
 
 
@@ -49,11 +92,12 @@ Page({
   getFormdata: function (e) {
     let value = e.detail.value
 
-    //验证
-    let check = this.valueCheck({
-      company_name: value.company_name, company_address: value.company_address, company_description: value.company_description
-    })
-    if (check) { return } //验证不通过不执行下面的
+    //验证数据 **********************************************************
+    if (!wxValidate.checkForm(e)) {
+      const error = wxValidate.errorList[0]
+      company.tip_Modal({ content: error.msg })
+      return false
+    }
 
 
     //组织请求数据 -> 判断是更新还是新增
@@ -81,22 +125,6 @@ Page({
   },
 
 
-
-  //验证
-  valueCheck: function (obj) {
-    if (validata.isEmpty(obj.company_name)) {
-      company.tip_Modal({ content: '公司名称不能为空' })
-      return true
-    }
-    if (validata.isEmpty(obj.company_address)) {
-      company.tip_Modal({ content: '公司地址不能为空' })
-      return true
-    }
-    if (validata.isEmpty(obj.company_description)) {
-      company.tip_Modal({ content: '公司描述不能为空' })
-      return true
-    }
-  },
 
 
 
