@@ -6,101 +6,34 @@ Page({
    * 页面的初始数据
    */
   data: {
-    start_date: '2016-09',
-    end_date: '2016-09',
+
   },
 
-  bindDateStart: function (e) {
-    console.log('start_date', e.detail.value)
-    this.setData({
-      start_date: e.detail.value
-    })
-  },
+  ceshi() {
+    let str = '云南省曲靖市马龙县XXX'
+    let arr = ['麒麟', '沾益', '马龙']
 
-  bindDateEnd: function (e) {
-    console.log('end_date', e.detail.value)
-    this.setData({
-      end_date: e.detail.value
-    })
-  },
+    let dizhi = str.slice(6) //删除'云南省曲靖市'
+    console.log('dizhi',dizhi)
 
 
-  company_name: function (e) {
-    console.log('company_name', e.detail.value)
-    this.setData({
-      company_name: e.detail.value
-    })
-  },
-
-  you_job: function (e) {
-    console.log('you_job', e.detail.value)
-    this.setData({
-      you_job: e.detail.value
-    })
-  },
-
-  job_neirong: function (e) {
-    console.log('job_neirong', e.detail.value)
-    this.setData({
-      job_neirong: e.detail.value
-    })
-  },
-
-  formValue(e) {
-    let value = e.detail.value
-    let arr = wx.getStorageSync('form') || []
-    console.log('form', e.detail.value)
-
-    let stoage = {
-      start_date: value.start_date,
-      end_date: value.end_date,
-      company_name: value.company_name,
-      you_job: value.you_job,
-      job_neirong: value.job_neirong
+    for (let i in arr) {
+      // console.log(arr[i])
+      if (dizhi.indexOf(arr[i]) != -1) {
+        console.log('这是：',arr[i])
+        console.log('下标是：', i)
+      }
     }
-    console.log('stoage', stoage)
 
-    // 没有id新增？有id编辑？用是否有id来判断
-    if (this.data.id) {
-      //编辑
-      console.log('you id')
-      arr[this.data.id] = stoage
-    } else {
-      // 新增
-      console.log('meiyou id')
-      arr.push(stoage)
-    }
-    
-    wx.setStorageSync('form', arr)
-
-    // return
-
-    //跳转
-    wx.navigateTo({
-      url: '/pages/ceshi1/ceshi1',
-    })
   },
+
+
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (op) {
-    console.log('op', op)
-
-    if (!op.id) { return }
-
-    let id = op.id
-    let arr = wx.getStorageSync('form') || []
-
-    this.setData({
-      id: id,  // 用来判断是新增还是编辑
-      start_date: arr[id].start_date,
-      end_date: arr[id].end_date,
-      company_name: arr[id].company_name,
-      you_job: arr[id].you_job,
-      job_neirong: arr[id].job_neirong
-    })
-
+    console.log('ceshi_onLoadop', op)
 
   },
 

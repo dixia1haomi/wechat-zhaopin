@@ -1,15 +1,10 @@
-<block wx:for="{{data}}" id="{{index}}" wx:key="">
-  <view>{{item.start_date}} ~ {{item.end_date}}</view>
-  <view>{{item.company_name}} / {{item.you_job}}</view>
-  <view>{{item.job_neirong}}</view>
+<map id="myMap" show-location longitude='{{longitude}}' latitude='{{latitude}}' style="width: 100%; height: 300px;" />
 
 
-<navigator url='/pages/ceshi/ceshi?id={{ index}}' open-type='navigateBack' delta="1">
-  <view>编辑</view>
-</navigator>
 
-  <view>删除</view>
-</block>
+<input disabled bindinput='input1' placeholder='input1' value='{{address}}'></input>
 
-<view>继续添加</view>
-<view>完成</view>
+
+
+<view bindtap='open_map'>打开地图选择位置</view>
+<view bindtap='open_neizhimap'>内置地图查看位置</view>

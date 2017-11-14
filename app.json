@@ -1,5 +1,9 @@
+
+
+
 {
   "pages": [
+
     "pages/index/index",
     "pages/ceshi/ceshi",
     "pages/ceshi1/ceshi1",
@@ -22,19 +26,25 @@
     "navigationBarTextStyle": "black"
   },
   "tabBar": {
+
     "list": [
+
       {
         "pagePath": "pages/index/index",
         "text": "找工作"
       },
+
       {
         "pagePath": "pages/resume/resume",
         "text": "找人才"
       },
+
       {
         "pagePath": "pages/user/user",
         "text": "我的"
       }
+
     ]
+
   }
 }

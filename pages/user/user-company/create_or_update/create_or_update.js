@@ -1,7 +1,7 @@
 import { Validata } from '../../../utils/validata.js'
 import { Company } from '../user-company-model.js'
 import { Config } from '../../../utils/config.js'
-import  WxValidate  from '../../../../wx-validate/WxValidate.js'
+import WxValidate from '../../../../wx-validate/WxValidate.js'
 
 const company = new Company
 const validata = new Validata()
@@ -14,11 +14,10 @@ const rules = {
   company_name: {
     required: true
   },
-
   // 公司地址
   company_address: {
     required: true,
-    minlength: 5  //最少输入5个字符
+    // minlength: 5  //最少输入5个字符
   },
   // 公司描述
   company_description: {
@@ -35,7 +34,7 @@ const messages = {
   // 公司地址
   company_address: {
     required: '公司地址不能为空',
-    minlength: '地址最少输入5个字符'
+    // minlength: '地址最少输入5个字符'
   },
   // 公司描述
   company_description: {
@@ -61,7 +60,10 @@ Page({
     company_size_key: 0,
     company_nature_key: 0,
     company_industry_key: 0,
+
+    textarea_cursor:0
   },
+
 
   /**
    * 生命周期函数--监听页面加载
@@ -73,7 +75,7 @@ Page({
   //编辑公司 -》 取id -》 查公司信息 -》 传值给页面 -》 再提交
   edit_company: function (id) {
     company.get_Company_Detail(id, (res) => {
-      console.log('查公司信息',res)
+      console.log('查公司信息', res)
       this.setData({
         id: res.id,
         company_name: res.company_name,
@@ -122,6 +124,12 @@ Page({
   //公司-所属行业选择器
   company_industry_picker: function (e) {
     this.setData({ company_industry_key: e.detail.value })
+  },
+
+  // textarea输入计数
+  textarea(e) {
+    console.log('company_textarea', e.detail.cursor)
+    this.setData({ textarea_cursor: e.detail.cursor })
   },
 
 
@@ -176,5 +184,15 @@ Page({
    */
   onShareAppMessage: function () {
 
-  }
+  },
+
+
+  // 打开地图选择位置
+  openMap() {
+    company.openMap((res) => {
+      console.log('打开地图选择位置scallBack', res)
+      this.setData({ company_address: res.address })
+    })
+  },
+
 })

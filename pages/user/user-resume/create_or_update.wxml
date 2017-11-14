@@ -26,7 +26,7 @@
     <!-- 联系电话 -->
     <view class="flex-shangxia-zhong shixian-xia gao">
       <text class="flex1">联系电话</text>
-      <input class="flex3" name="phone" placeholder='请输入联系电话' value="{{phone}}"></input>
+      <input class="flex3" name="phone" placeholder='请输入联系电话' value="{{phone}}"  type='number'></input>
     </view>
 
 
@@ -115,8 +115,8 @@
     <view class='shixian-xia ma-xia'>
       <view class="flex-shangxia-zhong gao">个人简介</view>
       <view class="">
-        <textarea class='kuang' value='{{resume_description}}' name="resume_description" placeholder="请输入个人简介" />
-        <view class="text-you desc">0/200</view>
+        <textarea class='kuang' value='{{resume_description}}' name="resume_description" placeholder="请输入个人简介" bindinput='textarea' maxlength='1000' />
+        <view class="text-you desc">{{textarea_cursor}}/1000</view>
       </view>
     </view>
 

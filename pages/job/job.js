@@ -127,5 +127,24 @@ Page({
    */
   onShareAppMessage: function () {
 
-  }
+  },
+
+  // 查看地图位置
+  seeMap() {
+    const params = {
+      address: this.data.data.map_address,
+      name: this.data.data.map_name,
+      longitude: Number(this.data.data.map_longitude),
+      latitude: Number(this.data.data.map_latitude),
+    }
+    job.seeMap(params,(res) => {
+      console.log('岗位详细信息-查看地图scallBack', res)
+    })
+  },
 })
+      // this.setData({
+      //   map_address: res.address,
+      //   map_name: res.name,
+      //   map_longitude: res.longitude,
+      //   map_latitude: res.latitude
+      // })

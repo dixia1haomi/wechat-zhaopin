@@ -2,7 +2,7 @@ import { Validata } from '../../utils/validata.js'
 import { Base } from '../../utils/base.js'
 import { Resume } from '../../resume/resume-model.js'
 import { Config } from '../../utils/config.js'
-import  WxValidate  from '../../../wx-validate/WxValidate.js'
+import WxValidate from '../../../wx-validate/WxValidate.js'
 
 const validata = new Validata()
 const base = new Base()
@@ -15,7 +15,6 @@ const rules = {
     required: true,
     maxlength: 2  //最多输入2个字符
   },
-
   // 电话号码
   phone: {
     required: true,
@@ -71,6 +70,8 @@ Page({
     report_time_data: Config.report_time_data, report_time_key: 0,
     // 目前状态
     current_state_data: Config.current_state_data, current_state_key: 0,
+    // textarea计数
+    textarea_cursor: 0
   },
 
   /**
@@ -110,7 +111,7 @@ Page({
 
   // 提交表单
   getFormdata: function (e) {
-    console.log('form',e.detail.value)
+    console.log('form', e.detail.value)
     let value = e.detail.value
 
     //验证数据 **********************************************************
@@ -223,4 +224,12 @@ Page({
 
   //简历-意向职业-选择器
   expectation_position_picker: function (e) { this.setData({ expectation_position_key: e.detail.value }) },
+
+  // textarea输入计数
+  textarea(e) {
+    console.log('resume_textarea', e.detail.cursor)
+    this.setData({ textarea_cursor: e.detail.cursor })
+  }
+
+
 })

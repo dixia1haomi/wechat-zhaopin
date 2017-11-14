@@ -8,7 +8,7 @@
 		"newFeature": true
 	},
 	"compileType": "miniprogram",
-	"libVersion": "1.6.4",
+	"libVersion": "1.6.0",
 	"appid": "wxc5c3c565cfe8cf9f",
 	"projectname": "%E6%8B%9B%E8%81%98",
 	"condition": {
@@ -21,12 +21,12 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": -1,
+			"current": 0,
 			"list": [
 				{
 					"id": 0,
 					"name": "我的岗位",
-					"pathName": "pages/user/user",
+					"pathName": "pages/user/user-company/user-company",
 					"query": ""
 				}
 			]

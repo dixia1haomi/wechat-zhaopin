@@ -43,7 +43,7 @@ Config.work_exp_data = ['无经验', '应届生', '1年以下', '1-3年', '3-5�
 Config.education_data = ['初中', '中专/技校', '高中', '大专', '本科', '硕士', '博士', 'MBA/EMBA']
 
 // 求职区域 - 与岗位的工作区域共用
-Config.work_place_data = ['曲靖', '麒麟', '沾益']
+Config.work_place_data = ['曲靖', '麒麟', '沾益','罗平','富源','师宗','陆良','会泽','马龙','宣威']
 
 // 工作性质
 Config.work_nature_data = ['全职', '兼职', '全职/兼职']

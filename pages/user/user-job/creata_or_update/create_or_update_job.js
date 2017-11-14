@@ -14,17 +14,22 @@ const rules = {
   // 岗位名称
   job_name: {
     required: true,
-    minlength: 2  //最少输入5个字符
+    minlength: 2  //最少输入2个字符
   },
   // 招聘人数
   ments_number: {
     required: true,
-    digits: true // 必须是数字
+    range: [1, 99] // 招聘人数1-99之内
   },
   //详细地址
-  detailed_address: {
+  map_address: {
     required: true,
-    minlength: 5  //最少输入5个字符
+    contains: '云南省曲靖市'  //必须包含云南省曲靖市
+  },
+  // 称呼
+  job_user_name: {
+    required: true,
+    maxlength: 4  //最多输入4个字符
   },
   // 电话号码
   phone: {
@@ -38,21 +43,27 @@ const rules = {
   }
 }
 
+//表单验证提示
 const messages = {
   // 岗位名称
   job_name: {
-    required: '名称不能为空',
-    minlength: '名称最少输入2个字符'
+    required: '岗位名称不能为空',
+    minlength: '岗位名称最少输入2个字符'
   },
   // 招聘人数
   ments_number: {
     required: '人数不能为空',
-    digits: '人数只能输入数字'
+    range: '招聘人数1-99之内'
   },
   //详细地址
-  detailed_address: {
+  map_address: {
     required: '地址不能为空',
-    minlength: '地址最少输入5个字符'
+    contains: '岗位的范围仅限于曲靖地区'  //必须包含云南省曲靖市
+  },
+  // 称呼
+  job_user_name: {
+    required: '你的称呼不能为空',
+    maxlength: '你的称呼最多输入4个字符'
   },
   // 电话号码
   phone: {
@@ -99,6 +110,8 @@ Page({
     //工作福利
     job_welfare_data: Config.job_welfare,
 
+    // textarea计数
+    textarea_cursor:0
   },
 
   /**
@@ -139,7 +152,10 @@ Page({
         ments_exp_key: res.ments_exp,
         ments_sex_key: res.ments_sex,
         ments_education_key: res.ments_education,
-        detailed_address: res.detailed_address,
+        map_address: res.map_address,
+        map_name: res.map_name,
+        map_longitude: res.map_longitude,
+        map_latitude: res.map_latitude,
         job_description: res.job_description,
       })
     })
@@ -253,6 +269,12 @@ Page({
     this.setData({ work_area_key: e.detail.value })
   },
 
+  // textarea输入计数
+  textarea(e) {
+    console.log('job_textarea', e.detail.cursor)
+    this.setData({ textarea_cursor: e.detail.cursor })
+  },
+
 
 
 
@@ -310,5 +332,42 @@ Page({
    */
   onShareAppMessage: function () {
 
+  },
+
+
+  // 打开地图选择位置
+  openMap() {
+    job.openMap((res) => {
+      console.log('岗位-打开地图选择位置scallBack', res)
+      let i = this.work_area(res.address, Config.work_place_data) // 检查map地址中包含Config工作区域数组中的哪一项,返回对应的下标
+      console.log('ret', i)
+      this.setData({
+        map_address: res.address,
+        map_name: res.name,
+        map_longitude: res.longitude,
+        map_latitude: res.latitude,
+        work_area_key: i
+      })
+    })
+
+  },
+
+  //自动处理工作区域的数据->根据地图返回的地址匹配工作区域
+  work_area: (mapAddress, arr) => {
+    // let mapAddress = mapAddress
+    // let arr = Config.work_place_data
+    let str = mapAddress.slice(6) //删除'云南省曲靖市'
+    console.log('str', str)
+
+    for (let i in arr) {
+      // console.log(arr[i])
+      // 检查map地址中包含Config工作区域数组中的哪一项,返回对应的下标
+      if (str.indexOf(arr[i]) != -1) {
+        console.log('这是：', arr[i])
+        console.log('下标是：', i)
+        return i;
+        // this.setData({ work_area_key: i })
+      }
+    }
   }
 })

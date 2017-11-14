@@ -43,7 +43,7 @@
     <!-- 公司地址 -->
     <view class="flex-shangxia-zhong shixian-xia gao">
       <text class="flex1">公司地址</text>
-      <input class="flex3" name="company_address" value="{{company_address}}" placeholder='请输入公司地址'></input>
+      <input class="flex3" disabled name="company_address" value="{{company_address}}" placeholder='请输入公司地址' bindtap='openMap'></input>
     </view>
 
 
@@ -51,8 +51,8 @@
     <view class='shixian-xia ma-xia'>
       <view class="flex-shangxia-zhong gao">公司描述</view>
       <view class="">
-        <textarea class='kuang' value='{{company_description}}' name="company_description" placeholder="请输入公司介绍" />
-        <view class="text-you desc">0/200</view>
+        <textarea class='kuang' value='{{company_description}}' name="company_description" placeholder="请输入公司介绍" bindinput='textarea' maxlength='1000' />
+        <view class="text-you desc">{{textarea_cursor}}/1000</view>
       </view>
     </view>
 

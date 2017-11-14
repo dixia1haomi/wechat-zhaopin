@@ -39,7 +39,7 @@
     <!-- 要求人数 -->
     <view class="flex-shangxia-zhong shixian-xia gao">
       <text class="flex1">招聘人数</text>
-      <input class="flex3" name="ments_number" value="{{ments_number}}"></input>
+      <input class="flex3" name="ments_number" value="{{ments_number}}" type='number'></input>
     </view>
 
 
@@ -82,8 +82,8 @@
     </view>
 
 
-    <!-- 工作区域 -->
-    <view class="flex-shangxia-zhong shixian-xia gao">
+    <!-- 工作区域--隐藏--已实现根据map地址自动选取 -->
+    <view class="flex-shangxia-zhong shixian-xia gao" hidden='1'>
       <text class="flex1">工作区域</text>
       <picker class='flex3' name="work_area" bindchange="work_area_picker" value="{{work_area_key}}" range="{{work_area_data}}">
         <view class="">{{work_area_data[work_area_key]}}</view>
@@ -91,11 +91,31 @@
     </view>
 
 
-    <!-- 工作地址 -->
+    <!-- 地图地址 -->
     <view class="flex-shangxia-zhong shixian-xia gao">
       <text class="flex1">工作地址</text>
-      <input class="flex3" name="detailed_address" value="{{detailed_address}}"></input>
+      <input class="flex3" disabled name="map_address" value="{{map_address}}" bindtap='openMap'></input>
     </view>
+
+    <!-- 地图name -->
+    <view class="flex-shangxia-zhong shixian-xia gao">
+      <text class="flex1">地址名称</text>
+      <input class="flex3" disabled name="map_name" value="{{map_name}}"></input>
+    </view>
+
+    <!-- 地图经度--隐藏 -->
+    <view class="flex-shangxia-zhong shixian-xia gao" hidden='1'>
+      <text class="flex1">地图经度</text>
+      <input class="flex3" disabled name="map_longitude" value="{{map_longitude}}"></input>
+    </view>
+
+    <!-- 地图纬度--隐藏 -->
+    <view class="flex-shangxia-zhong shixian-xia gao" hidden='1'>
+      <text class="flex1">地图纬度</text>
+      <input class="flex3" disabled name="map_latitude" value="{{map_latitude}}"></input>
+    </view>
+
+    <!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
 
 
     <!-- 你的称呼 -->
@@ -108,7 +128,7 @@
     <!-- 联系电话 -->
     <view class="flex-shangxia-zhong shixian-xia gao">
       <text class="flex1">联系电话</text>
-      <input class="flex3" name="phone" value="{{phone}}"></input>
+      <input class="flex3" name="phone" value="{{phone}}" type='number'></input>
     </view>
 
 
@@ -116,8 +136,8 @@
     <view class='shixian-xia ma-xia'>
       <view class="flex-shangxia-zhong gao">职位描述</view>
       <view class="">
-        <textarea class='kuang' value='{{job_description}}' name="job_description" placeholder="请输入职位描述" />
-        <view class="text-you desc">0/200</view>
+        <textarea class='kuang' value='{{job_description}}' name="job_description" placeholder="请输入职位描述" bindinput='textarea' maxlength='1000'/>
+        <view class="text-you desc">{{textarea_cursor}}/1000</view>
       </view>
     </view>
 

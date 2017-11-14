@@ -53,9 +53,12 @@
     </view>
   </view>
 
-  <view class='block ma-xia'>
-    <view class='ma-xia'>工作区域:{{work_area_data[data.work_area]}}</view>
-    <view class='h4'>工作地址(地图*):{{data.detailed_address}}</view>
+  <!-- 工作区域 -->
+  <view class='block ma-xia' bindtap='seeMap'>
+    <!-- <view class='ma-xia'>工作区域:{{work_area_data[data.work_area]}}</view> -->
+         <view class='ma-xia'>工作区域</view> 
+    <view class='h4 desc'>{{data.map_address}}</view>
+    <view class='h4 desc'>{{data.map_name}}</view>
   </view>
 
   <view class='block ma-xia'>
@@ -150,7 +153,7 @@
   <view class='flex job-css-flod'>
     <view class='flex2 text-zhong' style='background-color:#fff;'>{{data.job_user_name}}</view>
     <!-- 电话 -->
-    <view class='flex1 text-zhong' style='background-color:tomato;' bindtap='phone_tap' >
+    <view class='flex1 text-zhong' style='background-color:tomato;' bindtap='phone_tap'>
       <text class="iconfont icon-phone" style='color:#fff;' />
     </view>
   </view>
