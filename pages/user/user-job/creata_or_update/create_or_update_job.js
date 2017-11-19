@@ -111,22 +111,28 @@ Page({
     job_welfare_data: Config.job_welfare,
 
     // textarea计数
-    textarea_cursor:0
+    textarea_cursor: 0,
+
+    // 岗位类型
+    job_type: 0,
+    // 公司id
+    company_id: 0,
+    // 公司名字
+    company_name: '',
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (op) {
-    // console.log('1',wxValidate)
-    // return
-    if (op.job_id) {
-      console.log('you id', op.job_id)
-      //如果有岗位id，证明是编辑，获取数据赋给模板
-      this.edit_Job(op.job_id)
-    } else {
-      this.get_Company_Data()
-    }
+    console.log('load', op)
+
+    // 如果job_type == 1是新增公司岗位，设置data数据
+    op.job_type == 1 && this.setData({ job_type: op.job_type, company_id: op.company_id, company_name: op.company_name })
+
+    // 判断是-新增岗位-还是编辑岗位
+    op.job_id && this.edit_Job(op.job_id)
+
   },
 
 
@@ -143,7 +149,9 @@ Page({
       this.setData({
         id: job_id,
         company_id: res.company_id,
+        company_name: res.company_name,
         job_name: res.job_name,
+        job_type: res.job_type,
         job_user_name: res.job_user_name,
         pay_level_key: res.pay_level,
         phone: res.phone,
@@ -174,12 +182,9 @@ Page({
       return false
     }
 
-
     //处理提交来的数据 
-
     value.welfare = JSON.stringify(value.welfare)           //岗位福利数组 转为 json字符储存
 
-    // return
     //用岗位id - 判断是请求新增或更新
     if (new Validata().isEmpty(value.id)) {
       job.create_job(value, (res) => { if (res.code == 201) { job.tip_Toast('发布成功') } else { job.tip_Toast('发布失败') } })
@@ -190,24 +195,6 @@ Page({
 
 
 
-  //获取用户关联的公司 getUserCompany_Model
-  get_Company_Data: function () {
-    //获取用户关联的公司 -> 判断用户名下是否有公司 -> 
-    user.getUserCompany_Model((res) => {
-
-      console.log('获取用户关联的公司', res)
-
-      if (res.user_company == null) {
-        console.log('没得公司')
-        return
-      }
-      //设置数据company_data，用于判断是否关联公司
-      this.setData({
-        company_id: res.user_company.id,
-        company_name: res.user_company.company_name
-      })
-    })
-  },
 
 
   //处理福利的数据

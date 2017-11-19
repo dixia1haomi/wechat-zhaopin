@@ -1,4 +1,7 @@
 import { Base } from '../utils/base.js'
+// import { Token } from '../utils/token.js'
+
+// const token = new Token()
 
 class User extends Base {
 
@@ -18,7 +21,7 @@ class User extends Base {
   }
 
   //查询用户关联的公司
-  getUserCompany_Model(callBack) {
+  getUserCompany_Model(callBack, eCallback) {
     this.request({      //发送请求
       url: 'user/company',
       method: 'POST',

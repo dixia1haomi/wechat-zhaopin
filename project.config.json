@@ -21,12 +21,12 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 0,
+			"current": -1,
 			"list": [
 				{
 					"id": 0,
 					"name": "我的岗位",
-					"pathName": "pages/user/user-company/user-company",
+					"pathName": "pages/user/user-job/user-job",
 					"query": ""
 				}
 			]

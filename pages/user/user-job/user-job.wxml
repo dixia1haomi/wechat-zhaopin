@@ -1,8 +1,9 @@
 <view class='xinzeng-view'>
-  <navigator url='/pages/user/user-job/creata_or_update/create_or_update_job'>
-    <view class='xinzeng' size=''>新增岗位</view>
+  <navigator url='/pages/user/user-job/job-type/job-type'>
+    <view class='xinzeng'>新增岗位</view>
   </navigator>
 </view>
+
 
 
 <!-- 岗位卡片列表 -->
@@ -13,6 +14,17 @@
 
       <!-- 岗位名称 -->
       <view class="pa-xia">{{item.job_name}}</view>
+
+      <!-- 判断显示-有公司 -->
+      <view>
+        <block wx:if="{{item.job_type != 0}}">
+          <icon class="iconfont icon-qiye" style='color:#1296db;'></icon>
+        </block>
+        <!-- 个人发布-没有公司 -->
+        <block wx:else>
+          <icon class="iconfont icon-qiye1" style='color:#e0620d;'></icon>
+        </block>
+      </view>
 
       <!-- 薪资-浏览量-时间 -->
       <view class='pa-xia flex-b h4'>

@@ -21,6 +21,8 @@
   </text>
 </view>
 
+
+
 <!-- index列表 -->
 <block wx:for="{{job_list_data}}" wx:key="">
   <navigator url='/pages/job/job?id={{item.id}}' open-type='navigate'>
@@ -45,7 +47,7 @@
       <!-- 个人-公司-地址 -->
       <view class='xuxian-shang flex-b'>
         <!-- 判断显示-有公司 -->
-        <view wx:if="{{item.company_id != 0}}">
+        <view wx:if="{{item.job_type != 0}}">
           <icon class="iconfont icon-qiye" style='color:#1296db;'></icon>
           <text class='h4'> {{item.company_name}}</text>
         </view>

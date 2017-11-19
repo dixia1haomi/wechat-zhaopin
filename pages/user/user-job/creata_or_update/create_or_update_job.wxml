@@ -9,15 +9,18 @@
     <input hidden="true" name="id" value="{{id}}"></input>
     <!-- 公司id -->
     <input hidden="true" name="company_id" value="{{company_id}}"></input>
+    <!-- 岗位type-个人0-公司1 -->
+    <input hidden="true" name="job_type" value="{{job_type}}"></input>
 
-
-    <!-- 我的公司 -->
-    <view hidden="{{company_id == 0}}">
+    <!-- 我的公司-类型为1才显示 -->
+    <block wx:if="{{ job_type == 1 }}">
+    <!-- <view hidden="{{company_id == 0}}"> -->
       <view class="flex-shangxia-zhong shixian-shang gao">
         <text class="flex1">我的公司</text>
         <view class="flex3">{{company_name}}</view>
       </view>
-    </view>
+    <!-- </view> -->
+    </block>
 
 
     <!-- 岗位名称 -->

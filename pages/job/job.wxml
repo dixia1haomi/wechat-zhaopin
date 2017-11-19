@@ -4,17 +4,8 @@
 
     <!-- 岗位名 -->
     <view class='h2 pa-xia'>{{data.job_name}}</view>
-
     <!-- 薪资 -->
     <view class='h2 pa-xia col-tomato'>{{pay_level_data[data.pay_level]}}</view>
-
-    <!-- 更新时间-浏览次数 -->
-    <!-- <view class='pa-xia flex-zhong'> -->
-    <!-- <view class='h4'>{{data.update_time}}</view> -->
-    <!-- <view class='h4'>浏览:{{data.page_view}}</view> -->
-    <!-- </view> -->
-
-
     <!-- 岗位福利 -->
     <view>
       <!-- <view class='h4'>岗位福利</view> -->
@@ -26,6 +17,14 @@
     </view>
 
   </view>
+
+  <!-- 公司信息 -->
+  <block wx:if="{{ data.job_type != 0 }}">
+    <navigator url='/pages/company/company' class='block'>
+      <view class=''>{{data.company.company_name}}</view>
+      <view class='h4 ma-shang-x'>{{company_size_data[data.company.company_size]}} / {{company_industry_data[data.company.company_industry]}}</view>
+    </navigator>
+  </block>
 
   <!-- 要求 -->
 
@@ -55,99 +54,69 @@
 
   <!-- 工作区域 -->
   <view class='block ma-xia' bindtap='seeMap'>
-    <!-- <view class='ma-xia'>工作区域:{{work_area_data[data.work_area]}}</view> -->
-         <view class='ma-xia'>工作区域</view> 
+    <view class='ma-xia'>工作区域</view>
     <view class='h4 desc'>{{data.map_address}}</view>
     <view class='h4 desc'>{{data.map_name}}</view>
   </view>
 
   <view class='block ma-xia'>
     <view>职位描述</view>
-    <!-- <view class='h4' > -->
-    <text class='h4'>
-  {{data.job_description}}
-  </text>
-    <!-- </view> -->
+    <text class='h4'>{{data.job_description}}</text>
   </view>
 
-  <!-- 公司信息 -->
-  <block wx:if="{{data.company_name != null}}">
-    <view class='block ma-xia'>
-      <view class='ma-xia'>公司信息</view>
-      <view class='ma-zuo h4'>公司名称:{{data.company_name}}</view>
-      <view class='ma-zuo h4'>公司规模:{{company_size_data[data.company.company_size]}}</view>
-      <view class='ma-zuo h4'>公司性质:{{company_nature_data[data.company.company_nature]}}</view>
-      <view class='zhedie {{zhankai_data ? "zhankai":""}}'>
-        <view class='ma-zuo h4'>所属行业:{{company_industry_data[data.company.company_industry]}}</view>
-        <view class='ma-zuo h4'>公司地址:{{data.company.company_address}}</view>
-        <text class='ma-zuo h4'>公司描述:{{data.company.company_description}}</text>
-      </view>
-      <!-- 展开-折叠 -->
-      <view class='flex-zhong ma-shang' bindtap='zhankai'>
 
-        <block wx:if="{{zhankai_data}}">
-          <icon class="iconfont icon-tabshouqi">折叠</icon>
-        </block>
 
-        <block wx:else>
-          <icon class="iconfont icon-tabxiala">展开</icon>
-        </block>
-
-      </view>
+  <!-- ---------------  公司其他岗位  ---------------- -->
+  <block wx:if="{{ data.job_type != 0 }}">
+    <view class='block'>
+      <view class='ma-shangxia'>公司其他岗位</view>
     </view>
-  </block>
 
+    <block wx:for="{{data.company.company_in_job}}" wx:key="">
+      <navigator url='/pages/job/job?id={{item.id}}' open-type='redirect'>
+        <view class='block ma-xia'>
 
+          <view class="pa-xia">{{item.job_name}}</view>
 
-
-  <!----------------- 公司其他岗位 ------------------>
-  <view class='block'>
-    <view class='ma-shangxia h2'>公司其他岗位</view>
-  </view>
-  <!-- <view class='picker-view' style=''> -->
-  <block wx:for="{{data.company.company_in_job}}" wx:key="">
-    <navigator url='/pages/job/job?id={{item.id}}' open-type='redirect'>
-      <view class='block ma-xia'>
-
-        <view class="pa-xia">{{item.job_name}}</view>
-
-        <view class='pa-xia flex-zhong'>
-          <view class='col-tomato flex1'>{{pay_level_data[item.pay_level]}}</view>
-          <view class="h4 flex1 text-zhong">浏览:{{item.page_view}}</view>
-          <view class="h4 flex1 text-you">{{item.update_time}}</view>
-        </view>
-
-        <view class='text-shenglve'>
-          <block class='' wx:for="{{item.welfare}}" wx:for-item="welfare_item" wx:key="">
-            <text class='box box-ma-you'>{{welfare_item}}</text>
-          </block>
-        </view>
-
-        <view class='xuxian-shang flex-b'>
-          <!-- 判断显示-有公司 -->
-          <view wx:if="{{item.company_id != 0}}">
-            <icon class="iconfont icon-qiye" style='color:#1296db;'></icon>
-            <text class='h4'> {{data.company_name}}</text>
+          <view class='pa-xia flex-zhong'>
+            <view class='col-tomato flex1'>{{pay_level_data[item.pay_level]}}</view>
+            <view class="h4 flex1 text-zhong">浏览:{{item.page_view}}</view>
+            <view class="h4 flex1 text-you">{{item.update_time}}</view>
           </view>
-          <!-- 个人发布-没有公司 -->
-          <view wx:else>
-            <icon class="iconfont icon-qiye1" style='color:#e0620d;'>
+
+          <view class='text-shenglve'>
+            <block class='' wx:for="{{item.welfare}}" wx:for-item="welfare_item" wx:key="">
+              <text class='box box-ma-you'>{{welfare_item}}</text>
+            </block>
+          </view>
+
+          <view class='xuxian-shang flex-b'>
+
+            <!-- 判断显示-有公司 -->
+            <view wx:if="{{item.job_type != 0}}">
+              <icon class="iconfont icon-qiye" style='color:#1296db;'></icon>
+              <text class='h4'> {{data.company_name}}</text>
+            </view>
+            <!-- 个人发布-没有公司 -->
+            <view wx:else>
+              <icon class="iconfont icon-qiye1" style='color:#e0620d;'>
+              </icon>
+              <text class='h4'> {{item.job_user_name}}</text>
+            </view>
+
+            <!-- 地址 -->
+            <icon class="h4 desc iconfont icon-dizhi">
+              <text class='h4'>{{work_area_data[item.work_area]}}</text>
             </icon>
-            <text class='h4'> {{item.job_user_name}}</text>
           </view>
 
-          <!-- 地址 -->
-          <icon class="h4 desc iconfont icon-dizhi">
-            <text class='h4'>{{work_area_data[item.work_area]}}</text>
-          </icon>
         </view>
-
-      </view>
-    </navigator>
+      </navigator>
+    </block>
   </block>
 
   <!-- 电话 -->
-  <!-- <text>{{data.phone}}</text> -->
+
 
   <!-- 固定在底部 -->
   <view class='flex job-css-flod'>

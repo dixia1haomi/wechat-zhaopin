@@ -1,49 +1,60 @@
-<!--pages/user/user.wxml-->
-
 <view class=''>
-  <!-- 头像 -->
+
+
   <view class='block ma-xia'>
+    <!-- 头像 -->
     <view class='touxiang'>
-      <image src='/pages/img/touxiang.png' class='touxiang-img' />
+      <image wx:if="{{userinfo}}" src='{{userinfo.avatarUrl}}' class='touxiang-img' />
+      <image wx:else src='/pages/img/touxiang.png' class='touxiang-img' />
+      <!-- <view class="weui-media-box__desc">性别：{{sex_data[resume_detail.sex]}}</view>  -->
     </view>
-
-    <view class="text-zhong ma-shangxia">先生/女士</view>
-    <!-- <view class="weui-media-box__desc">性别：{{sex_data[resume_detail.sex]}}</view> -->
-
-    <view bindtap='login' class='text-zhong login' hover-class='hover'>登录</view>
+    <!-- 昵称 -->
+    <view class='text-zhong ma-shangxia'>
+      <view wx:if="{{login}}" class="">{{userinfo.nickName}}</view>
+      <view wx:else bindtap='login' class='login' hover-class='hover'>登录</view>
+    </view>
 
   </view>
 
+
+  <!-- <block wx:if="{{}}"> -->
 
   <view class='block shixian-shang zidingyi'>
-
     <view class=''>
-      <navigator class='fangkuai1 flex-col-zhong' url='/pages/user/user-detail/user-detail'>
+      <!-- <navigator class='fangkuai1 flex-col-zhong' url='/pages/user/user-detail/user-detail'> -->
+      <view class='fangkuai1 flex-col-zhong' bindtap='userDetail'>
         <icon class="iconfont icon-wode size50 flex-zhong"></icon>
-        <view class='text-zhong h3' bindtap='getUserDetail'>详细信息</view>
-      </navigator>
+        <view class='text-zhong h3'>详细信息</view>
+      </view>
+      <!-- </navigator> -->
 
-      <navigator class='fangkuai3 flex-col-zhong' url='/pages/user/user-job/user-job'>
+      <!-- <navigator class='fangkuai3 flex-col-zhong' url='/pages/user/user-job/user-job'> -->
+      <view class='fangkuai1 flex-col-zhong' bindtap='userJob'>
         <icon class="iconfont icon-liebiao size50 flex-zhong"></icon>
         <view class='text-zhong h3' bindtap='getUserJob'>我的岗位</view>
-      </navigator>
+      </view>
+      <!-- </navigator> -->
     </view>
 
     <view class=''>
-      <navigator class='fangkuai2 flex-col-zhong' url='/pages/user/user-company/user-company'>
+      <!-- <navigator class='fangkuai2 flex-col-zhong' url='/pages/user/user-company/user-company'> -->
+      <view class='fangkuai1 flex-col-zhong' bindtap='userCompany'>
         <icon class="iconfont icon-jingjide size50 flex-zhong"></icon>
         <view class='text-zhong h3'>我的公司</view>
-      </navigator>
+      </view>
+      <!-- </navigator> -->
 
 
-      <navigator class='fangkuai4 flex-col-zhong' url='/pages/user/user-resume/user-resume'>
+      <!-- <navigator class='fangkuai4 flex-col-zhong' url='/pages/user/user-resume/user-resume'> -->
+      <view class='fangkuai1 flex-col-zhong' bindtap='userResume'>
         <icon class="iconfont icon-yijianfankui size50  flex-zhong"></icon>
         <view class='text-zhong h3'>我的简历</view>
-      </navigator>
+      </view>
+      <!-- </navigator> -->
     </view>
 
   </view>
-
+  <!-- </block> -->
 
 </view>
 

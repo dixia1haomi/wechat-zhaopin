@@ -1,0 +1,48 @@
+<view>
+
+  <view class='block'>
+    <!-- 公司名字 -->
+    <view class='ma-shang'>{{company_Data.company_name}}</view>
+    <!-- 所属行业 -->
+    <view class='h4 ma-shang-x'>所属行业:{{company_industry_data[company_Data.company_industry]}}</view>
+  </view>
+
+  <view class='block h4'>
+    <!-- 公司规模 -->
+    <view>公司规模:{{company_size_data[company_Data.company_size]}}</view>
+    <!-- 公司性质 -->
+    <view>公司性质:{{company_nature_data[company_Data.company_nature]}}</view>
+  </view>
+
+  <view class='block h4'>
+    <!-- 公司描述 -->
+    <text class=''>公司简介:{{company_Data.company_description}}</text>
+  </view>
+
+  <view class='block h4'>
+    <view>公司地址</view>
+    <!-- 公司地址 -->
+    <view>{{company_Data.company_address}}</view>
+  </view>
+
+
+</view>
+
+
+<!-- 公司id -->
+<!-- <view>{{company_Data.id}}</view> -->
+
+<!-- 更新时间 -->
+<!-- <view>{{company_Data.update_time}}</view> -->
+
+
+<!-- 公司关联的岗位 -->
+<!-- <block wx:for="{{company_Data.company_in_job}}" wx:key="">
+    <view>{{item.id}}</view>
+    <view>{{item.job_name}}</view>
+    <view>{{item.job_user_name}}</view>
+    <view>{{item.pay_level}}</view>
+    <view>{{item.phone}}</view>
+    <view>{{item.work_area}}</view>
+    <view>{{item.ments_number}}</view>
+  </block> -->

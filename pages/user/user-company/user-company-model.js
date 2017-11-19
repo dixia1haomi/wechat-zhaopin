@@ -9,7 +9,7 @@ class Company extends Base {
 
 
 
-  //查询公司详细信息
+  //查询公司详细信息->该方法还查询公司关联的岗位
   get_Company_Detail(id, callBack) {
     var params = {
       url: 'company/detail/' + id,

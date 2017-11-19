@@ -1,0 +1,21 @@
+<view>
+
+  <!-- type=0 代表个人岗位 -->
+  <view class='block flex-column'>
+    <!-- <navigator url='/pages/user/user-job/creata_or_update/create_or_update_job?type=0'> -->
+      <view class='xinzeng' bindtap='jobType_geren' data-type='0'>新增个人岗位</view>
+    <!-- </navigator> -->
+    <text class='h4 desc ma-shang'>可以直接发布岗位，不会展示店铺/公司信息</text>
+  </view>
+
+  <!-- type=1 代表公司/店铺岗位 -->
+  <view class='block flex-column'>
+    <!-- <navigator url='/pages/user/user-job/creata_or_update/create_or_update_job?type=1'> -->
+      <view class='xinzeng' bindtap='jobType_company' data-type='1'>新增公司/店铺岗位</view>
+    <!-- </navigator> -->
+    <text class='h4 desc ma-shang'>需要先创建
+    -公司/店铺-</text>
+  </view>
+
+
+</view>

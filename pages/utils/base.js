@@ -1,4 +1,5 @@
 import { Config } from 'config.js'
+import { Token } from '../utils/token.js'
 
 class Base {
 
@@ -7,14 +8,13 @@ class Base {
 
   }
 
-  //网络请求封装
-  request(params) {
-    var url = Config.restUrl + params.url
-    // var url = this.baseRequestUrl + params.url
 
-    if (!params.method) {
-      params.method = 'GET'
-    }
+  //网络请求封装,noRefetch为true时不在重试请求，详见Refetch
+  request(params, noRefetch) {
+    let that = this
+    let url = Config.restUrl + params.url
+
+    if (!params.method) { params.method = 'GET' }
 
     wx.request({
       url: url,
@@ -25,38 +25,57 @@ class Base {
       },
       method: params.method,
       success: function (res) {
-        // let aaa = res.statusCode.toString()
-        // console.log('job列表code', aaa)
-        params.sCallback && params.sCallback(res.data)
+        // 判断以2（2xx)开头的状态码为正确
+        // 异常不要返回到回调中，就在request中处理，记录日志并showToast一个统一的错误即可
+        var code = res.statusCode.toString();
+        var startChar = code.charAt(0);
+        if (startChar == '2') {
+          params.sCallback && params.sCallback(res.data);
+        } else {
+          if (code == '401') {
+            if (!noRefetch) { that._refetch(params) }
+          }
+          that._processError(res);
+          params.eCallback && params.eCallback(res.data);
+        }
       },
-      fail: function (err) {
-        console.log('request-fail', err)
-      }
+      fail: function (err) { that._processError(err) }
     })
+  }
+
+  // 请求错误
+  _processError(err) { console.log('base-request-fail', err) }
+
+  // 请求接口失败重试
+  _refetch(param) {
+    var token = new Token();
+    token.getTokenFromServer((token) => {
+      this.request(param, true);
+    });
   }
 
 
   //登录获取token
-  get_token_key(callBack) {
+  // get_token_key(callBack) {
 
-    //登录
-    wx.login({
-      success: res => {
+  //   //登录
+  //   wx.login({
+  //     success: res => {
 
-        this.request({
-          url: 'token/user',
-          method: 'POST',
-          data: { code: res.code },
-          sCallback: function (res) {
-            wx.setStorageSync('token_key', res.token_key) //缓存token
-            callBack && callBack(res)
-          }
-        })
+  //       this.request({
+  //         url: 'token/user',
+  //         method: 'POST',
+  //         data: { code: res.code },
+  //         sCallback: function (res) {
+  //           wx.setStorageSync('token_key', res.token_key) //缓存token
+  //           callBack && callBack(res)
+  //         }
+  //       })
 
-      }
-    })
+  //     }
+  //   })
 
-  }
+  // }
 
   //模态弹窗封装
   tip_Modal(params, callback) {
@@ -67,7 +86,9 @@ class Base {
     wx.showModal({
       // title: '提提',
       content: params.content,
-      showCancel: show, //是否显示取消按钮
+      showCancel: params.showCancel || false, //是否显示取消按钮
+      cancelText: params.cancelText || '取消',  //取消按钮文字最多4个
+      confirmText: params.confirmText || '确定',//确定按钮文字最多4个
       success: function (res) {
         callback && callback(res)
         // if (res.confirm) {

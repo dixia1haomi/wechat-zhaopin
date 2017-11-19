@@ -1,4 +1,10 @@
+import { Base } from '../utils/base.js'
+import { Token } from '../utils/token.js'
+import { Authorize } from '../utils/authorize.js'
 
+const authorize = new Authorize()
+const token = new Token()
+const base = new Base()
 
 Page({
 
@@ -9,95 +15,75 @@ Page({
 
   },
 
-  ceshi() {
-    let str = '云南省曲靖市马龙县XXX'
-    let arr = ['麒麟', '沾益', '马龙']
+  tokenuserinfu() {
+    token.tokenUserInfo((res) => {
+      console.log('222', res)
+    }, (err) => {
+      console.log('err', err)
+    })
+  },
 
-    let dizhi = str.slice(6) //删除'云南省曲靖市'
-    console.log('dizhi',dizhi)
+  // 初始化登录
+  chushihuadenglu() {
+    console.log('初始化登录')
+    token.verify()
+    // token.getTokenFromServer((res)=>{
+    //   console.log('aaaaa',res)
+    // })
+  },
+
+  //解密
+  jiemi() {
+    this.qingqiu(this.data.info, this.data.code, (res) => {
+      console.log('结果', res)
+    })
+  },
 
 
-    for (let i in arr) {
-      // console.log(arr[i])
-      if (dizhi.indexOf(arr[i]) != -1) {
-        console.log('这是：',arr[i])
-        console.log('下标是：', i)
+
+
+  // 获取用户信息
+  getuserinfo() {
+
+    authorize.authorize_UserInfo()
+
+  },
+
+
+
+  getstate() {
+    wx.checkSession({
+      success: function () {
+        console.log('session 未过期，并且在本生命周期一直有效')
+      },
+      fail: function () {
+        console.log('fail 登录态过期')
       }
-    }
-
+    })
   },
 
 
+  see() {
 
-  /**
-   * 生命周期函数--监听页面加载
-   */
+    
+    const app = getApp()
+    let info = app.appData.authorizeUserInfo
+    console.log('see - quanju',info)
+  },
+
+
   onLoad: function (op) {
-    console.log('ceshi_onLoadop', op)
+    // console.log('ceshi_onLoadop', op)
 
   },
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
   onReady: function () {
 
   },
 
-  /**
-   * 生命周期函数--监听页面显示
-   */
   onShow: function () {
 
   },
 
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
-  }
 })

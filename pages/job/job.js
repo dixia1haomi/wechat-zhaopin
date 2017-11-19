@@ -68,9 +68,9 @@ Page({
 
 
   //-----------------展开折叠-事件--------------------
-  zhankai: function () {
-    this.setData({ zhankai_data: !this.data.zhankai_data })
-  },
+  // zhankai: function () {
+  //   this.setData({ zhankai_data: !this.data.zhankai_data })
+  // },
 
   //拨打电话-事件
   phone_tap(){
