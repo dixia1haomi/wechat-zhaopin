@@ -8,6 +8,7 @@
 .touxiang-img {
   height: 160rpx;
   width: 160rpx;
+  border-radius: 50%;
 }
 
 .zidingyi {
@@ -15,6 +16,24 @@
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.zidingyi-nan {
+  color: #1296db;
+  border: 2px solid white;
+  border-radius: 50%;
+  position: relative;
+  top: -40rpx;
+  left: 120rpx;
+}
+
+.zidingyi-nv {
+  color: tomato;
+  border-radius: 50%;
+  border: 2px solid white;
+  position: relative;
+  top: -40rpx;
+  left: 120rpx;
 }
 
 .login {

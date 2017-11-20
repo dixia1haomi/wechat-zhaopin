@@ -9,7 +9,17 @@ class User extends Base {
     super()
   }
 
-  //登录
+  //更新用户信息
+  updateUserInfo(res, scallBack) {
+    console.log('updateUserInfo', res)
+    var Params = {
+      url: 'user/wx_userinfo',
+      method: 'POST',
+      data: { nickname: res.nickName, avatar_url: res.avatarUrl, gender: res.gender, province: res.province, city: res.city },
+      sCallback: function (data) { scallBack && scallBack(data) }
+    }
+    this.request(Params)
+  }
 
   //查询用户关联的岗位
   getUserJob_Model(callBack) {

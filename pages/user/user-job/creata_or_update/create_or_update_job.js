@@ -3,7 +3,9 @@ import { Job } from '../../../job/job-model.js'
 import { Config } from '../../../utils/config.js'
 import { Validata } from '../../../utils/validata.js'
 import WxValidate from '../../../../wx-validate/WxValidate.js'
+import { Authorize } from '../../../utils/authorize.js'
 
+const authorize = new Authorize()
 const validata = new Validata()
 const job = new Job()
 const user = new User()
@@ -24,7 +26,7 @@ const rules = {
   //详细地址
   map_address: {
     required: true,
-    contains: '云南省曲靖市'  //必须包含云南省曲靖市
+    contains: '曲靖市'  //必须包含云南省曲靖市
   },
   // 称呼
   job_user_name: {
@@ -324,23 +326,30 @@ Page({
 
   // 打开地图选择位置
   openMap() {
-    job.openMap((res) => {
-      console.log('岗位-打开地图选择位置scallBack', res)
-      let i = this.work_area(res.address, Config.work_place_data) // 检查map地址中包含Config工作区域数组中的哪一项,返回对应的下标
-      console.log('ret', i)
-      this.setData({
-        map_address: res.address,
-        map_name: res.name,
-        map_longitude: res.longitude,
-        map_latitude: res.latitude,
-        work_area_key: i
-      })
+    authorize.authorize_map((res) => {
+      console.log('authorize_map', res)
+      if (res) {
+        wx.chooseLocation({
+          success: (res) => {
+            console.log('chooseLocation - success', res)
+            let i = this.work_area(res.address, Config.work_place_data) // 检查map地址中包含Config工作区域数组中的哪一项,返回对应的下标
+            this.setData({
+              map_address: res.address.slice(3),  //删除'云南省曲靖市'
+              map_name: res.name,
+              map_longitude: res.longitude,
+              map_latitude: res.latitude,
+              work_area_key: i
+            })
+          },
+        })
+      }
     })
 
+    // console.log('岗位-打开地图选择位置scallBack', res)
   },
 
   //自动处理工作区域的数据->根据地图返回的地址匹配工作区域
-  work_area: (mapAddress, arr) => {
+  work_area(mapAddress, arr) {
     // let mapAddress = mapAddress
     // let arr = Config.work_place_data
     let str = mapAddress.slice(6) //删除'云南省曲靖市'

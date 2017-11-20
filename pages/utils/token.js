@@ -40,36 +40,6 @@ class Token {
     })
   }
 
-  // 获取用户信息getuserinfo
-  // tokenUserInfo(callBack) {
-  //   wx.getUserInfo({
-  //     success: (res) => {
-  //       console.log('tokenUserInfo内部 success', res)
-  //       callBack && callBack(res)
-  //     },
-  //     fail: () => {
-  //       console.log('tokenUserInfo内部 fail')
-  //       //检查授权
-  //       wx.getSetting({
-  //         success: (res) => {
-  //           console.log('getSetting success', res)
-  //           if (!res.authSetting['scope.userInfo']) {
-  //             console.log('没有授权userinfo')   //打开设置引导授权
-  //             wx.openSetting({
-  //               success: (res) => {
-  //                 console.log('opensetting')
-  //                 if (res.authSetting['scope.userInfo']) {
-  //                   console.log('已经授权openSetting')
-  //                   this.getTokenFromServer()  // 再次获取token
-  //                 }
-  //               }
-  //             })
-  //           }
-  //         }
-  //       })
-  //     }
-  //   })
-  // }
 
 
   // 去服务器检查token是否有效

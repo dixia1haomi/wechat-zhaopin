@@ -5,7 +5,6 @@ class Base {
 
   constructor() {
     // this.baseRequestUrl = Config.restUrl
-
   }
 
 
@@ -55,27 +54,6 @@ class Base {
   }
 
 
-  //登录获取token
-  // get_token_key(callBack) {
-
-  //   //登录
-  //   wx.login({
-  //     success: res => {
-
-  //       this.request({
-  //         url: 'token/user',
-  //         method: 'POST',
-  //         data: { code: res.code },
-  //         sCallback: function (res) {
-  //           wx.setStorageSync('token_key', res.token_key) //缓存token
-  //           callBack && callBack(res)
-  //         }
-  //       })
-
-  //     }
-  //   })
-
-  // }
 
   //模态弹窗封装
   tip_Modal(params, callback) {
@@ -154,43 +132,8 @@ class Base {
 
 
 
-  // 打开地图选择位置
-  openMap(scallBack) {
-    wx.chooseLocation({
-      //调用成功
-      success: (res) => {
-        console.log('打开地图选择位置-success', res)
-        scallBack && scallBack(res)
-        // this.setData({ company_address: res.address })
-      },
-      //调用失败
-      fail: (err) => {
-        console.log('打开地图选择位置-fail', err)
-        //检查是否授权
-        wx.getSetting({
-          success: (res) => {
-            console.log('检查地理位置是否授权', res)
-            if (!res.authSetting['scope.userLocation']) {
-              console.log('未授权-准备调用授权设置')
-              // 用户拒绝，调用授权设置
-              wx.openSetting({
-                success: (res) => {
-                  console.log('打开授权设置', res)
-                  if (res.authSetting['scope.userLocation']) {
-                    console.log('已授权', res)
-                    this.openMap()
-                  }
-                }
-              })
-            }
-          }
-        })
-      }
-    })
-  }
 
-
-  // 微信内置地图-查看-位置
+  // 微信内置地图-查看-位置  * 查看地图不需要授权
   seeMap(params, scallBack) {
 
     wx.openLocation({
@@ -203,31 +146,9 @@ class Base {
         console.log('seeMap微信内置地图-查看-位置-success', res)
         scallBack && scallBack(res)
       },
-      fail: (err) => {
-        console.log('seeMap微信内置地图-查看-位置-fail', err)
-        //检查是否授权
-        wx.getSetting({
-          success: (res) => {
-            console.log('seeMap检查地理位置是否授权', res)
-            if (!res.authSetting['scope.userLocation']) {
-              console.log('seeMap未授权-准备调用授权设置')
-              // 用户拒绝，调用授权设置
-              wx.openSetting({
-                success: (res) => {
-                  console.log('seeMap打开授权设置', res)
-                  if (res.authSetting['scope.userLocation']) {
-                    console.log('seeMap已授权', res)
-                    this.seeMap()
-                  }
-                }
-              })
-            }
-          }
-        })
-      }
+      fail: (err) => { console.log('seeMap微信内置地图-查看-位置-fail', err) }
     })
   }
-
 
 }
 

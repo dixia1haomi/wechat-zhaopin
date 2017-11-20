@@ -22,8 +22,8 @@ Page({
   //获取用户详细信息
   getUserDetail: function () {
     user.getUserDetail_Model((res) => {
-      console.log(res)
-      this.setData({ user_detail: res })
+      console.log('获取用户详细信息',res)
+      this.setData({ user: res })
     })
   },
 

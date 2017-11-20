@@ -13,6 +13,9 @@ Page({
   },
 
   onLoad: function (work) {
+  },
+
+  onShow: function () { 
     this.get_Job_List() //获取job列表
   },
 
@@ -22,12 +25,12 @@ Page({
   get_Job_List: function (work = 0) {
     job.get_Job_List(work, (res) => {
       console.log('job列表', res)
-      
-  
+
+
       for (let i in res) {
-      //把welfare福利字段转为数组
+        //把welfare福利字段转为数组
         res[i].welfare = JSON.parse(res[i].welfare)
-      // 处理update_time
+        // 处理update_time
         res[i].update_time = job.time(res[i].update_time)
       }
 

@@ -8,28 +8,35 @@ const app = getApp()
 
 Page({
 
-  /**
-   * 页面的初始数据
-   */
   data: {
     // user: false,
     login: false,
     userinfo: null
   },
 
-  /**
-   * 生命周期函数--监听页面加载
-   */
+  //生命周期函数--监听页面加载
   onLoad: function (op) {
     console.log('onLoad')
   },
 
-
-  //登录
+  // 登录 **（可以考虑移植到全局）
   login: function () {
-    authorize.authorize_UserInfo((res) => {
-      console.log('login',res)
-      this.onShow()
+    authorize.authorize_userinfo((res) => {   //授权
+      console.log('login', res)
+      if (res) {
+        wx.getUserInfo({  //  获取用户信息
+          withCredentials: false,
+          success: (res) => {
+            console.log('success', res)
+            user.updateUserInfo(res.userInfo, (data) => { // 调用 更新数据
+              console.log('数据储存成功', data)
+              app.appData.authorizeUserInfo = true  // 服务器回调了succsee后设置全局用户信息授权变量
+              wx.setStorageSync('userinfo', res.userInfo) // 服务器回调了succsee后缓存用户信息
+              this.onShow() //刷新页面
+            })
+          }
+        })
+      }
     })
   },
 
@@ -59,52 +66,21 @@ Page({
 
 
 
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
+  //生命周期函数--监听页面初次渲染完成
   onReady: function () {
-    console.log('onReady')
+    // console.log('onReady')
   },
 
-  /**
-   * 生命周期函数--监听页面显示
-   */
+  //生命周期函数--监听页面显示
   onShow: function () {
     console.log('onShow')
     app.appData.authorizeUserInfo && this.setData({ login: true, userinfo: wx.getStorageSync('userinfo') })
   },
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
 
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
-  }
+  //页面相关事件处理函数--监听用户下拉动作
+  onPullDownRefresh: function () { },
+  //页面上拉触底事件的处理函数
+  onReachBottom: function () { },
+  //用户点击右上角分享
+  onShareAppMessage: function () { }
 })

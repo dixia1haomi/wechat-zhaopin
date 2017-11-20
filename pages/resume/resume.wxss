@@ -1,5 +1,5 @@
-
 .zidingyi-nan {
+  color: #1296db;
   border: 2px solid white;
   border-radius: 50%;
   position: relative;
@@ -20,6 +20,7 @@
   position: relative;
   height: 180rpx;
   width: 180rpx;
+  border-radius: 50%;
 }
 
 .touxiang-img {
@@ -32,6 +33,7 @@
 }
 
 /* 地区选择 */
+
 .jieshao-view {
   padding: 60rpx;
 }
@@ -48,8 +50,6 @@
   color: #888;
 }
 
-.resume-css-zuo{
-  /* margin-left: 250rpx; */
-  /* width:  */
-  /* float: right */
+.resume-css-zuo {
+  /* margin-left: 250rpx; *//* width:  *//* float: right */
 }

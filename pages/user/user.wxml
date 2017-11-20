@@ -6,11 +6,12 @@
     <view class='touxiang'>
       <image wx:if="{{userinfo}}" src='{{userinfo.avatarUrl}}' class='touxiang-img' />
       <image wx:else src='/pages/img/touxiang.png' class='touxiang-img' />
-      <!-- <view class="weui-media-box__desc">性别：{{sex_data[resume_detail.sex]}}</view>  -->
+      <text wx:if="{{userinfo.gender ==1}}" class="iconfont icon-nan zidingyi-nan"></text>
+      <text wx:else  class="iconfont icon-iconfontiocnnv2 zidingyi-nv"></text>
     </view>
     <!-- 昵称 -->
     <view class='text-zhong ma-shangxia'>
-      <view wx:if="{{login}}" class="">{{userinfo.nickName}}</view>
+      <view wx:if="{{login}}" class="h4">{{userinfo.nickName}}</view>
       <view wx:else bindtap='login' class='login' hover-class='hover'>登录</view>
     </view>
 

@@ -3,11 +3,19 @@
 
 
 
+
 {
   "pages": [
 
+    
+    
+    
     "pages/index/index",
     "pages/ceshi/ceshi",
+    
+    
+    
+    
     "pages/ceshi1/ceshi1",
     "pages/job/job",
     "pages/company/company",

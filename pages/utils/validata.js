@@ -5,10 +5,6 @@ class Validata {
   }
 
 
-
-
-
-
   //参数是空
   isEmpty(param) {
     if (param == '' || param == null || param == undefined) return true;

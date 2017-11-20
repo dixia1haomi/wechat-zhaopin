@@ -14,6 +14,14 @@ Page({
   data: {
 
   },
+  // 获取当前地理位置
+  getLocation() {
+    authorize.authorize_address((res) => {
+      console.log('ceshi', res)
+      res && wx.chooseAddress({ success(res) { console.log('ceshi-success', res) } })
+
+    })
+  },
 
   tokenuserinfu() {
     token.tokenUserInfo((res) => {
@@ -65,10 +73,10 @@ Page({
 
   see() {
 
-    
+
     const app = getApp()
     let info = app.appData.authorizeUserInfo
-    console.log('see - quanju',info)
+    console.log('see - quanju', info)
   },
 
 

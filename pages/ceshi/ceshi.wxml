@@ -4,10 +4,11 @@
 
 <!-- <button bindtap="loginceshi" >登录</button> -->
 
-<!-- <button bindtap="jiemi" >解密</button> -->
 
  <button bindtap="chushihuadenglu" >初始化登录</button> 
 
   <button bindtap="tokenuserinfu" >userinfo</button> 
 
   <button bindtap="see" >查看全局变量</button> 
+
+ <button bindtap="getLocation" >getLocation</button>
