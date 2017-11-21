@@ -85,7 +85,7 @@ Page({
   //编辑简历 -》 取id -》 查简历信息 -》 传值给页面 -》 再提交
   edit_resume: function (id) {
     new Resume().get_Resume_Detail(id, (res) => {
-
+      console.log('get_Resume_Detail', res)
       res.age = (new Date).getFullYear() - res.age - 18   //处理年龄，获取出生年对应的年龄数组下标
       this.setData({
         id: res.id,
@@ -125,9 +125,14 @@ Page({
     value.age = this.data.age_data[value.age] //从年龄数组下标取对应的出生年份
 
     if (validata.isEmpty(value.id)) {
-      new Resume().create_resume(value, (res) => { if (res.code == 201) { base.tip_Toast('发布成功') } else { base.tip_Toast('发布失败') } })
+      new Resume().create_resume(value, (res) => { 
+        console.log('新增简历', res)
+        if (res.code == 201) { base.tip_Toast('发布成功') } else { base.tip_Toast('发布失败') } })
     } else {
-      new Resume().update_resume(value, (res) => { if (res.code == 201) { base.tip_Toast('更新成功') } else { base.tip_Toast('更新失败') } })
+      new Resume().update_resume(value, (res) => {
+        console.log('更新简历',res)
+        if (res.code == 201) { base.tip_Toast('更新成功') } else { base.tip_Toast('更新失败') }
+      })
     }
   },
 

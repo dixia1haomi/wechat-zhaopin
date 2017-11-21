@@ -55,6 +55,7 @@ Page({
     user.tip_Modal({ content: '删除这个简历？' }, (res) => {
       if (res.confirm) {
         new Resume().delete_resume(e.currentTarget.id, (res) => {
+          console.log('删除简历', res)
           if (res.code == 201) { user.tip_Toast('删除成功') } else { user.tip_Toast('删除失败') }
         })
       }
