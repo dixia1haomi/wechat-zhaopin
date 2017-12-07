@@ -1,3 +1,8 @@
+page {
+  height: 100%;
+  background-color: #fff;
+}
+
 .touxiang {
   position: relative;
   height: 160rpx;
@@ -40,62 +45,35 @@
   height: 30px;
   width: 80px;
   line-height: 30px;
-  margin: 0 auto;
+  margin: 10px auto 0 auto;
   border: 1px solid #f2f2f2;
+}
+
+.username {
+  height: 32px;
+  width: 80px;
+  line-height: 30px;
+  margin: 10px auto 0 auto;
 }
 
 .hover {
   background-color: #f2f2f2;
 }
 
-.fangkuai1 {
-  height: 100px;
-  width: 100px;
-  border: 1px solid #f2f2f2;
-  margin: 5px;
+.user-ft {
+  position: absolute;
+  bottom: 15px;
+  left: 25%;
+  color: #ccc;
+  font-size: 13px;
 }
 
-.fangkuai2 {
-  height: 100px;
-  width: 100px;
-  border: 1px solid #f2f2f2;
-  margin: 5px;
+.user-ft::before {
+  content: '—————';
+  padding-right: 6px;
 }
 
-.fangkuai3 {
-  height: 100px;
-  width: 100px;
-  border: 1px solid #f2f2f2;
-  margin: 5px;
-}
-
-.fangkuai4 {
-  height: 100px;
-  width: 100px;
-  border: 1px solid #f2f2f2;
-  margin: 5px;
-}
-
-.ma0 {
-  margin: 0 auto;
-}
-
-.ma-auto {
-  margin: auto 0;
-}
-
-.col-tomato {
-  color: tomato;
-}
-
-.size20 {
-  font-size: 20px;
-}
-
-.size22 {
-  font-size: 22px;
-}
-
-.size50 {
-  font-size: 50px;
+.user-ft::after {
+  content: '—————';
+  padding-left: 6px;
 }

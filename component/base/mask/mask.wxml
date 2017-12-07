@@ -1,0 +1,4 @@
+
+  <view class="{{state}}" ></view> 
+  <!-- catchtap="hidtap" -->
+  <!-- <button catchtap='show'>show按钮</button> -->

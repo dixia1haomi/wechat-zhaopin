@@ -41,27 +41,33 @@ Page({
   },
 
   // 我的页面 - 详细信息
-  userDetail() {
-    // 获取全局用户信息是否授权变量 ？ 跳转：调用授权
-    app.appData.authorizeUserInfo ? wx.navigateTo({ url: '/pages/user/user-detail/user-detail' }) : this.login()
-  },
+  // userDetail() {
+  //   // 获取全局用户信息是否授权变量 ？ 跳转：调用授权
+  //   app.appData.authorizeUserInfo ? wx.navigateTo({ url: '/pages/user-detail/user-detail' }) : this.login()
+  // },
 
   // 我的页面 - 我的公司
   userCompany() {
     // 获取全局用户信息是否授权变量 ？ 跳转：调用授权
-    app.appData.authorizeUserInfo ? wx.navigateTo({ url: '/pages/user/user-company/user-company' }) : this.login()
+    app.appData.authorizeUserInfo ? wx.navigateTo({ url: '/pages/user-company/company' }) : this.login()
   },
 
   // 我的页面 - 我的岗位
   userJob() {
     // 获取全局用户信息是否授权变量 ？ 跳转：调用授权
-    app.appData.authorizeUserInfo ? wx.navigateTo({ url: '/pages/user/user-job/user-job' }) : this.login()
+    app.appData.authorizeUserInfo ? wx.navigateTo({ url: '/pages/user-job/user-job' }) : this.login()
   },
 
   // 我的页面 - 我的简历
   userResume() {
     // 获取全局用户信息是否授权变量 ？ 跳转：调用授权
-    app.appData.authorizeUserInfo ? wx.navigateTo({ url: '/pages/user/user-resume/user-resume' }) : this.login()
+    app.appData.authorizeUserInfo ? wx.navigateTo({ url: '/pages/user-resume/user-resume' }) : this.login()
+  },
+
+  // 关于我
+  guanyuwo(){
+    // wx.navigateTo({ url: '/pages/user-resume/user-resume' })
+    console.log('关于我页面')
   },
 
 

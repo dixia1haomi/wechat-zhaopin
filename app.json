@@ -2,47 +2,35 @@
 
 
 
-
-
 {
   "pages": [
-
-    
-    
-    
-    "pages/index/index",
+    "pages/index/job",
     "pages/ceshi/ceshi",
-    
-    
-    
-    
-    "pages/ceshi1/ceshi1",
-    "pages/job/job",
-    "pages/company/company",
+    "pages/index/detail",
+    "pages/index/in-company",
     "pages/resume/resume",
     "pages/resume/detail",
     "pages/user/user",
-    "pages/user/user-detail/user-detail",
-    "pages/user/user-company/user-company",
-    "pages/user/user-job/user-job",
-
-    "pages/user/user-job/job-type/job-type",
-    "pages/user/user-job/creata_or_update/create_or_update_job",
-    "pages/user/user-resume/user-resume",
-    "pages/user/user-resume/create_or_update",
-    "pages/user/user-company/create_or_update/create_or_update"
+    "pages/user-company/company",
+    "pages/user-company/create_or_update",
+    "pages/user-job/user-job",
+    "pages/user-job/job-type/job-type",
+    "pages/user-job/creata_or_update/create_or_update_job",
+    "pages/user-resume/user-resume",
+    "pages/user-resume/create_or_update"
   ],
   "window": {
-
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
     "navigationBarTitleText": "WeChat",
-    "navigationBarTextStyle": "black"
+    "navigationBarTextStyle": "black",
+    "onReachBottomDistance": 50,
+    "backgroundColor":"tomato"
   },
   "tabBar": {
     "list": [
       {
-        "pagePath": "pages/index/index",
+        "pagePath": "pages/index/job",
         "text": "找工作"
       },
       {

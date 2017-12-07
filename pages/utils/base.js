@@ -7,12 +7,18 @@ class Base {
     // this.baseRequestUrl = Config.restUrl
   }
 
+  // 在当前页面显示导航条加载动画。
+  // wx.showNavigationBarLoading()
+  // 隐藏导航条加载动画。
+  // wx.hideNavigationBarLoading()
 
   //网络请求封装,noRefetch为true时不在重试请求，详见Refetch
   request(params, noRefetch) {
+    
+    wx.showNavigationBarLoading() // 在当前页面显示导航条加载动画。
+
     let that = this
     let url = Config.restUrl + params.url
-
     if (!params.method) { params.method = 'GET' }
 
     wx.request({
@@ -30,6 +36,7 @@ class Base {
         var startChar = code.charAt(0);
         if (startChar == '2') {
           params.sCallback && params.sCallback(res.data);
+          wx.hideNavigationBarLoading()   // 隐藏导航条加载动画。
         } else {
           if (code == '401') {
             if (!noRefetch) { that._refetch(params) }

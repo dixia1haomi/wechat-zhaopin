@@ -1,0 +1,129 @@
+<import src="/pages/utils/template.wxml" />
+
+<view class='beijing'>
+
+  <form bindsubmit='getFormdata'>
+
+    <!-- id隐藏域 -->
+    <input hidden="true" name="id" value="{{id}}"></input>
+
+    <!-- 姓名 -->
+    <view class="flex-shangxia-zhong shixian-xia gao">
+      <text class="flex1">姓名</text>
+      <input class="flex3" name="name" placeholder='请输入姓名' value="{{name}}"></input>
+    </view>
+
+
+    <!-- 性别 -->
+    <view class="flex-shangxia-zhong shixian-xia gao">
+      <text class="flex1">性别</text>
+      <picker class='flex3' name="sex" bindchange="sex_picker" value="{{sex_key}}" range="{{sex_data}}">
+        <view class="">{{sex_data[sex_key]}}</view>
+      </picker>
+    </view>
+
+
+    <!-- 联系电话 -->
+    <view class="flex-shangxia-zhong shixian-xia gao">
+      <text class="flex1">联系电话</text>
+      <input class="flex3" name="phone" placeholder='请输入联系电话' value="{{phone}}"  type='number'></input>
+    </view>
+
+
+    <!-- 年龄 -->
+    <view class="flex-shangxia-zhong shixian-xia gao">
+      <text class="flex1">年龄</text>
+      <picker class='flex3' name="age" bindchange="age_picker" value="{{age_key}}" range="{{age_data}}">
+        <view class="">{{age_data[age_key]}}</view>
+      </picker>
+    </view>
+
+
+    <!-- 工作经验 -->
+    <view class="flex-shangxia-zhong shixian-xia gao">
+      <text class="flex1">工作经验</text>
+      <picker class='flex3' name="work_exp" bindchange="work_exp_picker" value="{{work_exp_key}}" range="{{work_exp_data}}">
+        <view class="">{{work_exp_data[work_exp_key]}}</view>
+      </picker>
+    </view>
+
+
+    <!-- 学历 -->
+    <view class="flex-shangxia-zhong shixian-xia gao">
+      <text class="flex1">学历</text>
+      <picker class='flex3' name="education" bindchange="education_picker" value="{{education_key}}" range="{{education_data}}">
+        <view class="">{{education_data[education_key]}}</view>
+      </picker>
+    </view>
+
+
+    <!-- 期望薪资 -->
+    <view class="flex-shangxia-zhong shixian-xia gao">
+      <text class="flex1">期望薪资</text>
+      <picker class='flex3' name="expectation_pay" bindchange="expectation_pay_picker" value="{{expectation_pay_key}}" range="{{expectation_pay_data}}">
+        <view class="">{{expectation_pay_data[expectation_pay_key]}}</view>
+      </picker>
+    </view>
+
+
+    <!-- 工作性质 -->
+    <view class="flex-shangxia-zhong shixian-xia gao">
+      <text class="flex1">工作性质</text>
+      <picker class='flex3' name="work_nature" bindchange="work_nature_picker" value="{{work_nature_key}}" range="{{work_nature_data}}">
+        <view class="">{{work_nature_data[work_nature_key]}}</view>
+      </picker>
+    </view>
+
+
+    <!-- 到岗时间 -->
+    <view class="flex-shangxia-zhong shixian-xia gao">
+      <text class="flex1">到岗时间</text>
+      <picker class='flex3' name="report_time" bindchange="report_time_picker" value="{{report_time_key}}" range="{{report_time_data}}">
+        <view class="">{{report_time_data[report_time_key]}}</view>
+      </picker>
+    </view>
+
+
+    <!-- 工作地点 -->
+    <view class="flex-shangxia-zhong shixian-xia gao">
+      <text class="flex1">工作地点</text>
+      <picker class='flex3' name="work_place" bindchange="work_place_picker" value="{{work_place_key}}" range="{{work_place_data}}">
+        <view class="">{{work_place_data[work_place_key]}}</view>
+      </picker>
+    </view>
+
+
+    <!-- 目前状态 -->
+    <view class="flex-shangxia-zhong shixian-xia gao">
+      <text class="flex1">目前状态</text>
+      <picker class='flex3' name="current_state" bindchange="current_state_picker" value="{{current_state_key}}" range="{{current_state_data}}">
+        <view class="">{{current_state_data[current_state_key]}}</view>
+      </picker>
+    </view>
+
+
+    <!-- 意向职位 -->
+    <view class="flex-shangxia-zhong shixian-xia gao">
+      <text class="flex1">意向职位</text>
+      <picker class='flex3' name="expectation_position" bindchange="expectation_position_picker" value="{{expectation_position_key}}" range="{{expectation_position_data}}">
+        <view class="">{{expectation_position_data[expectation_position_key]}}</view>
+      </picker>
+    </view>
+
+
+    <!-- 个人-简历-描述 -->
+    <view class='shixian-xia ma-xia'>
+      <view class="flex-shangxia-zhong gao">个人简介</view>
+      <view class="">
+        <textarea class='kuang' value='{{resume_description}}' name="resume_description" placeholder="请输入个人简介" bindinput='textarea' maxlength='1000' />
+        <view class="text-you desc">{{textarea_cursor}}/1000</view>
+      </view>
+    </view>
+
+
+    <!-- 提交按钮 -->
+    <button class="weui-btn" form-type='submit' type='primary'>确定</button>
+
+  </form>
+
+</view>

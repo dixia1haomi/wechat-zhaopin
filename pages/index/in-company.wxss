@@ -1,0 +1,5 @@
+/* pages/company/company.wxss */
+
+.aaa{
+  height: 100%;
+}

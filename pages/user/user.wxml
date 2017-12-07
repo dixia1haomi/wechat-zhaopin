@@ -1,18 +1,20 @@
 <view class=''>
 
 
-  <view class='block ma-xia'>
+  <view class='block'>
     <!-- 头像 -->
     <view class='touxiang'>
       <image wx:if="{{userinfo}}" src='{{userinfo.avatarUrl}}' class='touxiang-img' />
-      <image wx:else src='/pages/img/touxiang.png' class='touxiang-img' />
+      <image wx:else src='/img/touxiang.png' class='touxiang-img' />
       <text wx:if="{{userinfo.gender ==1}}" class="iconfont icon-nan zidingyi-nan"></text>
-      <text wx:else  class="iconfont icon-iconfontiocnnv2 zidingyi-nv"></text>
+      <text wx:else class="iconfont icon-iconfontiocnnv2 zidingyi-nv"></text>
     </view>
     <!-- 昵称 -->
     <view class='text-zhong ma-shangxia'>
-      <view wx:if="{{login}}" class="h4">{{userinfo.nickName}}</view>
-      <view wx:else bindtap='login' class='login' hover-class='hover'>登录</view>
+      <!-- <view wx:if="{{login}}" class="h4">{{userinfo.nickName}}</view>
+      <view wx:else bindtap='login' class='login' hover-class='hover'>登录</view> -->
+      <view wx:if="{{login}}" class='username'>{{userinfo.nickName}}</view>
+      <view wx:else bindtap='login' class='login'>登录</view>
     </view>
 
   </view>
@@ -20,42 +22,43 @@
 
   <!-- <block wx:if="{{}}"> -->
 
-  <view class='block shixian-shang zidingyi'>
-    <view class=''>
-      <!-- <navigator class='fangkuai1 flex-col-zhong' url='/pages/user/user-detail/user-detail'> -->
-      <view class='fangkuai1 flex-col-zhong' bindtap='userDetail'>
-        <icon class="iconfont icon-wode size50 flex-zhong"></icon>
-        <view class='text-zhong h3'>详细信息</view>
-      </view>
-      <!-- </navigator> -->
+  <view class='block'>
 
-      <!-- <navigator class='fangkuai3 flex-col-zhong' url='/pages/user/user-job/user-job'> -->
-      <view class='fangkuai1 flex-col-zhong' bindtap='userJob'>
+
+    <!-- <view class='fangkuai1 flex-col-zhong' bindtap='userJob'>
         <icon class="iconfont icon-liebiao size50 flex-zhong"></icon>
         <view class='text-zhong h3' bindtap='getUserJob'>我的岗位</view>
-      </view>
-      <!-- </navigator> -->
-    </view>
+      </view> -->
 
-    <view class=''>
-      <!-- <navigator class='fangkuai2 flex-col-zhong' url='/pages/user/user-company/user-company'> -->
-      <view class='fangkuai1 flex-col-zhong' bindtap='userCompany'>
-        <icon class="iconfont icon-jingjide size50 flex-zhong"></icon>
+
+    <!-- <view class='' bindtap='userDetail'>
+        <icon class="iconfont icon-wode"></icon>
+        <view class='text-zhong h3'>详细信息</view>
+      </view>
+
+
+      <view class='' bindtap='userCompany'>
+        <icon class="iconfont icon-jingjide"></icon>
         <view class='text-zhong h3'>我的公司</view>
       </view>
-      <!-- </navigator> -->
 
-
-      <!-- <navigator class='fangkuai4 flex-col-zhong' url='/pages/user/user-resume/user-resume'> -->
-      <view class='fangkuai1 flex-col-zhong' bindtap='userResume'>
-        <icon class="iconfont icon-yijianfankui size50  flex-zhong"></icon>
+     
+      <view class='' bindtap='userResume'>
+        <icon class="iconfont icon-yijianfankui"></icon>
         <view class='text-zhong h3'>我的简历</view>
-      </view>
-      <!-- </navigator> -->
-    </view>
+      </view> -->
+
+    <!-- <my-sheetbox state="{{checkboxState}}" bind:itemEvent="checkboxitemE" cancel title></my-sheetbox> -->
+    <my-cell catchtap="userJob" title="我的岗位" text="" jiantou hover></my-cell>
+    <my-cell catchtap="userResume" title="我的简历" text="" jiantou hover></my-cell>
+    <my-cell catchtap="userCompany" title="我的公司" text="" jiantou hover></my-cell>
+    <my-cell catchtap="guanyuwo" title="关于我" text="" jiantou hover></my-cell>
+
+
 
   </view>
   <!-- </block> -->
+  <view class='user-ft'>袋鼠招聘</view>
 
 </view>
 

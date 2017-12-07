@@ -1,0 +1,102 @@
+.root {
+  max-height: 400px;
+  width: 100%;
+  position: absolute;
+  background-color: #fff;
+  bottom: 0;
+  z-index: 12;
+}
+
+/* 动画.up */
+
+.up {
+  -webkit-animation: slideUp ease 0.3s forwards;
+  animation: slideUp ease 0.3s forwards;
+}
+
+@keyframes slideUp {
+  0% {
+    -webkit-transform: translate3d(0, 100%, 0);
+    transform: translate3d(0, 100%, 0);
+  }
+
+  to {
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+  }
+}
+
+/* 动画.down */
+
+.down {
+  -webkit-animation: slideDown ease 0.3s forwards;
+  animation: slideDown ease 0.3s forwards;
+}
+
+@keyframes slideDown {
+  0% {
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+  }
+
+  to {
+    -webkit-transform: translate3d(0, 100%, 0);
+    transform: translate3d(0, 100%, 0);
+  }
+}
+
+/* checkbox里的显示内容的样式 */
+
+/* 未选中的 */
+
+.checktext {
+  border: 1px solid #d1d3d6;
+  border-radius: 1px;
+  padding: 5px 0 5px 0;
+  font-size: 16px;
+  /* color: #8f8f8f;  */
+  text-align: center;
+  /* margin-top: 20px; */
+}
+
+/* 选中的 */
+
+.xuanzhong {
+  border: 1px solid tomato;
+  color: tomato;
+}
+
+/* title样式 */
+
+.title {
+  background-color: #f1f2f3;
+  height: 48px;
+  font-size: 13px;
+  color: #8f8f8f;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* margin-bottom: 8px; */
+}
+
+/* title中确定按钮 */
+
+.confirm {
+  position: absolute;
+  right: 15px;
+  font-size: 18px;
+  color: tomato;
+  padding: 10px 15px 10px 15px;
+}
+
+/* 取消按钮样式 */
+
+.cancel {
+  text-align: center;
+  padding: 12px 0 12px 0;
+  margin-top: 2px;
+  font-weight: 500;
+  color: red;
+  background-color: #fff;
+  border-top: 1px solid #f1f2f3;
+}

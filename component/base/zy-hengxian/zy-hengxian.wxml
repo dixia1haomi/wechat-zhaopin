@@ -1,0 +1,1 @@
+<view class="zy-hengxian" style="margin:{{margin}}px 0">{{text}}</view>

@@ -2,14 +2,9 @@
 <view class='block ma-xia'>
 
   <view class='touxiang'>
-    <image src='/pages/img/touxiang.png' class='touxiang-img'>
-      <block wx:if="{{resume_detail.sex == 0}}">
-        <text class="iconfont icon-nan zidingyi-nan"></text>
-      </block>
-      <block wx:else>
-        <text class="iconfont icon-iconfontiocnnv2 zidingyi-nv"></text>
-      </block>
-    </image>
+    <image src='{{resume_detail.resume_guanlian_user.avatar_url}}' class='touxiang-img'></image>
+    <text wx:if="{{resume_detail.resume_guanlian_user.gender == 1}}" class="iconfont icon-nan zidingyi-nan"></text>
+    <text wx:else class="iconfont icon-iconfontiocnnv2 zidingyi-nv"></text>
   </view>
 
   <view class="text-zhong ma-shangxia">{{resume_detail.name}}先生/女士</view>
@@ -52,14 +47,14 @@
 
 </view>
 
-  <!-- 固定在底部 -->
-  <view class='flex job-css-flod'>
-    <view class='flex2 text-zhong' style='background-color:#fff;'>{{resume_detail.name}}</view>
-    <!-- 电话 -->
-    <view class='flex1 text-zhong' style='background-color:tomato;' bindtap='phone_tap' >
-      <text class="iconfont icon-phone" style='color:#fff;' />
-    </view>
+<!-- 固定在底部 -->
+<view class='flex job-css-flod'>
+  <view class='flex2 text-zhong' style='background-color:#fff;'>{{resume_detail.name}}</view>
+  <!-- 电话 -->
+  <view class='flex1 text-zhong' style='background-color:tomato;' bindtap='phone_tap'>
+    <text class="iconfont icon-phone" style='color:#fff;' />
   </view>
+</view>
 
 <!-- <view class="h4">电话：{{resume_detail.phone}}</view> -->
 <!-- <view class="">id：{{resume_detail.id}}</view> -->

@@ -18,7 +18,7 @@
 
 <!-- 地区选择 -->
 <view class='text-zhong pa-shangxia'>
-  <picker class='index-css-yuan' bindchange="bindPickerChange" value="{{PickerChange_index}}" range="{{work_place_data}}">
+  <picker class='index-css-yuan' bindchange="PickerChange_resume" value="{{PickerChange_index}}" range="{{work_place_data}}">
     <view class='pa-zuoyou h4'>{{work_place_data[PickerChange_index]}}
       <text class="iconfont icon-tabxiala index-css-xiala"></text>
     </view>
@@ -33,16 +33,9 @@
     <view class='block flex  ma-xia'>
 
       <view class='touxiang'>
-        <image src='/pages/img/touxiang.png' class='touxiang-img'>
-
-          <block wx:if="{{item.sex == 0}}">
-            <text class="iconfont icon-nan zidingyi-nan"></text>
-          </block>
-          <block wx:else>
-            <text class="iconfont icon-iconfontiocnnv2 zidingyi-nv"></text>
-          </block>
-
-        </image>
+        <image src='{{item.resume_guanlian_user.avatar_url}}' class='touxiang-img'></image>
+        <text wx:if="{{item.resume_guanlian_user.gender == 1}}" class="iconfont icon-nan zidingyi-nan"></text>
+        <text wx:else class="iconfont icon-iconfontiocnnv2 zidingyi-nv"></text>
       </view>
 
       <view class='flex-col-a ma-zuo40' style='width: 100%'>

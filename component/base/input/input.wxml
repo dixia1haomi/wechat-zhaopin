@@ -1,0 +1,4 @@
+<view class="root" style="margin-top:{{margin}}px">
+  <view class='title'>{{text}}</view>
+  <input bindinput='bindinput' class='input' type='{{input_type}}' placeholder='{{zhanwei}}'></input>
+</view>

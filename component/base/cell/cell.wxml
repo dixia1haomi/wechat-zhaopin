@@ -1,0 +1,16 @@
+
+<view class="zan-panel" style="margin-top:{{margin}}px;">
+  <view class="zan-cell " hover-class="{{hover && 'hover'}}" hover-stay-time="50">
+    <view class='zan-cell__bd'>
+      <!-- 单行列表 -->
+      <view class="zan-cell__text">{{title}}</view>
+      <view class="{{jiantou && 'jiantou'}}"></view>
+      <!-- 双行的附加描述 -->
+      <view wx:if="{{fujia}}" class="zan-cell__desc">{{fujia}}</view>
+    </view>
+    <!-- 详细描述 -->
+    <view class='zan-cell__ft'>{{text}}</view>
+  </view>
+</view>
+
+<slot/>

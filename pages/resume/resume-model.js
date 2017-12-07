@@ -7,13 +7,13 @@ class Resume extends Base {
     super()
   }
 
-  //查询简历列表
-  get_Resume_List(area, callBack) {
+  //查询简历列表-post->接受page分页，post请求的data对象，成功回调
+  get_Resume_List(page, data, callBack) {
     var params = {
-      url: 'resume/' + area,
-      sCallback: function (res) {
-        callBack && callBack(res)
-      }
+      url: 'resume?page=' + page,
+      method: 'POST',
+      data: data,
+      sCallback: function (res) { callBack && callBack(res) }
     }
     this.request(params)
   }
@@ -59,7 +59,7 @@ class Resume extends Base {
       url: 'resume/delete',
       method: 'POST',
       data: { id: id },
-      sCallback: function (res) { callBack && callBack(res)  }
+      sCallback: function (res) { callBack && callBack(res) }
     }
     this.request(params)
   }

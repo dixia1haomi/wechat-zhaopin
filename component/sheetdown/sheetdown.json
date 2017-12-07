@@ -1,0 +1,6 @@
+{
+  "component": true,
+      "usingComponents": {
+        "my-mask": "/component/base/mask/mask"
+      }
+}

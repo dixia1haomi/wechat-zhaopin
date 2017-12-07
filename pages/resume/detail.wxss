@@ -1,10 +1,10 @@
-
 .zidingyi-nan {
+  color: #1296db;
   border: 2px solid white;
   border-radius: 50%;
   position: relative;
   top: -40rpx;
-  left: 140rpx;
+  left: 130rpx;
 }
 
 .zidingyi-nv {
@@ -13,7 +13,7 @@
   border: 2px solid white;
   position: relative;
   top: -40rpx;
-  left: 140rpx;
+  left: 130rpx;
 }
 
 .touxiang {
@@ -26,10 +26,12 @@
 .touxiang-img {
   height: 180rpx;
   width: 180rpx;
+  border-radius: 50%;
 }
 
 /* 固定底部 */
-.job-css-flod{
+
+.job-css-flod {
   height: 100rpx;
   width: 100%;
   /* background-color: antiquewhite; */

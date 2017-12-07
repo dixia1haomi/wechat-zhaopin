@@ -1,0 +1,5 @@
+{
+  "usingComponents": {
+    "my-cell": "/component/base/cell/cell"
+  }
+}

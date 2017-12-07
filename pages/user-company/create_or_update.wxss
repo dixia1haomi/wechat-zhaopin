@@ -1,0 +1,12 @@
+/* pages/user/user-company/create_or_update/create_or_update.wxss */
+
+.beijing{
+  background-color: #fff;
+  padding: 0 20rpx 0 20rpx;
+}
+.gao{
+  height: 80rpx;
+}
+.kuang{
+  width: 100%;
+}

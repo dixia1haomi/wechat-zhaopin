@@ -1,14 +1,46 @@
- <button bindtap="getuserinfo" >获取用户信息</button> 
-
 <!-- <button bindtap="getstate" >获取登录态</button> -->
 
 <!-- <button bindtap="loginceshi" >登录</button> -->
 
 
- <button bindtap="chushihuadenglu" >初始化登录</button> 
+<!-- <button bindtap="getuserinfo">获取用户信息</button>
+<button bindtap="chushihuadenglu">初始化登录</button>
+<button bindtap="tokenuserinfu">userinfo</button>
+<button bindtap="see">查看全局变量</button>
+<button bindtap="getLocation">getLocation</button>
+<button bindtap="ceshiget">测试get请求</button> -->
 
-  <button bindtap="tokenuserinfu" >userinfo</button> 
+<!-- <view>
+  <view>{{year}}年{{month}}月{{day}}日</view>
+  <picker-view class='asd' indicator-style="height: 50px;" style="width: 100%; height: 500px;" value="{{value}}" bindchange="bindChange">
+    <picker-view-column>
+      <view wx:for="{{years}}" style="line-height: 50px" class='qwe'>{{item}}年</view>
+    </picker-view-column>
+    <picker-view-column>
+      <view wx:for="{{months}}" style="line-height: 50px" class='qwe'>{{item}}月</view>
+    </picker-view-column>
+    <picker-view-column>
+      <view wx:for="{{days}}" style="line-height: 50px" class='qwe'>{{item}}日</view>
+    </picker-view-column>
+  </picker-view>
+</view> -->
 
-  <button bindtap="see" >查看全局变量</button> 
+<view class="section">
+  <view class="section__title">省市区选择器</view>
+  <picker mode="region" bindchange="bindRegionChange" value="{{region}}" custom-item="{{customItem}}" style='heigth:500px !important'>
+    <view class="picker">
+      当前选择：{{region[0]}}，{{region[1]}}，{{region[2]}}
+    </view>
+  </picker>
+</view>
 
- <button bindtap="getLocation" >getLocation</button>
+
+
+<my-cell catchtap="sheetTap" title="单选框框" text="{{sheetDownItem || '请选择' }}" jiantou hover>
+  <my-sheetdown class="" state="{{sheetState}}" bind:itemEvent="itemE" cancel title></my-sheetdown>
+</my-cell>
+
+
+<my-cell catchtap="checkboxTap" title="多选" text="{{checkboxValueStr || '请选择' }}" jiantou hover>
+  <my-sheetbox state="{{checkboxState}}" bind:itemEvent="checkboxitemE" cancel title></my-sheetbox>
+</my-cell>

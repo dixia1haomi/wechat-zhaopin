@@ -1,0 +1,71 @@
+/* ...........panel.cell.............. */
+
+.zan-panel {
+  background: #fff;
+  border-bottom: 1px solid #e5e5e5;
+  border-top: 1px solid #e5e5e5;
+  overflow: scroll;
+  white-space: nowrap;
+}
+
+/* .margin{
+  margin-top: 10px;
+} */
+
+.zan-cell {
+  position: relative;
+  padding: 24rpx 30rpx;
+  display: flex;
+  align-items: center;
+  line-height: 1.4;
+  font-size: 28rpx;
+}
+
+.zan-cell__bd {
+  /* flex: 1; */
+  width: 20%;
+  /* padding-right: 15px; */
+  /* text-align: center;  */
+}
+
+.zan-cell__ft {
+  position: relative;
+  text-align: right;
+  color: #666;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.jiantou {
+  position: absolute;
+  top: 50%;
+  right: 12px;
+  content: " ";
+  display: inline-block;
+  height: 6px;
+  width: 6px;
+  border-width: 2px 2px 0 0;
+  border-color: #c8c8c8;
+  border-style: solid;
+  transform: translateY(-50%) matrix(0.71, 0.71, -0.71, 0.71, 0, 0);
+}
+
+/* 双行 */
+
+.zan-cell__text {
+  line-height: 24px;
+  font-size: 14px;
+}
+
+.zan-cell__desc {
+  line-height: 1.2;
+  font-size: 12px;
+  color: #666;
+}
+
+/* 点击态 */
+
+.hover {
+  background-color: #e5e5e5;
+}

@@ -1,0 +1,22 @@
+.beijing {
+  background-color: #fff;
+  padding: 0 20rpx 0 20rpx;
+}
+
+.gao {
+  height: 80rpx;
+}
+
+.kuang {
+  width: 100%;
+}
+
+.title {
+  margin-top: 10px;
+}
+
+.page-noscroll {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+}

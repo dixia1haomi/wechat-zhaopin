@@ -1,0 +1,92 @@
+/* page{
+  overflow-y: hidden;
+} */
+
+.asd{
+  /* overflow: hidden; */
+  overflow: hidden;
+}
+
+.root {
+  max-height: 350px;
+  /* height: 100%; */
+  width: 100%;
+  position: absolute;
+  background-color: #f1f2f3;
+  bottom: 0;
+  z-index: 12;
+  /* overflow-y: hidden; */
+}
+
+/* 动画.up */
+
+.up {
+  -webkit-animation: slideUp ease 0.3s forwards;
+  animation: slideUp ease 0.3s forwards;
+}
+
+@keyframes slideUp {
+  0% {
+    -webkit-transform: translate3d(0, 100%, 0);
+    transform: translate3d(0, 100%, 0);
+  }
+
+  to {
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+  }
+}
+
+/* 动画.down */
+
+.down {
+  -webkit-animation: slideDown ease 0.3s forwards;
+  animation: slideDown ease 0.3s forwards;
+}
+
+@keyframes slideDown {
+  0% {
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+  }
+
+  to {
+    -webkit-transform: translate3d(0, 100%, 0);
+    transform: translate3d(0, 100%, 0);
+  }
+}
+
+/* list下的item样式 */
+
+.item {
+  text-align: center;
+  border-bottom: 1px solid #f1f2f3;
+  padding: 10px 0 10px 0;
+  background-color: #fff;
+}
+
+/* item点击态 */
+
+.itemhover {
+  background-color: #f1f2f3;
+}
+
+/* title样式 */
+
+.title {
+  text-align: center;
+  padding: 13px 0 13px 0;
+  color: #8f8f8f;
+  font-size: 13px;
+}
+
+/* 取消按钮样式 */
+
+.cancel {
+  text-align: center;
+  padding: 12px 0 12px 0;
+  font-weight: 500;
+  color: red;
+  background-color: #fff;
+  border-top: 1px solid #f1f2f3;
+}

@@ -4,7 +4,7 @@
   border-radius: 50%;
   position: relative;
   top: -40rpx;
-  left: 140rpx;
+  left: 110rpx;
 }
 
 .zidingyi-nv {
@@ -13,19 +13,20 @@
   border: 2px solid white;
   position: relative;
   top: -40rpx;
-  left: 140rpx;
+  left: 110rpx;
 }
 
 .touxiang {
   position: relative;
-  height: 180rpx;
-  width: 180rpx;
-  border-radius: 50%;
+  height: 150rpx;
+  width: 150rpx;
+    /* border-radius: 50%;   */
 }
 
 .touxiang-img {
-  height: 180rpx;
-  width: 180rpx;
+  height: 150rpx;
+  width: 150rpx;
+   border-radius: 50%; 
 }
 
 .ma-zuo40 {

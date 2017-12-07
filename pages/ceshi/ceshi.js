@@ -6,13 +6,68 @@ const authorize = new Authorize()
 const token = new Token()
 const base = new Base()
 
+
+const date = new Date()
+const years = []
+const months = []
+const days = []
+
+for (let i = 1990; i <= date.getFullYear(); i++) {
+  years.push(i)
+}
+
+for (let i = 1; i <= 12; i++) {
+  months.push(i)
+}
+
+for (let i = 1; i <= 31; i++) {
+  days.push(i)
+}
+
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
+    years: years,
+    year: date.getFullYear(),
+    months: months,
+    month: 2,
+    days: days,
+    day: 2,
+    year: date.getFullYear(),
+    value: [9999, 1, 1],
 
+    region: ['广东省', '广州市', '海珠区'],
+    customItem: '全部',
+
+    //---------------
+    sheetState: '',
+    sheetDownItem: '',
+    sheetDownIndex: '',
+
+    //-----------
+    checkboxState: '',
+    checkboxValue: '',
+    checkboxValueStr: ''
+
+  },
+
+  bindChange: function (e) {
+    const val = e.detail.value
+    this.setData({
+      year: this.data.years[val[0]],
+      month: this.data.months[val[1]],
+      day: this.data.days[val[2]]
+    })
+  },
+
+  bindRegionChange: function (e) {
+    console.log('picker发送选择改变，携带值为', e.detail.value)
+    this.setData({
+      region: e.detail.value
+    })
   },
   // 获取当前地理位置
   getLocation() {
@@ -47,7 +102,26 @@ Page({
     })
   },
 
+  ceshiget() {
+    this.ceshigetaa(res => {
+      console.log('aaaceshi', res)
+    })
+  },
 
+  ceshigetaa(callBack) {
+    let params = {
+      url: 'job/ceshi',
+      data: {
+        id: 140,
+        user_id: 16,
+        job_user_name: 123,
+        work_area: 1,
+        phone: 5
+      },
+      sCallback: function (res) { callBack && callBack(res) }
+    }
+    base.request(params)
+  },
 
 
   // 获取用户信息
@@ -93,5 +167,20 @@ Page({
   onShow: function () {
 
   },
+
+  // ----------------------------------------
+  sheetTap() {
+    this.setData({ sheetState: true })
+    console.log('sheetTap')
+  },
+  itemE(e) {
+    console.log('index-itemE', e.detail)
+    this.setData({ sheetDownItem: e.detail.item, sheetDownIndex: e.detail.index })
+  },
+
+  //-------------------------------
+  checkboxTap() { this.setData({ checkboxState: true }) },
+  checkboxitemE(e) { this.setData({ checkboxValue: e.detail, checkboxValueStr: e.detail.toString() }) },
+
 
 })

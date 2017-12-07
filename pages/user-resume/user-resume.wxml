@@ -1,0 +1,40 @@
+<!-- 如果没有简历，显示新增按钮 -->
+<view class='block meiyou' wx:if="{{user_resume == null}}">
+  <text class=''>你还没有简历.赶快新增简历</text>
+
+  <navigator class='' url='/pages/user-resume/create_or_update'>
+    <view class='xinzeng'>新增简历</view>
+  </navigator>
+
+</view>
+
+<!-- 如果有简历，正常显示简历 -->
+<view wx:else class='block'>
+  <view class='h3'>
+    <!-- <view class='shixian-xia pa-shangxia'>id：{{user_resume.id}}</view> -->
+    <view class='shixian-xia pa-shangxia'>名字：{{user_resume.name}}</view>
+    <view class='shixian-xia pa-shangxia'>性别：{{sex_data[user_resume.sex]}}</view>
+    <view class='shixian-xia pa-shangxia'>出生年份：{{user_resume.age}}</view>
+    <view class='shixian-xia pa-shangxia'>工作经验：{{work_exp_data[user_resume.work_exp]}}</view>
+    <view class='shixian-xia pa-shangxia'>最高学历：{{education_data[user_resume.education]}}</view>
+    <view class='shixian-xia pa-shangxia'>期望薪资：{{expectation_pay_data[user_resume.expectation_pay]}}</view>
+    <view class='shixian-xia pa-shangxia'>工作性质：{{work_nature_data[user_resume.work_nature]}}</view>
+    <view class='shixian-xia pa-shangxia'>入职时间：{{report_time_data[user_resume.report_time]}}</view>
+    <view class='shixian-xia pa-shangxia'>工作区域：{{work_place_data[user_resume.work_place]}}</view>
+    <view class='shixian-xia pa-shangxia'>当前状态：{{current_state_data[user_resume.current_state]}}</view>
+    <view class='shixian-xia pa-shangxia'>求职岗位：{{expectation_position_data[user_resume.expectation_position]}}</view>
+    <view class='shixian-xia pa-shangxia'>个人电话：{{user_resume.phone}}</view>
+    <view class='shixian-xia pa-shangxia'>个人描述：{{user_resume.resume_description}}</view>
+    <view class='pa-shangxia'>更新时间：{{user_resume.update_time}}</view>
+  </view>
+
+  <view class='anniu-view shixian-shang'>
+    <navigator url='/pages/user-resume/create_or_update?id={{user_resume.id}}'>
+      <view class='anniu h3'>编辑简历</view>
+    </navigator>
+
+    <view class='anniu h3' bindtap='delete_resume' id="{{user_resume.id}}">删除简历</view>
+  </view>
+</view>
+
+

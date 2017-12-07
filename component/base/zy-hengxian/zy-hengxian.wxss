@@ -1,0 +1,16 @@
+.zy-hengxian {
+  font-size: 13px;
+  color: #aaa;
+  /* padding: 10px 0; */
+  text-align: center;
+}
+
+.zy-hengxian::before {
+  content: "—————";
+  padding-right: 6px;
+}
+
+.zy-hengxian::after {
+  content: "—————";
+  padding-left: 6px;
+}

@@ -1,0 +1,32 @@
+/* pages/job/job.wxss */
+
+
+.zhedie {
+  max-height: 0px;
+  opacity: 0;
+  visibility: hidden;
+  /* transform: translate(0px, -10px);  */
+  transition: all 0.2s ease;
+}
+
+.zhankai {
+  max-height: 200px;
+  opacity: 1;
+  visibility: visible;
+  /* transform: translate(0, 0px);  */
+  transition: all .8s ease;
+}
+
+.flex-col{
+  display: flex;
+  flex-flow: column
+}
+
+.job-css-flod{
+  height: 100rpx;
+  width: 100%;
+  /* background-color: antiquewhite; */
+  position: fixed;
+  bottom: 0;
+  line-height: 100rpx;
+}

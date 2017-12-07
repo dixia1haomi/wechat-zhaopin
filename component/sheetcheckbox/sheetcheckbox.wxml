@@ -1,0 +1,35 @@
+<block wx:if="{{state}}">
+  <my-mask state="{{maskState}}" catchtap="cancel"></my-mask>
+
+  <view class='root {{donghua}}'>
+
+    <view class='title'>
+      <text>这是TITLE</text>
+      <view class='confirm' catchtap='confirm'>确定</view>
+    </view>
+
+    <scroll-view scroll-y style="max-height: 250px;">
+      <!-- <block wx:for="{{list}}" wx:key="">
+        <view class='item' hover-class='itemhover' catchtap='item' data-item='{{item}}' data-index="{{index}}">{{item}}-{{index}}</view>
+      </block> -->
+
+      <checkbox-group bindchange="checkE">
+        <label wx:for="{{list}}" wx:key="">
+          <checkbox hidden='1' value="{{item.name}}" checked="{{item.checked}}" />
+          <view style='display: inline-block;width: 33.3%;margin: 5px 0 5px 0;'>
+            <!-- 为了让内容一行3个 -->
+            <view style='margin: 3px 5px 3px 5px;'>
+              <!-- 为了让内容一行3个 -->
+              <view class="checktext {{item.checked && 'xuanzhong'}}">{{item.name}}</view>
+            </view>
+          </view>
+        </label>
+      </checkbox-group>
+
+    </scroll-view>
+
+    <view wx:if="{{cancel}}" class='cancel' catchtap='cancel'>取消</view>
+  </view>
+</block>
+
+<slot></slot>

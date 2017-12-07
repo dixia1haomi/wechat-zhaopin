@@ -1,3 +1,7 @@
 {
-
+ "usingComponents": {
+        "my-sheetdown": "/component/sheetdown/sheetdown",
+        "my-sheetbox": "/component/sheetcheckbox/sheetcheckbox",
+        "my-cell": "/component/base/cell/cell"
+  }
 }

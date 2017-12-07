@@ -1,3 +1,4 @@
+
 class Config {
 
   constructor() {
@@ -76,14 +77,14 @@ Config.company_industry_data = [
 
 //岗位福利
 Config.job_welfare = [
-  { value: '环境好' },
-  { value: '五险一金' },
-  { value: '包吃' },
-  { value: '包住' },
-  { value: '饭补' },
-  { value: '话补' },
-  { value: '周末双休' },
-  { value: '加班补助' }
+  { name: '环境好' },
+  { name: '五险一金' },
+  { name: '包吃' },
+  { name: '包住' },
+  { name: '饭补' },
+  { name: '话补' },
+  { name: '周末双休' },
+  { name: '加班补助' }
 ]
 
 

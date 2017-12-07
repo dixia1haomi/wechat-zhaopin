@@ -1,0 +1,16 @@
+.asd{
+  /* display: flex; */
+  /* flex-flow: column; */
+   /* justify-content: center  */
+/* align-items: center; */
+  /* align-content: center */
+  /* margin-left: 100px; */
+}
+
+.qwe{
+  text-align: center
+}
+
+.zxc{
+  height: 500px;
+}
