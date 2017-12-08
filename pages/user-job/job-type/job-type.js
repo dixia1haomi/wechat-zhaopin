@@ -12,18 +12,14 @@ Page({
   },
 
   // 新增个人类别
-  jobType_geren(e) {
-    const job_type = e.currentTarget.dataset.type
-    console.log('geren', job_type)
+  jobType_geren() {
     wx.navigateTo({
-      url: '/pages/user-job/creata_or_update/create_or_update_job?job_type=0',
+      url: '/pages/user-job/creata_or_update/create_or_update_job?job_type=' + 'geren',
     })
   },
 
   // 新增公司/店铺类别
-  jobType_company(e) {
-    const job_type = e.currentTarget.dataset.type
-    console.log('gongsi', job_type)
+  jobType_company() {
     this.get_Company_Data()
   },
 
@@ -47,7 +43,7 @@ Page({
 
       // 有公司-跳转创建公司/店铺岗位-携带job_type，company_id，company_name参数
       wx.navigateTo({
-        url: '/pages/user-job/creata_or_update/create_or_update_job?job_type=1&company_id=' + company.id + '&company_name=' + company.company_name,
+        url: '/pages/user-job/creata_or_update/create_or_update_job?job_type=' + 'gongsi' + '&company_id=' + company.id + '&company_name=' + company.company_name,
       })
 
     })

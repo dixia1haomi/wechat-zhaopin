@@ -44,3 +44,48 @@
 <my-cell catchtap="checkboxTap" title="多选" text="{{checkboxValueStr || '请选择' }}" jiantou hover>
   <my-sheetbox state="{{checkboxState}}" bind:itemEvent="checkboxitemE" cancel title></my-sheetbox>
 </my-cell>
+
+<my-cell catchtap="textareaTap" title="textarea" text="{{textarea || '请选择' }}" jiantou hover>
+  <my-sheettextarea state="{{textareaState}}" bind:textareaEvent="textarea" cancel title></my-sheettextarea>
+</my-cell>
+
+<text>
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+11
+1
+1
+1
+1
+1
+1
+1
+1
+11
+1
+1
+1
+1
+1
+1
+1
+1
+1
+</text>

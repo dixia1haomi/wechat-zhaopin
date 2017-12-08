@@ -18,20 +18,17 @@
   display: flex;
   align-items: center;
   line-height: 1.4;
-  font-size: 28rpx;
+  font-size: 32rpx;
 }
 
 .zan-cell__bd {
-  /* flex: 1; */
   width: 20%;
-  /* padding-right: 15px; */
-  /* text-align: center;  */
+  padding-right: 20rpx;
 }
 
 .zan-cell__ft {
   position: relative;
   text-align: right;
-  color: #666;
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
@@ -55,7 +52,6 @@
 
 .zan-cell__text {
   line-height: 24px;
-  font-size: 14px;
 }
 
 .zan-cell__desc {

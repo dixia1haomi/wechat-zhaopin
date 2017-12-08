@@ -1,6 +1,3 @@
-<!-- <import src="/pages/utils/template.wxml"></import> -->
-
-
 <!-- <view class="beijing"> -->
 <!-- <form bindsubmit='getFormdata'> -->
 <!-- 岗位id -->
@@ -19,175 +16,49 @@
 <!-- </view> -->
 <!-- </block> -->
 
-<!-- 岗位名称 -->
-<!-- <view class="flex-shangxia-zhong shixian-xia shixian-shang gao"> -->
-<!-- <text class="flex1">岗位名称</text> -->
-<!-- <input class='flex3' name="job_name" value="{{job_name}}"></input> -->
-<!-- </view> -->
-
-
-<!-- 岗位薪资 -->
-<!-- <view class="flex-shangxia-zhong shixian-xia gao"> -->
-<!-- <text class="flex1">薪资水平</text> -->
-<!-- <picker class='flex3' name="pay_level" bindchange="pay_level_picker" value="{{pay_level_key}}" range="{{pay_level_data}}"> -->
-<!-- <view class="">{{pay_level_data[pay_level_key]}}</view> -->
-<!-- </picker> -->
-<!-- </view> -->
-
-
-<!-- 要求人数 -->
-<!-- <view class="flex-shangxia-zhong shixian-xia gao"> -->
-<!-- <text class="flex1">招聘人数</text> -->
-<!-- <input class="flex3" name="ments_number" value="{{ments_number}}" type='number'></input> -->
-<!-- </view> -->
-
-
-<!-- 岗位福利--多选 -->
-<!-- <view class='shixian-xia pa-shang-x'> -->
-<!-- <view class="flex-shangxia-zhong gao">岗位福利</view> -->
-<!-- <checkbox-group class="box-wrap" name="welfare" bindchange="checkboxChange"> -->
-<!-- <label class=" {{item.checked?'box-xuanzhong':'box'}} " wx:for="{{job_welfare_data}}" wx:key=""> -->
-<!-- <text class=''>{{item.value}}</text> -->
-<!-- <checkbox hidden='true' value="{{item.value}}" checked="{{item.checked}}" /> -->
-<!-- </label> -->
-<!-- </checkbox-group> -->
-<!-- </view> -->
-
-
-<!-- 要求经验 -->
-<!-- <view class="flex-shangxia-zhong shixian-xia gao"> -->
-<!-- <text class="flex1">工作经验</text> -->
-<!-- <picker class='flex3' name="ments_exp" bindchange="ments_exp_picker" value="{{ments_exp_key}}" range="{{ments_exp_data}}"> -->
-<!-- <view class="">{{ments_exp_data[ments_exp_key]}}</view> -->
-<!-- </picker> -->
-<!-- </view> -->
-
-
-<!-- 要求学历 -->
-<!-- <view class="flex-shangxia-zhong shixian-xia gao"> -->
-<!-- <text class="flex1">学历要求</text> -->
-<!-- <picker class='flex3' name="ments_education" bindchange="ments_education_picker" value="{{ments_education_key}}" range="{{ments_education_data}}">   -->
-<!-- <view class="">{{ments_education_data[ments_education_key]}}</view> -->
-<!-- </picker> -->
-<!-- </view> -->
-
-
-<!-- 要求性别 -->
-<!-- <view class="flex-shangxia-zhong shixian-xia gao"> -->
-<!-- <text class="flex1">要求性别</text> -->
-<!-- <picker class='flex3' name="ments_sex" bindchange="ments_sex_picker" value="{{ments_sex_key}}" range="{{ments_sex_data}}"> -->
-<!-- <view class="">{{ments_sex_data[ments_sex_key]}}</view> -->
-<!-- </picker> -->
-<!-- </view> -->
-
-
-<!-- 工作区域--隐藏--已实现根据map地址自动选取 -->
-<!-- <view class="flex-shangxia-zhong shixian-xia gao" hidden='1'> -->
-<!-- <text class="flex1">工作区域</text> -->
-<!-- <picker class='flex3' name="work_area" bindchange="work_area_picker" value="{{work_area_key}}" range="{{work_area_data}}"> -->
-<!-- <view class="">{{work_area_data[work_area_key]}}</view> -->
-<!-- </picker> -->
-<!-- </view> -->
-
-
-<!-- 地图地址 -->
-<!-- <view class="flex-shangxia-zhong shixian-xia gao"> -->
-<!-- <text class="flex1">工作地址</text> -->
-<!-- <input class="flex3" disabled name="map_address" value="{{map_address}}" bindtap='openMap'></input> -->
-<!-- </view> -->
-
-<!-- 地图name -->
-<!-- <view class="flex-shangxia-zhong shixian-xia gao"> -->
-<!-- <text class="flex1">地址名称</text> -->
-<!-- <input class="flex3" disabled name="map_name" value="{{map_name}}"></input> -->
-<!-- </view> -->
-
-<!-- 地图经度--隐藏 -->
-<!-- <view class="flex-shangxia-zhong shixian-xia gao" hidden='1'> -->
-<!-- <text class="flex1">地图经度</text> -->
-<!-- <input class="flex3" disabled name="map_longitude" value="{{map_longitude}}"></input> -->
-<!-- </view> -->
-
-<!-- 地图纬度--隐藏 -->
-<!-- <view class="flex-shangxia-zhong shixian-xia gao" hidden='1'> -->
-<!-- <text class="flex1">地图纬度</text>  -->
-<!-- <input class="flex3" disabled name="map_latitude" value="{{map_latitude}}"></input> -->
-<!-- </view> -->
-
-<!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
-
-
-<!-- 你的称呼 -->
-<!-- <view class="flex-shangxia-zhong shixian-xia gao"> -->
-<!-- <text class="flex1">你的称呼</text> -->
-<!-- <input class="flex3" name="job_user_name" value="{{job_user_name}}"></input> -->
-<!-- </view> -->
-
-
-<!-- 联系电话 -->
-<!-- <view class="flex-shangxia-zhong shixian-xia gao"> -->
-<!-- <text class="flex1">联系电话</text> -->
-<!-- <input class="flex3" name="phone" value="{{phone}}" type='number'></input> -->
-<!-- </view> -->
-
-
-<!-- 职位描述 -->
-<!-- <view class='shixian-xia ma-xia'> -->
-<!-- <view class="flex-shangxia-zhong gao">职位描述</view> -->
-<!-- <view class=""> -->
-<!-- <textarea class='kuang' value='{{job_description}}' name="job_description" placeholder="请输入职位描述" bindinput='textarea' maxlength='1000'/> -->
-<!-- <view class="text-you desc">{{textarea_cursor}}/1000</view> -->
-<!-- </view> -->
-<!-- </view> -->
-
-
-<!-- 提交 -->
-<!-- <button class="weui-btn" form-type='submit' type='primary'>确定</button> -->
-
-<!-- </form> -->
-
-<!-- </view> -->
 <view class="{{rootSheetState && 'page-noscroll'}}">
-  <!-- <scroll-view class='asd'> -->
 
-  <zy-hengxian margin="30" text="发布岗位"></zy-hengxian>
+  <my-toptips state="{{toptips_kaiguan}}" tipsText="{{toptips_text}}"></my-toptips>
 
-  <my-input bind:inputEvent="jobname_Event" text="岗位名称" zhanwei="输入岗位名称"></my-input>
+  <zy-hengxian margin="25" text="发布岗位"></zy-hengxian>
 
-  <my-cell catchtap="sheetState_pay" title="岗位薪资" text="{{pay_list[pay_value]}}" jiantou hover>
+  <block wx:if="{{job_type != 0}}">
+    <my-cell title="公司名称" text="{{company_name}}" jiantou="" hover=""></my-cell>
+  </block>
+
+  <my-input bind:inputEvent="jobname_Event" text="岗位名称" value="{{job_name}}" zhanwei="输入岗位名称"></my-input>
+
+  <my-cell catchtap="sheetState_pay" title="岗位薪资" text="{{pay_list[pay_level]}}" jiantou hover>
     <my-sheetdown state="{{sheetState_pay}}" bind:itemEvent="sheet_pay" list="{{pay_list}}" cancel title></my-sheetdown>
   </my-cell>
 
-  <my-cell catchtap="welfareState" title="福利" text="{{welfareStr || '可多选'}}" jiantou hover>
-    <my-sheetbox state="{{welfareState}}" bind:itemEvent="welfare" list="{{welfare_list}}" cancel title></my-sheetbox>
+  <my-cell catchtap="welfareState" title="福利" text="{{welfareStr}}" jiantou hover>
+    <my-sheetbox state="{{welfareState}}" bind:itemEvent="welfare" list="{{welfare_list}}" confirmCheckValue="{{welfare}}" cancel title></my-sheetbox>
   </my-cell>
 
-  <my-input bind:inputEvent="numberEvent" text="招聘人数" zhanwei="输入招聘人数" input_type="number"></my-input>
+  <my-input bind:inputEvent="numberEvent" text="招聘人数" zhanwei="输入招聘人数" value="{{ments_number}}" input_type="number"></my-input>
 
-  <my-cell catchtap="sheetState_exp" title="经验要求" text="{{exp_list[exp_value]}}" jiantou hover>
+  <my-cell catchtap="sheetState_exp" title="经验要求" text="{{exp_list[ments_exp]}}" jiantou hover>
     <my-sheetdown state="{{sheetState_exp}}" bind:itemEvent="sheet_exp" list="{{exp_list}}" cancel title></my-sheetdown>
   </my-cell>
 
-  <my-cell catchtap="sheetState_education" title="学历要求" text="{{education_list[education_value]}}" jiantou hover>
+  <my-cell catchtap="sheetState_education" title="学历要求" text="{{education_list[ments_education]}}" jiantou hover>
     <my-sheetdown state="{{sheetState_education}}" bind:itemEvent="sheet_education" list="{{education_list}}" cancel title></my-sheetdown>
   </my-cell>
 
+  <my-cell catchtap="openMap" title="地址" text="{{map_address || '选择地址'}}" jiantou hover></my-cell>
 
-  <my-cell catchtap="asd" title="地址" text="前往发布" jiantou hover></my-cell>
-  <my-cell catchtap="asd" title="地址名称" text="前往发布" jiantou hover></my-cell>
-  <my-cell catchtap="asd" title="你的称呼" text="前往发布" jiantou hover></my-cell>
-  <my-cell catchtap="asd" title="电话" text="前往发布" jiantou hover></my-cell>
-  <my-cell catchtap="asd" title="岗位描述" text="前往发布" jiantou hover></my-cell>
+  <my-cell title="地址名称" text="{{map_name || '自动添加'}}" jiantou="" hover=""></my-cell>
 
-
-  <my-cell catchtap="sheetTap" title="单选框框" text="{{sheetDownItem || '请选择' }}" jiantou hover>
-    <my-sheetdown class="" state="{{sheetState}}" bind:itemEvent="itemE" cancel title></my-sheetdown>
+  <my-cell catchtap="sheetState_description" title="岗位描述" text="{{job_description}}" jiantou hover>
+    <my-sheettextarea state="{{sheetState_description}}" bind:textareaEvent="sheet_description"></my-sheettextarea>
   </my-cell>
 
 
-  <my-cell catchtap="checkboxTap" title="多选" text="{{checkboxValueStr || '请选择' }}" jiantou hover>
-    <my-sheetbox state="{{checkboxState}}" bind:itemEvent="checkboxitemE" cancel title></my-sheetbox>
-  </my-cell>
+  <my-input bind:inputEvent="jobUserName_Event" text="你的称呼" value="{{job_user_name}}" zhanwei="输入你的称呼"></my-input>
+
+  <my-input bind:inputEvent="phone_Event" text="联系电话" value="{{phone}}" zhanwei="输入联系电话" input_type="number"></my-input>
+
+  <button class="tijiao" catchtap="submit">提交</button>
 
 </view>
-<!-- </scroll-view> -->

@@ -2,10 +2,18 @@
 
 
 
+
 {
   "pages": [
+
+    "pages/user-job/user-job",
+    
     "pages/index/job",
+    "pages/user-job/creata_or_update/create_or_update_job",
+
     "pages/ceshi/ceshi",
+
+    
     "pages/index/detail",
     "pages/index/in-company",
     "pages/resume/resume",
@@ -13,9 +21,7 @@
     "pages/user/user",
     "pages/user-company/company",
     "pages/user-company/create_or_update",
-    "pages/user-job/user-job",
     "pages/user-job/job-type/job-type",
-    "pages/user-job/creata_or_update/create_or_update_job",
     "pages/user-resume/user-resume",
     "pages/user-resume/create_or_update"
   ],

@@ -1,5 +1,5 @@
 .root {
-  position: absolute;
+  position: fixed;
   width: 100%;
   top: -74rpx;
   left: 0;

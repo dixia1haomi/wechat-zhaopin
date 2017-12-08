@@ -2,14 +2,14 @@
 // ##下拉菜单复选框~~
 // ##依赖基础mask组件
 
-// wxml
-// <my-sheetcheckbox state= "{{checkboxState}}" list= "{{checkboxlist}}" bind: itemEvent = "checkboxitemE" cancel title>
-//   <view catchtap="checkboxTap" class='view' > {{checkboxValueStr || '请选择' }}</view>  
-// < /my-sheetcheckbox>   
+// wxml 
+// <my-cell catchtap= "welfareState" title= "福利" text= "{{welfareStr}}" jiantou hover>
+// <my-sheetbox state= "{{welfareState}}" bind: itemEvent = "welfare" list= "{{welfare_list}}" confirmCheckValue= "{{welfare}}" cancel title> //</my-sheetbox>
+// < /my-cell>
 
 // js
-// checkboxTap() { this.setData({ checkboxState: true })},
-// checkboxitemE(e) { this.setData({ checkboxValue: e.detail, checkboxValueStr: e.detail.toString() })},
+// welfareState() { this.setData({ welfareState: true, rootSheetState: true }) },
+// welfare(e) { this.setData({ welfareStr: e.detail.toString(), welfare: e.detail, rootSheetState: false }) },
 
 Component({
 
@@ -56,6 +56,12 @@ Component({
       ]
     },
 
+    // confirmCheckValue
+    confirmCheckValue:{
+      type:Array,
+      value:[]
+    },
+
     // 是否显示取消按钮
     cancel: {
       type: Boolean,
@@ -67,7 +73,7 @@ Component({
     donghua: '',  //动画-up-down
     maskState: '', //蒙层-控制mask基础组件的状态
     checkValue: [],  //保存checkbox选择事件的值
-    confirmCheckValue: [] //保存confirm后选择事件的值
+    // confirmCheckValue: [] //保存confirm后选择事件的值
   },
 
   methods: {
@@ -75,7 +81,7 @@ Component({
       // 延迟消失
       // this.setData({ donghua: 'down' }, () => { setTimeout(() => { this.setData({ maskState: 'hid', state: false }) }, 300) })
       this.setData({ state: false })   //瞬间消失
-      this.triggerEvent('itemEvent', this.data.checkValue)  // 把用户选择的值传出去给调用的页面
+      this.triggerEvent('itemEvent', this.data.confirmCheckValue)  // 把用户选择的值传出去给调用的页面
     },
 
     //checkbox事件
@@ -89,6 +95,7 @@ Component({
       let list = this.data.list
       for (let i in list) { if (value.indexOf(list[i].name) !== -1) { list[i].checked = true } else { list[i].checked = false } }
       this.setData({ list: list })
+      console.log('__edit_checked', list)
     },
 
     // 确定按钮

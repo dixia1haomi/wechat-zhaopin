@@ -1,0 +1,6 @@
+{
+  "component": true,
+      "usingComponents": {
+        "zy-hengxian": "/component/base/zy-hengxian/zy-hengxian"
+      }
+}

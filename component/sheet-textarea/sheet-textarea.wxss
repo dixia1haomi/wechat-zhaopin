@@ -1,21 +1,64 @@
 .root {
-  max-height: 350px;
+  height: 100%;
   width: 100%;
   position: fixed;
   background-color: #f1f2f3;
+  /* left: 100%; */
+  left: 0;
   bottom: 0;
   z-index: 12;
-  overflow: hidden;
+  overflow-y: hidden;
+}
+
+.textarea {
+  background-color: #fff;
+  border: 1rpx solid tomato;
+  border-radius: 5px;
+  height: 40%;
+  width: 90%;
+  margin: 0 auto;
+  font-size: 14px;
+}
+
+.quxiao {
+  margin: 0 5%;
+}
+
+.wancheng {
+  margin: 6px 5% 6px 5%;
+  background-color: tomato;
+  color: white;
+}
+
+.count {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  font-size: 13px;
+  color: #aaa;
+  margin-right: 3px;
+}
+
+.ft {
+  text-align: center;
+  margin-top: 60rpx;
+}
+
+.ft_tips {
+  font-size: 13px;
+  text-align: center;
+  color: #aaa;
+  line-height: 50rpx;
 }
 
 /* 动画.up */
 
-.up {
-  -webkit-animation: slideUp ease 0.3s forwards;
-  animation: slideUp ease 0.3s forwards;
+.textareadonghuashow {
+  -webkit-animation: show ease 0.3s forwards;
+  animation: show ease 0.3s forwards;
 }
 
-@keyframes slideUp {
+@keyframes show {
   0% {
     -webkit-transform: translate3d(0, 100%, 0);
     transform: translate3d(0, 100%, 0);
@@ -23,18 +66,18 @@
 
   to {
     -webkit-transform: translateZ(0);
-    transform: translateZ(0);
+    transform: translateZ(0); /* transform: translate3d(0, 0, 0); */
   }
 }
 
 /* 动画.down */
 
-.down {
-  -webkit-animation: slideDown ease 0.3s forwards;
-  animation: slideDown ease 0.3s forwards;
+.textareadonghuahid {
+  -webkit-animation: hid ease 0.3s forwards;
+  animation: hid ease 0.3s forwards;
 }
 
-@keyframes slideDown {
+@keyframes hid {
   0% {
     -webkit-transform: translateZ(0);
     transform: translateZ(0);

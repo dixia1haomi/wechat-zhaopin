@@ -334,7 +334,8 @@ class WxValidate {
     this.scope = event
 
     // 缓存字段对应的值
-    const data = event.detail.value
+    // const data = event.detail.value  // 这条改动过，通过from表单提交使用这条
+    const data = event
     const value = data[param] !== null && data[param] !== undefined ? data[param] : ''
 
     // 遍历某个指定字段的所有规则，依次验证规则，否则缓存错误信息

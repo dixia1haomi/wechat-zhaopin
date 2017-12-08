@@ -50,8 +50,10 @@ Page({
     //-----------
     checkboxState: '',
     checkboxValue: '',
-    checkboxValueStr: ''
+    checkboxValueStr: '',
 
+    //----------
+    textareaState: '',
   },
 
   bindChange: function (e) {
@@ -182,5 +184,13 @@ Page({
   checkboxTap() { this.setData({ checkboxState: true }) },
   checkboxitemE(e) { this.setData({ checkboxValue: e.detail, checkboxValueStr: e.detail.toString() }) },
 
+  // ---------textarea----------
+  textareaTap(){
+    this.setData({ textareaState: true })
+  },
 
+  textarea(e){
+    console.log('textarea',e.detail)
+    this.setData({ textarea: e.detail })
+  },
 })

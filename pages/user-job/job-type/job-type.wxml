@@ -18,7 +18,3 @@
 <my-cell catchtap="jobType_geren" title="个人岗位" text="前往发布" jiantou hover></my-cell>
 <my-cell catchtap="jobType_company" title="公司/店铺" text="需要先创建公司/店铺、已创建请忽略" jiantou hover></my-cell>
 
-<view>
-<view></view>
-<view></view>
-</view>

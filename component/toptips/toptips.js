@@ -29,7 +29,7 @@ Component({
         // 监听state状态，如果state状态改成true让动画出现，展示1秒，1秒后让动画收起（收起动画的过程0.3秒）
         if (state) {
           this.setData({ donghua: 'down' })
-          var aa = setTimeout(() => { this.setData({ donghua: 'up' }, () => { setTimeout(() => { this.setData({ state: false }) }, 300) }) }, 1500)
+          var aa = setTimeout(() => { this.setData({ donghua: 'up' }, () => { setTimeout(() => { this.setData({ state: false }) }, 300) }) }, 1000)
         }
       }
     },

@@ -27,6 +27,11 @@ Component({
       value: ''
     },
 
+    // value
+    value:{
+      type:[String,Number]
+    },
+
     // 默认占位
     zhanwei: {
       type: String,
@@ -44,7 +49,7 @@ Component({
 
   methods: {
     bindinput(e) {
-      console.log('bindinput', e.detail.value)
+      console.log('bindinput', e)
       this.triggerEvent('inputEvent', e.detail)
     }
   }

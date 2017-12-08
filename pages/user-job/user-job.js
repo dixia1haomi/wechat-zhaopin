@@ -59,10 +59,11 @@ Page({
 
   //删除岗位
   delete_Job: function (e) {
+    console.log('delete', e)
     user.tip_Modal({ content: '删除这个岗位？' }, (res) => {
       if (res.confirm) {
-        job.delete_Job(e.currentTarget.id, (res) => {
-          console.log('删除岗位',res)
+        job.delete_Job({ id: e.currentTarget.id }, (res) => {
+          console.log('删除岗位', res)
           if (res.code == 201) { job.tip_Toast('删除成功') } else { job.tip_Toast('删除失败') }
         })
       }

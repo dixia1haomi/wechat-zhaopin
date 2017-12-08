@@ -4,6 +4,8 @@
     "zy-hengxian": "/component/base/zy-hengxian/zy-hengxian",
     "my-input": "/component/base/input/input",
     "my-sheetdown": "/component/sheetdown/sheetdown",
-    "my-sheetbox": "/component/sheetcheckbox/sheetcheckbox"
+    "my-sheetbox": "/component/sheetcheckbox/sheetcheckbox",
+    "my-sheettextarea": "/component/sheet-textarea/sheet-textarea",
+    "my-toptips": "/component/toptips/toptips"
   }
 }

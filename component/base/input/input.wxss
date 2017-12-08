@@ -4,12 +4,12 @@
   background-color: #fff;
   display: flex;
   padding: 24rpx 30rpx;
-  font-size: 28rpx;
+  font-size: 32rpx;
 }
 
 .title {
   width: 20%;
-  /* padding-right: 15px; */
+  padding-right: 20rpx;
   display: flex;
   align-items: center;
   /* line-height: 1.4; */

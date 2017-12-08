@@ -1,10 +1,11 @@
 .root {
   max-height: 400px;
   width: 100%;
-  position: absolute;
+  position: fixed;
   background-color: #fff;
   bottom: 0;
   z-index: 12;
+  overflow: hidden;
 }
 
 /* 动画.up */
