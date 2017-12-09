@@ -3,12 +3,13 @@
 
 
 
+
 {
   "pages": [
+    "pages/index/job",
 
     "pages/user-job/user-job",
     
-    "pages/index/job",
     "pages/user-job/creata_or_update/create_or_update_job",
 
     "pages/ceshi/ceshi",

@@ -24,6 +24,8 @@ Page({
   },
 
 
+
+
   //获取job列表
   get_Job_List: function (pages = 1, callback) {
     // 组织条件查询->post请求中的data->不为0才携带work_area去服务器条件查询
@@ -74,7 +76,7 @@ Page({
     }
     return res
   },
-  
+
   // 页面跳转
   _navigate(op) { wx.navigateTo({ url: '/pages/index/detail?id=' + op.currentTarget.dataset.id }) }
 

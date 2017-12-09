@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "my-cell": "/component/base/cell/cell",
+    "zy-hengxian": "/component/base/zy-hengxian/zy-hengxian"
+  }
+}

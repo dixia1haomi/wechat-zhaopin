@@ -301,9 +301,25 @@ Page({
 
     //用岗位id - 判断是请求新增或更新  new Validata().isEmpty(result.id)
     if (result.id == 0) {
-      job.create_job(result, (res) => { if (res.code == 201) { job.tip_Toast('发布成功') } else { job.tip_Toast('发布失败') } })
+      job.create_job(result, (res) => {
+        if (res.code == 201) {
+          // job.tip_Toast('发布成功')
+          // setTimeout(() => { wx.navigateBack({ delta: 1 }) }, 500)
+          job.tip_Modal({ content: '发布成功' }, (Modal) => { if (Modal.confirm) { wx.navigateBack({ delta: 2 }) } })
+        } else {
+          job.tip_Toast('发布失败')
+        }
+      })
     } else {
-      job.update_job(result, (res) => { if (res.code == 201) { job.tip_Toast('更新成功') } else { job.tip_Toast('更新失败') } })
+      job.update_job(result, (res) => {
+        if (res.code == 201) {
+          // job.tip_Toast('更新成功')
+          // setTimeout(() => { wx.navigateBack({ delta: 1 }) }, 500)
+          job.tip_Modal({ content: '更新成功' }, (Modal) => { if (Modal.confirm) { wx.navigateBack({ delta: 1 }) } })
+        } else {
+          job.tip_Toast('更新失败')
+        }
+      })
     }
   },
 

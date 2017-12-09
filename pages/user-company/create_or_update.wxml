@@ -1,66 +1,85 @@
-<import src="/pages/utils/template.wxml"></import>
+<!-- <import src="/pages/utils/template.wxml"></import> -->
 
-
-<view class="beijing">
-
+<!-- <view class="beijing">
   <form bindsubmit='getFormdata'>
+    <input hidden="true" name="id" value="{{companyRes.id}}"></input> -->
 
-
-    <input hidden="true" name="id" value="{{companyRes.id}}"></input>
-
-    <!-- 公司名称 -->
-    <view class="flex-shangxia-zhong shixian-xia gao">
+<!-- 公司名称 -->
+<!-- <view class="flex-shangxia-zhong shixian-xia gao">
       <text class="flex1">公司名称</text>
       <input class="flex3" name="company_name" value="{{companyRes.company_name}}" placeholder='请输入公司名称'></input>
-    </view>
+    </view> -->
 
-
-    <!-- 公司规模 -->
-    <view class="flex-shangxia-zhong shixian-xia gao">
+<!-- 公司规模 -->
+<!-- <view class="flex-shangxia-zhong shixian-xia gao">
       <text class="flex1">公司规模</text>
       <picker class='flex3' name="company_size" bindchange="company_size_picker" value="{{companyRes.company_size}}" range="{{company_size_data}}">
         <view class="">{{company_size_data[companyRes.company_size]}}</view>
       </picker>
-    </view>
+    </view> -->
 
-    <!-- 公司性质 -->
-    <view class="flex-shangxia-zhong shixian-xia gao">
+<!-- 公司性质 -->
+<!-- <view class="flex-shangxia-zhong shixian-xia gao">
       <text class="flex1">公司性质</text>
       <picker class='flex3' name="company_nature" bindchange="company_nature_picker" value="{{companyRes.company_nature}}" range="{{company_nature_data}}">
         <view class="">{{company_nature_data[companyRes.company_nature]}}</view>
       </picker>
-    </view>
+    </view> -->
 
-    <!-- 所属行业 -->
-    <view class="flex-shangxia-zhong shixian-xia gao">
+<!-- 所属行业 -->
+<!-- <view class="flex-shangxia-zhong shixian-xia gao">
       <text class="flex1">所属行业</text>
       <picker class='flex3' name="company_industry" bindchange="company_industry_picker" value="{{companyRes.company_industry}}" range="{{company_industry_data}}">
         <view class="">{{company_industry_data[companyRes.company_industry]}}</view>
       </picker>
-    </view>
+    </view> -->
 
-
-    <!-- 公司地址 -->
-    <view class="flex-shangxia-zhong shixian-xia gao">
+<!-- 公司地址 -->
+<!-- <view class="flex-shangxia-zhong shixian-xia gao">
       <text class="flex1">公司地址</text>
       <input class="flex3" disabled name="company_address" value="{{companyRes.company_address}}" placeholder='请输入公司地址' bindtap='openMap'></input>
-    </view>
+    </view> -->
 
-
-    <!-- 公司描述 -->
-    <view class='shixian-xia ma-xia'>
+<!-- 公司描述 -->
+<!-- <view class='shixian-xia ma-xia'>
       <view class="flex-shangxia-zhong gao">公司描述</view>
       <view class="">
         <textarea class='kuang' value='{{companyRes.company_description}}' name="company_description" placeholder="请输入公司介绍" bindinput='textarea' maxlength='1000' />
         <view class="text-you desc">{{textarea_cursor}}/1000</view>
       </view>
-    </view>
+    </view> -->
 
-
-    <!-- 提交 -->
-    <button class="weui-btn" form-type='submit' type='primary'>确定</button>
-
+<!-- 提交 -->
+<!-- <button class="weui-btn" form-type='submit' type='primary'>确定</button>
 
   </form>
+</view> -->
+<!-- // company_nature_key: 0,
+    // company_industry_key: 0, -->
 
-</view>
+<!-- toptips -->
+<my-toptips state="{{toptips_kaiguan}}" tipsText="{{toptips_text}}"></my-toptips>
+<!-- title -->
+<zy-hengxian margin="25" text="创建公司/店铺"></zy-hengxian>
+<!-- 公司名称 -->
+<my-input bind:inputEvent="company_nameEvent" text="公司名称" zhanwei="输入公司名称" value="{{companyRes.company_name}}"></my-input>
+<!-- 规模 -->
+<my-cell catchtap="sheetState_size" title="规模" text="{{company_size_list[companyRes.company_size]}}" jiantou hover>
+  <my-sheetdown state="{{sheetState_size}}" bind:itemEvent="company_sizeEvent" list="{{company_size_list}}" cancel title></my-sheetdown>
+</my-cell>
+<!-- 性质 -->
+<my-cell catchtap="sheetState_nature" title="性质" text="{{company_nature_list[companyRes.company_nature]}}" jiantou hover>
+  <my-sheetdown state="{{sheetState_nature}}" bind:itemEvent="company_natureEvent" list="{{company_nature_list}}" cancel title></my-sheetdown>
+</my-cell>
+<!-- 所属行业 -->
+<my-cell catchtap="sheetState_industry" title="所属行业" text="{{company_industry_list[companyRes.company_industry]}}" jiantou hover>
+  <my-sheetdown state="{{sheetState_industry}}" bind:itemEvent="company_industryEvent" list="{{company_industry_list}}" cancel title></my-sheetdown>
+</my-cell>
+<!-- 公司地址 -->
+<my-cell catchtap="openMap" title="公司地址" text="{{companyRes.company_address || '选择地址'}}" jiantou hover></my-cell>
+<!-- 描述 -->
+<my-cell catchtap="sheetState_description" title="公司描述" text="{{companyRes.company_description}}" jiantou hover>
+  <my-sheettextarea state="{{sheetState_description}}" bind:textareaEvent="company_descriptionEvent"></my-sheettextarea>
+</my-cell>
+<!-- 提交 -->
+<button class="tijiao" catchtap="submit">提交</button>

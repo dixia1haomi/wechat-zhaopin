@@ -22,7 +22,7 @@ const rules = {
   // 公司描述
   company_description: {
     required: true,
-    minlength: 5  //最少输入5个字符
+    rangelength: [20, 1000]
   }
 }
 
@@ -39,7 +39,7 @@ const messages = {
   // 公司描述
   company_description: {
     required: '描述不能为空',
-    minlength: '描述最少输入5个字符'
+    rangelength: '描述在20-1000个字之间'
   }
 }
 
@@ -49,95 +49,129 @@ Page({
 
   data: {
     //公司规模
-    company_size_data: Config.company_size_data,
+    company_size_list: Config.company_size_data,
     //公司性质
-    company_nature_data: Config.company_nature_data,
+    company_nature_list: Config.company_nature_data,
     //公司所属行业
-    company_industry_data: Config.company_industry_data,
-
-    // company_size_key: 0,
-    // company_nature_key: 0,
-    // company_industry_key: 0,
-    //textarea计数
-    textarea_cursor: 0,
-    //打开地图选择的公司地址
-    // company_address: ''
+    company_industry_list: Config.company_industry_data,
 
     // 编辑获取的数据和将要提交的数据都在里面
     companyRes: {
       id: '',
       company_name: '',
+      company_size: 0,
+      company_nature: 0,
+      company_industry: 0,
       company_address: '',
       company_description: '',
-      company_industry: 0,
-      company_nature: 0,
-      company_size: 0,
-    }
+    },
+
+    // 蒙层状态
+    sheetState_size: false,
+    sheetState_nature: false,
+    sheetState_industry: false,
+    sheetState_description: false,
+    toptips_kaiguan: false,
+    toptips_text: ''
   },
 
+  // 公司名称
+  company_nameEvent(e) {
+    console.log('company_nameEvent', e.detail)
+    this.setData({ 'companyRes.company_name': e.detail.value })
+  },
+
+  // <!--规模 -->
+  sheetState_size() { this.setData({ sheetState_size: true }) },
+  company_sizeEvent(e) {
+    console.log('company_sizeEvent', e.detail)
+    e.detail.index !== false && this.setData({ 'companyRes.company_size': e.detail.index })
+  },
+
+  // <!--性质 -->
+  sheetState_nature() { this.setData({ sheetState_nature: true }) },
+  company_natureEvent(e) {
+    console.log('company_natureEvent', e.detail)
+    e.detail.index !== false && this.setData({ 'companyRes.company_nature': e.detail.index })
+  },
+
+  // <!--所属行业 -->
+  sheetState_industry() { this.setData({ sheetState_industry: true }) },
+  company_industryEvent(e) {
+    console.log('company_industryEvent', e)
+    e.detail.index !== false && this.setData({ 'companyRes.company_industry': e.detail.index })
+  },
+
+  // <!--公司地址 -->
+  company_addressEvent(e) {
+    console.log('company_addressEvent', e)
+  },
+
+  // <!--描述 -->
+  sheetState_description() { this.setData({ sheetState_description: true }) },
+  company_descriptionEvent(e) {
+    console.log('company_descriptionEvent', e.detail)
+    e.detail && this.setData({ 'companyRes.company_description': e.detail })
+  },
+
+  // <!--提交 -->
+  submit() {
+    this.getFormdata(this.data.companyRes)
+  },
 
 
   onLoad: function (op) {
     op.id && this.edit_company(op.id) // 有id就是编辑，没有就是新增
   },
 
+
   //编辑公司 -》 取id -》 查公司信息 -》 传值给页面 -》 再提交
   edit_company: function (id) {
     company.get_Company_Detail(id, (res) => {
       console.log('查公司信息', res)
+      delete res.user_id
       this.setData({ companyRes: res })
     })
   },
 
-
-
   //公司-form提交的value
-  getFormdata: function (e) {
-    let value = e.detail.value
-    console.log('提交的value', value)
+  getFormdata: function (companyRes) {
+    console.log('提交的value', companyRes)
     //验证数据 **********************************************************
-    if (!wxValidate.checkForm(e)) {
+    if (!wxValidate.checkForm(companyRes)) {
       const error = wxValidate.errorList[0]
-      company.tip_Modal({ content: error.msg })
+      this.setData({ toptips_kaiguan: true, toptips_text: error.msg })
       return false
     }
 
-
     //组织请求数据 -> 判断是更新还是新增
-    if (validata.isEmpty(value.id)) {
-      company.create_Company(value, (res) => { if (res.code == 201) { company.tip_Toast('发布成功') } else { company.tip_Toast('发布失败') } })
+    if (validata.isEmpty(companyRes.id)) {
+      company.create_Company(companyRes, (res) => {
+        if (res.code == 201) {
+          company.tip_Modal({ content: '创建成功' }, (Modal) => { if (Modal.confirm) { wx.navigateBack({ delta: 1 }) } })
+        } else {
+          company.tip_Toast('创建失败')
+        }
+      })
     } else {
-      company.update_Company(value, (res) => { if (res.code == 201) { company.tip_Toast('更新成功') } else { company.tip_Toast('更新失败') } })
+      company.update_Company(companyRes, (res) => {
+        if (res.code == 201) {
+          company.tip_Modal({ content: '更新成功' }, (Modal) => { if (Modal.confirm) { wx.navigateBack({ delta: 1 }) } })
+        } else {
+          company.tip_Toast('更新失败')
+        }
+      })
     }
   },
-
-
-
-
-  //公司-规模选择器
-  company_size_picker: function (e) {
-    this.setData({ 'companyRes.company_size': e.detail.value })
-  },
-  //公司-性质选择器
-  company_nature_picker: function (e) {
-    this.setData({ 'companyRes.company_nature': e.detail.value })
-  },
-  //公司-所属行业选择器
-  company_industry_picker: function (e) {
-    this.setData({ 'companyRes.company_industry': e.detail.value })
-  },
-
-  // textarea输入计数
-  textarea(e) { this.setData({ textarea_cursor: e.detail.cursor }) },
 
 
   // 打开地图选择位置 - 授权通过->开地图
   openMap() {
     authorize.authorize_map((res) => {
       console.log('authorize_map', res)
-      res && wx.chooseLocation({ success: (res) => { this.setData({ 'companyRes.company_address': res.address +'-'+ res.name }) } })
+      res && wx.chooseLocation({ success: (res) => { this.setData({ 'companyRes.company_address': res.address + '-' + res.name }) } })
     })
   },
-  // console.log('chooseLocation - success', res)
+
 
 })

@@ -11,15 +11,15 @@ Page({
    * 页面的初始数据
    */
   data: {
-    company_industry_data: Config.company_industry_data,
-    company_size_data: Config.company_size_data,
-    company_nature_data: Config.company_nature_data,
+    company_industry_list: Config.company_industry_data,
+    company_size_list: Config.company_size_data,
+    company_nature_list: Config.company_nature_data,
   },
 
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad: function (options) {
+
+  onLoad: function (options) { },
+
+  onShow: function () {
     this.getUserCompany()   //获取用户关联的公司
   },
 

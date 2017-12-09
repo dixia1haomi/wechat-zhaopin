@@ -10,3 +10,9 @@
 .kuang{
   width: 100%;
 }
+
+.tijiao{
+  background-color: tomato;
+  color: white;
+  margin: 20px 20px 40px 20px;
+}

@@ -35,7 +35,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.getUserJob()   //获取用户关联的岗位
+    // this.getUserJob()   //获取用户关联的岗位
   },
 
 
@@ -64,7 +64,13 @@ Page({
       if (res.confirm) {
         job.delete_Job({ id: e.currentTarget.id }, (res) => {
           console.log('删除岗位', res)
-          if (res.code == 201) { job.tip_Toast('删除成功') } else { job.tip_Toast('删除失败') }
+          if (res.code == 201) {
+            job.tip_Toast('删除成功')
+            this.getUserJob()   //获取用户关联的岗位,刷新数据
+          }
+          else {
+            job.tip_Toast('删除失败')
+          }
         })
       }
     })
@@ -83,7 +89,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    this.getUserJob()   //获取用户关联的岗位
   },
 
   /**

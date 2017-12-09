@@ -5,30 +5,29 @@
   <navigator class='' url='/pages/user-company/create_or_update'>
     <view class='xinzeng'>新增公司</view>
   </navigator>
-
 </view>
 
 <!-- 如果有公司，正常显示公司 -->
-<view wx:else class='block'>
-  <view class='h3'>
-    <!-- <view>id：{{user_company.id}}</view> -->
-    <view class='shixian-xia pa-shangxia'>公司名称：{{user_company.company_name}}</view>
-    <view class='shixian-xia pa-shangxia'>公司规模：{{company_size_data[user_company.company_size]}}</view>
-    <view class='shixian-xia pa-shangxia'>所属行业：{{company_industry_data[user_company.company_industry]}}</view>
-    <view class='shixian-xia pa-shangxia'>公司地址：{{user_company.company_address}}</view>
-    <view class='shixian-xia pa-shangxia'>公司性质：{{company_nature_data[user_company.company_nature]}}</view>
-    <view class='shixian-xia pa-shangxia'>更新时间：{{user_company.update_time}}</view>
-    <view class='pa-shangxia'>
-      <view>公司描述：</view>
-      <text>{{user_company.company_description}}</text>
-    </view>
-  </view>
+<view wx:else class=''>
+  <!-- title -->
+  <zy-hengxian margin="25" text="我的公司/店铺"></zy-hengxian>
+  <!-- 公司名称 -->
+  <my-cell title="公司名称" text="{{user_company.company_name}}" jiantou="" hover=""></my-cell>
+  <!-- 规模 -->
+  <my-cell title="规模" text="{{company_size_list[user_company.company_size]}}" jiantou="" hover=""></my-cell>
+  <!-- 性质 -->
+  <my-cell title="性质" text="{{company_nature_list[user_company.company_nature]}}" jiantou="" hover=""></my-cell>
+  <!-- 所属行业 -->
+  <my-cell title="所属行业" text="{{company_industry_list[user_company.company_industry]}}" jiantou="" hover=""></my-cell>
+  <!-- 公司地址 -->
+  <my-cell title="公司地址" text="{{user_company.company_address}}" jiantou="" hover=""></my-cell>
+  <!-- 描述 -->
+  <my-cell title="公司描述" text="{{user_company.company_description}}" jiantou="" hover=""></my-cell>
 
-  <view class='anniu-view shixian-shang'>
+  <view class='anniu-view'>
     <navigator url='/pages/user-company/create_or_update?id={{user_company.id}}'>
       <view class='anniu h3'>编辑公司</view>
     </navigator>
-
     <view class='anniu h3' bindtap='delete_company' id="{{user_company.id}}">删除公司</view>
   </view>
 </view>
