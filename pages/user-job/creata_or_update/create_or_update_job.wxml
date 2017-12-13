@@ -15,6 +15,7 @@
 <!-- </view> -->
 <!-- </view> -->
 <!-- </block> -->
+<block wx:if="{{jiazai}}">
 
 <view class="{{rootSheetState && 'page-noscroll'}}">
 
@@ -51,7 +52,7 @@
   <my-cell title="地址名称" text="{{map_name || '自动添加'}}" jiantou="" hover=""></my-cell>
 
   <my-cell catchtap="sheetState_description" title="岗位描述" text="{{job_description}}" jiantou hover>
-    <my-sheettextarea state="{{sheetState_description}}" bind:textareaEvent="sheet_description"></my-sheettextarea>
+    <my-sheettextarea state="{{sheetState_description}}" bind:textareaEvent="sheet_description" confirmValue="{{job_description}}"></my-sheettextarea>
   </my-cell>
 
 
@@ -62,3 +63,5 @@
   <button class="tijiao" catchtap="submit">提交</button>
 
 </view>
+
+</block>

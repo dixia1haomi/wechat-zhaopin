@@ -27,6 +27,8 @@ Page({
     // 公司所属行业
     company_industry_data: Config.company_industry_data,
 
+    //---------
+    jiazai: false
   },
 
 
@@ -47,13 +49,15 @@ Page({
       res.company != null && (res.company.company_in_job = this._welfare_updateTime(res.company.company_in_job))
 
       console.log('job详细信息', res)
-      this.setData({ data: res })
+      this.setData({ data: res, jiazai: true })
     })
   },
 
 
   //拨打电话-事件
-  phone_tap() { wx.makePhoneCall({ phoneNumber: this.data.data.phone }) },
+  phone_tap() {
+    wx.makePhoneCall({ phoneNumber: String(this.data.data.phone) })
+  },
 
   // 查看地图位置
   seeMap() {

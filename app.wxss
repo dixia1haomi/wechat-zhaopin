@@ -12,8 +12,8 @@
 @import 'pages/utils/my.wxss';
 
 @font-face {
-  font-family: 'iconfont'; /* project id 462749 */
-  src: url('//at.alicdn.com/t/font_462749_22yp60hiqt6e0zfr.eot');
+  font-family: 'iconfont';
+  project: url('//at.alicdn.com/t/font_462749_22yp60hiqt6e0zfr.eot');
   src: url('//at.alicdn.com/t/font_462749_22yp60hiqt6e0zfr.eot?#iefix') format('embedded-opentype'),
          url('//at.alicdn.com/t/font_462749_22yp60hiqt6e0zfr.woff') format('woff'),
          url('//at.alicdn.com/t/font_462749_22yp60hiqt6e0zfr.ttf') format('truetype'),
@@ -26,6 +26,38 @@
   font-style: normal;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+/* .iconfont { */
+
+/* font-family: "iconfont" !important; */
+
+/* font-size: 16px; */
+
+/* font-style: normal; */
+
+/* -webkit-font-smoothing: antialiased; */
+
+/* -moz-osx-font-smoothing: grayscale; */
+
+/* } */
+
+/* 职位 */
+
+.icon-zhiwei:before {
+  content: "\e665";
+}
+
+/* 简历 */
+
+.icon-jianli:before {
+  content: "\e707";
+}
+
+/* 我的 */
+
+.icon-wode1:before {
+  content: "\e641";
 }
 
 /* 企业 */
@@ -79,6 +111,7 @@
 }
 
 /* 下拉 */
+
 .icon-tabxiala:before {
   content: "\e6dc";
 }

@@ -178,7 +178,7 @@ page {
 }
 
 .desc {
-  color: #888;
+  color: #707070;
 }
 
 /** text **/

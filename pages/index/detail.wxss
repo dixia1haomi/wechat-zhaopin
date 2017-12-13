@@ -1,4 +1,10 @@
-/* pages/job/job.wxss */
+.jiazai{
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  background-color: antiquewhite;
+  z-index: 1
+}
 
 
 .zhedie {
@@ -29,4 +35,8 @@
   position: fixed;
   bottom: 0;
   line-height: 100rpx;
+}
+
+.aaa{
+  margin-bottom: 100px;
 }

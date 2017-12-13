@@ -7,5 +7,6 @@
     "my-sheetbox": "/component/sheetcheckbox/sheetcheckbox",
     "my-sheettextarea": "/component/sheet-textarea/sheet-textarea",
     "my-toptips": "/component/toptips/toptips"
-  }
+  },
+  "navigationBarTitleText": "编辑岗位"
 }

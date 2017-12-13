@@ -134,6 +134,9 @@ Page({
     //------------toptips---------
     toptips_kaiguan: false,
     toptips_text: '',
+
+    //加载
+    jiazai: false
   },
 
   // ------------------------组件事件-------------------------
@@ -240,7 +243,7 @@ Page({
     op.job_type == "gongsi" && this.setData({ job_type: 1, company_id: op.company_id, company_name: op.company_name })
 
     // 判断是-新增/编辑岗位 -> 有岗位id调用编辑方法获取岗位数据赋给data
-    op.job_id && this.edit_Job(op.job_id)
+    op.job_id ? this.edit_Job(op.job_id) : this.setData({ jiazai: true })
   },
 
 
@@ -277,6 +280,8 @@ Page({
         map_longitude: res.map_longitude,
         map_latitude: res.map_latitude,
         job_description: res.job_description,
+
+        jiazai: true
       })
       console.log('qwe', this.data.welfare_list)
     })

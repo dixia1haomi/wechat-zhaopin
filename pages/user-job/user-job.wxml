@@ -1,31 +1,37 @@
-<view class='xinzeng-view'>
-  <navigator url='/pages/user-job/job-type/job-type'>
-    <view class='xinzeng'>新增岗位</view>
-  </navigator>
-</view>
+<block wx:if="{{jiazai}}">
+  <!-- 横线 -->
+  <zy-hengxian margin="25" text="我的岗位"></zy-hengxian>
+
+  <view class='xinzeng-view'>
+    <navigator url='/pages/user-job/job-type/job-type'>
+      <view class='xinzeng'>新增岗位</view>
+    </navigator>
+  </view>
 
 
 
-<!-- 岗位卡片列表 -->
-<block wx:for="{{user_job}}" wx:key="">
-  <view class='block ma-xia'>
+  <!-- 岗位卡片列表 -->
+  <block wx:for="{{user_job}}" wx:key="">
+    <view class='block ma-xia'>
 
 
       <view class='one'>
         <!-- 岗位名称 -->
-        <view style='font-weight: 500;'>{{item.job_name}}</view>
+        <view style='font-weight: 500;color: tomato;'>{{item.job_name}}</view>
         <navigator url='/pages/user-job/creata_or_update/create_or_update_job?job_id={{item.id}}&company_id={{item.company_id}}'>
-          <view class='anniu h5' >编辑</view>
+          <view class='anniu h5'>编辑</view>
         </navigator>
       </view>
 
 
-    <view class='tow'>
-      <!-- 浏览量-时间 -->
-      <view class="time">{{item.update_time}}</view>
-      <view class="page-view">浏览:{{item.page_view}}</view>
-      <view class='anniu h5' bindtap='delete_Job' id="{{item.id}}" >删除</view>
-    </view>
+      <view class='tow'>
+        <!-- 浏览量-时间 -->
+        <view class="time">{{item.update_time}}</view>
+        <view class="page-view">浏览:{{item.page_view}}</view>
+        <view class='anniu h5' bindtap='delete_Job' id="{{item.id}}">删除</view>
+      </view>
 
-  </view>
+    </view>
+  </block>
+
 </block>

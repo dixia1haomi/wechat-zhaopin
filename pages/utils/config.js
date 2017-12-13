@@ -9,7 +9,7 @@ class Config {
 }
 
 // url
-Config.restUrl = 'http://zhaopin.com/api/'
+Config.restUrl = 'https://zhaopin.qujingdaishuyanxuan.org/api/'
 
 // 年龄
 const date = new Date()
@@ -35,7 +35,7 @@ Config.expectation_pay_data = [
 ]
 
 // 性别
-Config.sex_data = ['男', '女']
+// Config.sex_data = ['男', '女']
 
 // 经验
 Config.work_exp_data = ['无经验', '应届生', '1年以下', '1-3年', '3-5年', '5-10年', '10年以上']

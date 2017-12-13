@@ -14,7 +14,7 @@ class Base {
 
   //网络请求封装,noRefetch为true时不在重试请求，详见Refetch
   request(params, noRefetch) {
-    
+
     wx.showNavigationBarLoading() // 在当前页面显示导航条加载动画。
 
     let that = this
@@ -38,9 +38,9 @@ class Base {
           params.sCallback && params.sCallback(res.data);
           wx.hideNavigationBarLoading()   // 隐藏导航条加载动画。
         } else {
-          if (code == '401') {
-            if (!noRefetch) { that._refetch(params) }
-          }
+          // if (code == '401') {         // 原版只判断401，改为只要不是2开头的都重试一次
+          if (!noRefetch) { that._refetch(params) }
+          // }
           that._processError(res);
           params.eCallback && params.eCallback(res.data);
         }
@@ -96,11 +96,11 @@ class Base {
 
   // -------------------时间日期封装-----------------------
 
-  //接受tp返回的日期时间格式"2017-11-02 00:25:46"的字符串 -> 转化成（刚刚）（2分钟前）（1小时前）...
+  //接受tp返回的日期时间格式"2017/11/02 00:25:46"的字符串 -> 转化成（刚刚）（2分钟前）（1小时前）...
   time(time) {
     //转化成时间戳
     let timestamp = Date.parse(new Date(time));
-    //2014-07-10 10:21:12的时间戳为：1404958872  -> console.log(time + "的时间戳为：" + timestamp);
+    //2014/07/10 10:21:12的时间戳为：1404958872  -> console.log(time + "的时间戳为：" + timestamp);
 
     // 定义 ： 月 / 天 / 时 / 分
     let minute = 1000 * 60;   // 分钟
@@ -110,12 +110,15 @@ class Base {
 
     // 计算相差时间
     let now = new Date().getTime();   //当前时间
+    console.log('now', now)
     let diffValue = now - timestamp;   //时间差 = 当前时间 - 数据库取出的时间
+    console.log('diffValue', diffValue)
     // let monthC = diffValue / month;     //相差多少月 = 时间差 / 月
     // let weekC = diffValue / (7 * day);    //相差多少周 = 时间差 / 7天
     // let dayC = diffValue / day;   //相差多少天 = 时间差 / 天
     // let hourC = diffValue / hour;   //相差多少小时 = 时间差 / 小时
     let minC = parseInt(diffValue / minute);  //相差多少分钟 = 时间差 / 分钟 (parseInt转成整数..后面有很多小数点)
+    console.log('minC', minC)
     if (diffValue < 0) { return; }   //意外 -> 没有时间差？？？
 
 

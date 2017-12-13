@@ -1,135 +1,143 @@
-<view style='margin-bottom: 100rpx;'>
+<!-- <view wx:if="{{jiazai}}" class='jiazai'>
+加载中...
+</view> -->
 
-  <view class="block ma-xia">
+<!-- ****************** -->
+<block wx:if="{{jiazai}}">
+  <view style='margin-bottom: 100rpx;'>
 
-    <!-- 岗位名 -->
-    <view class='h2 pa-xia'>{{data.job_name}}</view>
-    <!-- 薪资 -->
-    <view class='h2 pa-xia col-tomato'>{{pay_level_data[data.pay_level]}}</view>
-    <!-- 岗位福利 -->
-    <view>
-      <!-- <view class='h4'>岗位福利</view> -->
-      <view class='box-wrap'>
-        <block wx:for="{{data.welfare}}" wx:key="">
-          <text class='box'>{{item}}</text>
-        </block>
+    <view class="block ma-xia">
+
+      <!-- 岗位名 -->
+      <view class='h2 pa-xia'>{{data.job_name}}</view>
+      <!-- 薪资 -->
+      <view class='h2 pa-xia col-tomato'>{{pay_level_data[data.pay_level]}}</view>
+      <!-- 岗位福利 -->
+      <view>
+        <!-- <view class='h4'>岗位福利</view> -->
+        <view class='box-wrap'>
+          <block wx:for="{{data.welfare}}" wx:key="">
+            <text class='box'>{{item}}</text>
+          </block>
+        </view>
       </view>
+
     </view>
 
-  </view>
-
-  <!-- 公司信息 -->
-  <block wx:if="{{ data.job_type != 0 }}">
-    <navigator url='/pages/index/in-company' class='block'>
-      <view class=''>{{data.company.company_name}}</view>
-      <view class='h4 ma-shang-x'>
-        <text class='ma-you'>{{company_size_data[data.company.company_size]}}</text>
-        <text>{{company_industry_data[data.company.company_industry]}}</text>
-      </view>
-    </navigator>
-  </block>
-
-  <!-- 要求 -->
-
-  <view class='block ma-xia'>
-    <view>
-      任职要求
-    </view>
-    <view class=' flex-col'>
-      <icon class="iconfont icon-zhaopin">
-        <text class='h4 desc'> 招聘:</text>
-        <text class='h4'> {{data.ments_number}}人</text>
-      </icon>
-      <icon class="iconfont icon-jingyan">
-        <text class='h4 desc'> 经验:</text>
-        <text class='h4'> {{ments_exp_data[data.ments_exp]}}</text>
-      </icon>
-      <icon class="iconfont icon-xueli">
-        <text class='h4 desc'> 学历:</text>
-        <text class='h4'> {{ments_education_data[data.ments_education]}}</text>
-      </icon>
-      <icon class="iconfont icon-xingbie">
-        <text class='h4 desc'> 性别:</text>
-        <text class='h4'> {{ments_sex_data[data.ments_sex]}}</text>
-      </icon>
-    </view>
-  </view>
-
-  <!-- 工作区域 -->
-  <view class='block ma-xia' bindtap='seeMap'>
-    <view class='ma-xia'>工作区域</view>
-    <view class='h4 desc'>{{data.map_address}}</view>
-    <view class='h4 desc'>{{data.map_name}}</view>
-  </view>
-
-  <view class='block ma-xia'>
-    <view>职位描述</view>
-    <text class='h4'>{{data.job_description}}</text>
-  </view>
-
-
-
-  <!-- ---------------  公司其他岗位  ---------------- -->
-  <block wx:if="{{ data.job_type != 0 }}">
-    <view class='block'>
-      <view class='ma-shangxia'>公司其他岗位</view>
-    </view>
-
-    <block wx:for="{{data.company.company_in_job}}" wx:key="">
-      <navigator url='/pages/index/detail?id={{item.id}}' open-type='redirect'>
-        <view class='block ma-xia'>
-
-          <view class="pa-xia">{{item.job_name}}</view>
-
-          <view class='pa-xia flex-zhong'>
-            <view class='col-tomato flex1'>{{pay_level_data[item.pay_level]}}</view>
-            <view class="h4 flex1 text-zhong">浏览:{{item.page_view}}</view>
-            <view class="h4 flex1 text-you">{{item.update_time}}</view>
-          </view>
-
-          <view class='text-shenglve'>
-            <block class='' wx:for="{{item.welfare}}" wx:for-item="welfare_item" wx:key="">
-              <text class='box box-ma-you'>{{welfare_item}}</text>
-            </block>
-          </view>
-
-          <view class='xuxian-shang flex-b'>
-
-            <!-- 判断显示-有公司 -->
-            <view wx:if="{{item.job_type != 0}}">
-              <icon class="iconfont icon-qiye" style='color:#1296db;'></icon>
-              <text class='h4'> {{data.company_name}}</text>
-            </view>
-            <!-- 个人发布-没有公司 -->
-            <view wx:else>
-              <icon class="iconfont icon-qiye1" style='color:#e0620d;'>
-              </icon>
-              <text class='h4'> {{item.job_user_name}}</text>
-            </view>
-
-            <!-- 地址 -->
-            <icon class="h4 desc iconfont icon-dizhi">
-              <text class='h4'>{{work_area_data[item.work_area]}}</text>
-            </icon>
-          </view>
-
+    <!-- 公司信息 -->
+    <block wx:if="{{ data.job_type != 0 }}">
+      <navigator url='/pages/index/in-company' class='block'>
+        <view class=''>{{data.company.company_name}}</view>
+        <view class='h4 ma-shang-x'>
+          <text class='ma-you'>{{company_size_data[data.company.company_size]}}</text>
+          <text>{{company_industry_data[data.company.company_industry]}}</text>
         </view>
       </navigator>
     </block>
-  </block>
 
-  <!-- 电话 -->
+    <!-- 要求 -->
 
-
-  <!-- 固定在底部 -->
-  <view class='flex job-css-flod'>
-    <view class='flex2 text-zhong' style='background-color:#fff;'>{{data.job_user_name}}</view>
-    <!-- 电话 -->
-    <view class='flex1 text-zhong' style='background-color:tomato;' bindtap='phone_tap'>
-      <text class="iconfont icon-phone" style='color:#fff;' />
+    <view class='block ma-xia'>
+      <view class='ma-xia'>任职要求</view>
+      <view class=' flex-col'>
+        <icon class="iconfont icon-zhaopin">
+          <text class='h4 desc'> 招聘:</text>
+          <text class='h4'> {{data.ments_number}}人</text>
+        </icon>
+        <icon class="iconfont icon-jingyan">
+          <text class='h4 desc'> 经验:</text>
+          <text class='h4'> {{ments_exp_data[data.ments_exp]}}</text>
+        </icon>
+        <icon class="iconfont icon-xueli">
+          <text class='h4 desc'> 学历:</text>
+          <text class='h4'> {{ments_education_data[data.ments_education]}}</text>
+        </icon>
+        <icon class="iconfont icon-xingbie">
+          <text class='h4 desc'> 性别:</text>
+          <text class='h4'> {{ments_sex_data[data.ments_sex]}}</text>
+        </icon>
+      </view>
     </view>
+
+    <!-- 工作区域 -->
+    <view class='block ma-xia' bindtap='seeMap'>
+      <view class='ma-xia'>工作区域</view>
+      <view class='h4 desc'>{{data.map_address}}</view>
+      <view class='h4 desc'>{{data.map_name}}</view>
+    </view>
+
+    <view class='block ma-xia'>
+      <view class='ma-xia'>职位描述</view>
+      <text class='h4 desc'>{{data.job_description}}</text>
+    </view>
+
+
+
+    <!-- ---------------  公司其他岗位  ---------------- -->
+    <block wx:if="{{ data.job_type != 0 }}">
+      <view class='block'>
+        <view class='ma-shangxia'>该公司其他岗位</view>
+      </view>
+
+        <view class='aaa'>
+      <block wx:for="{{data.company.company_in_job}}" wx:key="">
+          <navigator url='/pages/index/detail?id={{item.id}}' open-type='redirect'>
+            <view class='block ma-xia'>
+
+              <view class="pa-xia">{{item.job_name}}</view>
+
+              <view class='pa-xia flex-zhong'>
+                <view class='col-tomato flex1'>{{pay_level_data[item.pay_level]}}</view>
+                <view class="h4 flex1 text-zhong">浏览:{{item.page_view}}</view>
+                <view class="h4 flex1 text-you">{{item.update_time}}</view>
+              </view>
+
+              <view class='text-shenglve'>
+                <block class='' wx:for="{{item.welfare}}" wx:for-item="welfare_item" wx:key="">
+                  <text class='box box-ma-you'>{{welfare_item}}</text>
+                </block>
+              </view>
+
+              <view class='xuxian-shang flex-b'>
+
+                <!-- 判断显示-有公司 -->
+                <view wx:if="{{item.job_type != 0}}">
+                  <icon class="iconfont icon-qiye" style='color:#1296db;'></icon>
+                  <text class='h4'> {{data.company_name}}</text>
+                </view>
+                <!-- 个人发布-没有公司 -->
+                <view wx:else>
+                  <icon class="iconfont icon-qiye1" style='color:#e0620d;'>
+                  </icon>
+                  <text class='h4'> {{item.job_user_name}}</text>
+                </view>
+
+                <!-- 地址 -->
+                <icon class="h4 desc iconfont icon-dizhi">
+                  <text class='h4'>{{work_area_data[item.work_area]}}</text>
+                </icon>
+              </view>
+
+            </view>
+          </navigator>
+      </block>
+        </view>
+    </block>
+
+    <!-- 电话 -->
+
+
+    <!-- 固定在底部 -->
+    <view class='flex job-css-flod'>
+      <view class='flex2 text-zhong' style='background-color:#fff;'>{{data.job_user_name}}</view>
+      <!-- 电话 -->
+      <view class='flex1 text-zhong' style='background-color:tomato;' bindtap='phone_tap'>
+        <text class="iconfont icon-phone" style='color:#fff;' />
+      </view>
+    </view>
+
+    <!-- <view>公司id:{{data.company.id}}</view> -->
+    <!-- <view>岗位id:{{data.id}}</view> -->
   </view>
 
-  <!-- <view>公司id:{{data.company.id}}</view> -->
-  <!-- <view>岗位id:{{data.id}}</view> -->
-</view>
+</block>

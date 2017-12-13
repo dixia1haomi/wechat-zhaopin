@@ -10,9 +10,11 @@
 <view class='jieshao-view'>
 
   <view class='text-you'>
-      <picker class='index-css-yuan' bindchange="bindPickerChange" value="{{work_place_pickerChange_index}}" range="{{work_place_data}}">
-        <view class='pa-zuoyou h4'>{{work_place_data[work_place_pickerChange_index]}} <text class="iconfont icon-tabxiala index-css-xiala"></text></view>
-      </picker>
+    <picker class='index-css-yuan' bindchange="bindPickerChange" value="{{work_place_pickerChange_index}}" range="{{work_place_data}}">
+      <view class='pa-zuoyou h4'>{{work_place_data[work_place_pickerChange_index]}}
+        <text class="iconfont icon-tabxiala index-css-xiala"></text>
+      </view>
+    </picker>
   </view>
 
   <view class='h2 ma-xia'>袋鼠招聘</view>
@@ -26,6 +28,7 @@
 
 <!-- index列表 -->
 <block wx:for="{{job_list_data}}" wx:key="">
+
 
     <view class='block ma-xia' data-id='{{item.id}}' catchtap='_navigate'>
       <!-- 岗位名称 -->
@@ -65,5 +68,6 @@
       </view>
 
     </view>
-    
+
+
 </block>

@@ -1,1 +1,11 @@
-{}
+{
+  "usingComponents": {
+    "my-cell": "/component/base/cell/cell",
+    "zy-hengxian": "/component/base/zy-hengxian/zy-hengxian",
+    "my-input": "/component/base/input/input",
+    "my-sheetdown": "/component/sheetdown/sheetdown",
+    "my-sheettextarea": "/component/sheet-textarea/sheet-textarea",
+    "my-toptips": "/component/toptips/toptips"
+  },
+  "navigationBarTitleText": "编辑简历"
+}

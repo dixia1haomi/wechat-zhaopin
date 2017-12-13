@@ -29,6 +29,9 @@ Page({
 
     //工作福利
     job_welfare_data: Config.job_welfare,
+
+    //加载
+    jiazai:false
   },
 
   /**
@@ -38,6 +41,9 @@ Page({
     // this.getUserJob()   //获取用户关联的岗位
   },
 
+  onShow: function () {
+    this.getUserJob()   //获取用户关联的岗位
+  },
 
   //获取用户关联的岗位
   getUserJob: function () {
@@ -52,7 +58,7 @@ Page({
         user_job[i].update_time = job.time(user_job[i].update_time)
       }
 
-      this.setData({ user_job: user_job })
+      this.setData({ user_job: user_job, jiazai: true })
     })
   },
 
@@ -60,13 +66,16 @@ Page({
   //删除岗位
   delete_Job: function (e) {
     console.log('delete', e)
-    user.tip_Modal({ content: '删除这个岗位？' }, (res) => {
+    user.tip_Modal({ content: '删除这个岗位？', showCancel: true }, (res) => {
       if (res.confirm) {
         job.delete_Job({ id: e.currentTarget.id }, (res) => {
           console.log('删除岗位', res)
           if (res.code == 201) {
-            job.tip_Toast('删除成功')
-            this.getUserJob()   //获取用户关联的岗位,刷新数据
+            user.tip_Modal({ content: '删除成功' }, (Modal) => {
+              if (Modal.confirm) {
+                this.getUserJob()   //获取用户关联的岗位,刷新数据
+              }
+            })
           }
           else {
             job.tip_Toast('删除失败')
@@ -77,53 +86,4 @@ Page({
   },
 
 
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-    this.getUserJob()   //获取用户关联的岗位
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
-  }
 })

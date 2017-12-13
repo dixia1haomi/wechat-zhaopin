@@ -1,129 +1,219 @@
-<import src="/pages/utils/template.wxml" />
+<!-- <import src="/pages/utils/template.wxml" />
 
 <view class='beijing'>
 
-  <form bindsubmit='getFormdata'>
+  <form bindsubmit='getFormdata'> -->
 
-    <!-- id隐藏域 -->
-    <input hidden="true" name="id" value="{{id}}"></input>
+<!-- id隐藏域 -->
+<!-- <input hidden="true" name="id" value="{{id}}"></input> -->
 
-    <!-- 姓名 -->
-    <view class="flex-shangxia-zhong shixian-xia gao">
+<!-- 姓名 -->
+<!-- <view class="flex-shangxia-zhong shixian-xia gao">
       <text class="flex1">姓名</text>
       <input class="flex3" name="name" placeholder='请输入姓名' value="{{name}}"></input>
-    </view>
+    </view> -->
 
 
-    <!-- 性别 -->
-    <view class="flex-shangxia-zhong shixian-xia gao">
+<!-- 性别 -->
+<!-- <view class="flex-shangxia-zhong shixian-xia gao">
       <text class="flex1">性别</text>
       <picker class='flex3' name="sex" bindchange="sex_picker" value="{{sex_key}}" range="{{sex_data}}">
         <view class="">{{sex_data[sex_key]}}</view>
       </picker>
-    </view>
+    </view> -->
 
 
-    <!-- 联系电话 -->
-    <view class="flex-shangxia-zhong shixian-xia gao">
+<!-- 联系电话 -->
+<!-- <view class="flex-shangxia-zhong shixian-xia gao">
       <text class="flex1">联系电话</text>
       <input class="flex3" name="phone" placeholder='请输入联系电话' value="{{phone}}"  type='number'></input>
-    </view>
+    </view> -->
 
 
-    <!-- 年龄 -->
-    <view class="flex-shangxia-zhong shixian-xia gao">
+<!-- 年龄 -->
+<!-- <view class="flex-shangxia-zhong shixian-xia gao">
       <text class="flex1">年龄</text>
       <picker class='flex3' name="age" bindchange="age_picker" value="{{age_key}}" range="{{age_data}}">
         <view class="">{{age_data[age_key]}}</view>
       </picker>
-    </view>
+    </view> -->
 
 
-    <!-- 工作经验 -->
-    <view class="flex-shangxia-zhong shixian-xia gao">
+<!-- 工作经验 -->
+<!-- <view class="flex-shangxia-zhong shixian-xia gao">
       <text class="flex1">工作经验</text>
       <picker class='flex3' name="work_exp" bindchange="work_exp_picker" value="{{work_exp_key}}" range="{{work_exp_data}}">
         <view class="">{{work_exp_data[work_exp_key]}}</view>
       </picker>
-    </view>
+    </view> -->
 
 
-    <!-- 学历 -->
-    <view class="flex-shangxia-zhong shixian-xia gao">
+<!-- 学历 -->
+<!-- <view class="flex-shangxia-zhong shixian-xia gao">
       <text class="flex1">学历</text>
       <picker class='flex3' name="education" bindchange="education_picker" value="{{education_key}}" range="{{education_data}}">
         <view class="">{{education_data[education_key]}}</view>
       </picker>
-    </view>
+    </view> -->
 
 
-    <!-- 期望薪资 -->
-    <view class="flex-shangxia-zhong shixian-xia gao">
+<!-- 期望薪资 -->
+<!-- <view class="flex-shangxia-zhong shixian-xia gao">
       <text class="flex1">期望薪资</text>
       <picker class='flex3' name="expectation_pay" bindchange="expectation_pay_picker" value="{{expectation_pay_key}}" range="{{expectation_pay_data}}">
         <view class="">{{expectation_pay_data[expectation_pay_key]}}</view>
       </picker>
-    </view>
+    </view> -->
 
 
-    <!-- 工作性质 -->
-    <view class="flex-shangxia-zhong shixian-xia gao">
+<!-- 工作性质 -->
+<!-- <view class="flex-shangxia-zhong shixian-xia gao">
       <text class="flex1">工作性质</text>
       <picker class='flex3' name="work_nature" bindchange="work_nature_picker" value="{{work_nature_key}}" range="{{work_nature_data}}">
         <view class="">{{work_nature_data[work_nature_key]}}</view>
       </picker>
-    </view>
+    </view> -->
 
 
-    <!-- 到岗时间 -->
-    <view class="flex-shangxia-zhong shixian-xia gao">
+<!-- 到岗时间 -->
+<!-- <view class="flex-shangxia-zhong shixian-xia gao">
       <text class="flex1">到岗时间</text>
       <picker class='flex3' name="report_time" bindchange="report_time_picker" value="{{report_time_key}}" range="{{report_time_data}}">
         <view class="">{{report_time_data[report_time_key]}}</view>
       </picker>
-    </view>
+    </view> -->
 
 
-    <!-- 工作地点 -->
-    <view class="flex-shangxia-zhong shixian-xia gao">
+<!-- 工作地点 -->
+<!-- <view class="flex-shangxia-zhong shixian-xia gao">
       <text class="flex1">工作地点</text>
       <picker class='flex3' name="work_place" bindchange="work_place_picker" value="{{work_place_key}}" range="{{work_place_data}}">
         <view class="">{{work_place_data[work_place_key]}}</view>
       </picker>
-    </view>
+    </view> -->
 
 
-    <!-- 目前状态 -->
-    <view class="flex-shangxia-zhong shixian-xia gao">
+<!-- 目前状态 -->
+<!-- <view class="flex-shangxia-zhong shixian-xia gao">
       <text class="flex1">目前状态</text>
       <picker class='flex3' name="current_state" bindchange="current_state_picker" value="{{current_state_key}}" range="{{current_state_data}}">
         <view class="">{{current_state_data[current_state_key]}}</view>
       </picker>
-    </view>
+    </view> -->
 
 
-    <!-- 意向职位 -->
-    <view class="flex-shangxia-zhong shixian-xia gao">
+<!-- 意向职位 -->
+<!-- <view class="flex-shangxia-zhong shixian-xia gao">
       <text class="flex1">意向职位</text>
       <picker class='flex3' name="expectation_position" bindchange="expectation_position_picker" value="{{expectation_position_key}}" range="{{expectation_position_data}}">
         <view class="">{{expectation_position_data[expectation_position_key]}}</view>
       </picker>
-    </view>
+    </view> -->
 
 
-    <!-- 个人-简历-描述 -->
-    <view class='shixian-xia ma-xia'>
+<!-- 个人-简历-描述 -->
+<!-- <view class='shixian-xia ma-xia'>
       <view class="flex-shangxia-zhong gao">个人简介</view>
       <view class="">
         <textarea class='kuang' value='{{resume_description}}' name="resume_description" placeholder="请输入个人简介" bindinput='textarea' maxlength='1000' />
         <view class="text-you desc">{{textarea_cursor}}/1000</view>
       </view>
-    </view>
+    </view> -->
+
+<!-- 提交按钮 -->
+<!-- <button class="weui-btn" form-type='submit' type='primary'>确定</button> -->
+<!-- </form> -->
+<!-- </view> -->
 
 
-    <!-- 提交按钮 -->
-    <button class="weui-btn" form-type='submit' type='primary'>确定</button>
 
-  </form>
 
-</view>
+
+
+
+
+
+
+<!-- 入职时间 -->
+
+<!-- 工作区域 -->
+
+<!-- 当前状态 -->
+
+<!-- 求职岗位 -->
+
+<!-- 联系电话 -->
+
+<!-- 个人描述 -->
+<block wx:if="{{jiazai}}">
+
+  <!-- toptips -->
+  <my-toptips state="{{toptips_kaiguan}}" tipsText="{{toptips_text}}"></my-toptips>
+  <!-- title -->
+  <zy-hengxian margin="25" text="编辑简历"></zy-hengxian>
+
+  <!-- 名称 -->
+  <my-input bind:inputEvent="nameEvent" text="名称" zhanwei="请输入您的名称" value="{{resumeRes.name}}"></my-input>
+
+  <!-- 性别 -->
+  <!-- <my-cell catchtap="sheetState_sex" title="性别" text="{{sex_list[resumeRes.sex]}}" jiantou hover>
+  <my-sheetdown state="{{sheetState_sex}}" bind:itemEvent="sexEvent" list="{{sex_list}}" cancel title></my-sheetdown>
+</my-cell> -->
+
+  <!-- 出生年份 -->
+  <my-cell catchtap="sheetState_age" title="出生年份" text="{{age_list[resumeRes.age]}}" jiantou hover>
+    <my-sheetdown state="{{sheetState_age}}" bind:itemEvent="ageEvent" list="{{age_list}}" cancel title></my-sheetdown>
+  </my-cell>
+
+  <!-- 工作经验 -->
+  <my-cell catchtap="sheetState_work_exp" title="工作经验" text="{{work_exp_list[resumeRes.work_exp]}}" jiantou hover>
+    <my-sheetdown state="{{sheetState_work_exp}}" bind:itemEvent="work_expEvent" list="{{work_exp_list}}" cancel title></my-sheetdown>
+  </my-cell>
+
+  <!-- 最高学历 -->
+  <my-cell catchtap="sheetState_education" title="最高学历" text="{{education_list[resumeRes.education]}}" jiantou hover>
+    <my-sheetdown state="{{sheetState_education}}" bind:itemEvent="educationEvent" list="{{education_list}}" cancel title></my-sheetdown>
+  </my-cell>
+
+  <!-- 期望薪资 -->
+  <my-cell catchtap="sheetState_expectation_pay" title="期望薪资" text="{{expectation_pay_list[resumeRes.expectation_pay]}}" jiantou hover>
+    <my-sheetdown state="{{sheetState_expectation_pay}}" bind:itemEvent="expectation_payEvent" list="{{expectation_pay_list}}" cancel title></my-sheetdown>
+  </my-cell>
+
+  <!-- 工作性质 -->
+  <my-cell catchtap="sheetState_work_nature" title="工作性质" text="{{work_nature_list[resumeRes.work_nature]}}" jiantou hover>
+    <my-sheetdown state="{{sheetState_work_nature}}" bind:itemEvent="work_natureEvent" list="{{work_nature_list}}" cancel title></my-sheetdown>
+  </my-cell>
+
+  <!-- 入职时间 -->
+  <my-cell catchtap="sheetState_report_time" title="入职时间" text="{{report_time_list[resumeRes.report_time]}}" jiantou hover>
+    <my-sheetdown state="{{sheetState_report_time}}" bind:itemEvent="report_timeEvent" list="{{report_time_list}}" cancel title></my-sheetdown>
+  </my-cell>
+
+  <!-- 工作区域 -->
+  <my-cell catchtap="sheetState_work_place" title="工作区域" text="{{work_place_list[resumeRes.work_place]}}" jiantou hover>
+    <my-sheetdown state="{{sheetState_work_place}}" bind:itemEvent="work_placeEvent" list="{{work_place_list}}" cancel title></my-sheetdown>
+  </my-cell>
+
+  <!-- 当前状态 -->
+  <my-cell catchtap="sheetState_current_state" title="当前状态" text="{{current_state_list[resumeRes.current_state]}}" jiantou hover>
+    <my-sheetdown state="{{sheetState_current_state}}" bind:itemEvent="current_stateEvent" list="{{current_state_list}}" cancel title></my-sheetdown>
+  </my-cell>
+
+  <!-- 求职岗位 -->
+  <my-cell catchtap="sheetState_expectation_position" title="求职岗位" text="{{expectation_position_list[resumeRes.expectation_position]}}" jiantou hover>
+    <my-sheetdown state="{{sheetState_expectation_position}}" bind:itemEvent="expectation_positionEvent" list="{{expectation_position_list}}" cancel title></my-sheetdown>
+  </my-cell>
+
+  <!-- 联系电话 -->
+  <my-input bind:inputEvent="phoneEvent" text="联系电话" zhanwei="输入您的联系电话" value="{{resumeRes.phone}}"></my-input>
+
+  <!-- 个人描述 -->
+  <my-cell catchtap="sheetState_resume_description" title="个人描述" text="{{resumeRes.resume_description}}" jiantou hover>
+    <my-sheettextarea state="{{sheetState_resume_description}}" bind:textareaEvent="resume_descriptionEvent" confirmValue="{{resumeRes.resume_description}}"></my-sheettextarea>
+  </my-cell>
+
+  <!-- 提交 -->
+  <button class="tijiao" catchtap="submit">提交</button>
+
+</block>

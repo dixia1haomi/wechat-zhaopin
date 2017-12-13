@@ -56,30 +56,33 @@
 </view> -->
 <!-- // company_nature_key: 0,
     // company_industry_key: 0, -->
+<block wx:if="{{jiazai}}">
 
-<!-- toptips -->
-<my-toptips state="{{toptips_kaiguan}}" tipsText="{{toptips_text}}"></my-toptips>
-<!-- title -->
-<zy-hengxian margin="25" text="创建公司/店铺"></zy-hengxian>
-<!-- 公司名称 -->
-<my-input bind:inputEvent="company_nameEvent" text="公司名称" zhanwei="输入公司名称" value="{{companyRes.company_name}}"></my-input>
-<!-- 规模 -->
-<my-cell catchtap="sheetState_size" title="规模" text="{{company_size_list[companyRes.company_size]}}" jiantou hover>
-  <my-sheetdown state="{{sheetState_size}}" bind:itemEvent="company_sizeEvent" list="{{company_size_list}}" cancel title></my-sheetdown>
-</my-cell>
-<!-- 性质 -->
-<my-cell catchtap="sheetState_nature" title="性质" text="{{company_nature_list[companyRes.company_nature]}}" jiantou hover>
-  <my-sheetdown state="{{sheetState_nature}}" bind:itemEvent="company_natureEvent" list="{{company_nature_list}}" cancel title></my-sheetdown>
-</my-cell>
-<!-- 所属行业 -->
-<my-cell catchtap="sheetState_industry" title="所属行业" text="{{company_industry_list[companyRes.company_industry]}}" jiantou hover>
-  <my-sheetdown state="{{sheetState_industry}}" bind:itemEvent="company_industryEvent" list="{{company_industry_list}}" cancel title></my-sheetdown>
-</my-cell>
-<!-- 公司地址 -->
-<my-cell catchtap="openMap" title="公司地址" text="{{companyRes.company_address || '选择地址'}}" jiantou hover></my-cell>
-<!-- 描述 -->
-<my-cell catchtap="sheetState_description" title="公司描述" text="{{companyRes.company_description}}" jiantou hover>
-  <my-sheettextarea state="{{sheetState_description}}" bind:textareaEvent="company_descriptionEvent"></my-sheettextarea>
-</my-cell>
-<!-- 提交 -->
-<button class="tijiao" catchtap="submit">提交</button>
+  <!-- toptips -->
+  <my-toptips state="{{toptips_kaiguan}}" tipsText="{{toptips_text}}"></my-toptips>
+  <!-- title -->
+  <zy-hengxian margin="25" text="创建公司/店铺"></zy-hengxian>
+  <!-- 公司名称 -->
+  <my-input bind:inputEvent="company_nameEvent" text="公司名称" zhanwei="输入公司名称" value="{{companyRes.company_name}}"></my-input>
+  <!-- 规模 -->
+  <my-cell catchtap="sheetState_size" title="规模" text="{{company_size_list[companyRes.company_size]}}" jiantou hover>
+    <my-sheetdown state="{{sheetState_size}}" bind:itemEvent="company_sizeEvent" list="{{company_size_list}}" cancel title></my-sheetdown>
+  </my-cell>
+  <!-- 性质 -->
+  <my-cell catchtap="sheetState_nature" title="性质" text="{{company_nature_list[companyRes.company_nature]}}" jiantou hover>
+    <my-sheetdown state="{{sheetState_nature}}" bind:itemEvent="company_natureEvent" list="{{company_nature_list}}" cancel title></my-sheetdown>
+  </my-cell>
+  <!-- 所属行业 -->
+  <my-cell catchtap="sheetState_industry" title="所属行业" text="{{company_industry_list[companyRes.company_industry]}}" jiantou hover>
+    <my-sheetdown state="{{sheetState_industry}}" bind:itemEvent="company_industryEvent" list="{{company_industry_list}}" cancel title></my-sheetdown>
+  </my-cell>
+  <!-- 公司地址 -->
+  <my-cell catchtap="openMap" title="公司地址" text="{{companyRes.company_address || '选择地址'}}" jiantou hover></my-cell>
+  <!-- 描述 -->
+  <my-cell catchtap="sheetState_description" title="公司描述" text="{{companyRes.company_description}}" jiantou hover>
+    <my-sheettextarea state="{{sheetState_description}}" bind:textareaEvent="company_descriptionEvent" confirmValue="{{companyRes.company_description}}"></my-sheettextarea>
+  </my-cell>
+  <!-- 提交 -->
+  <button class="tijiao" catchtap="submit">提交</button>
+
+</block>

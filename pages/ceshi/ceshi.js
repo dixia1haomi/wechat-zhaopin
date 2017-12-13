@@ -54,6 +54,7 @@ Page({
 
     //----------
     textareaState: '',
+    textareaValue:'',
   },
 
   bindChange: function (e) {
@@ -191,6 +192,6 @@ Page({
 
   textarea(e){
     console.log('textarea',e.detail)
-    this.setData({ textarea: e.detail })
+    this.setData({ textareaValue: e.detail })
   },
 })

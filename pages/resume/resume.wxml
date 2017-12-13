@@ -15,63 +15,60 @@
   <view class='h2 ma-xia'>袋鼠招聘</view>
 </view> -->
 
-
-<!-- 地区选择 -->
-<view class='text-zhong pa-shangxia'>
-  <picker class='index-css-yuan' bindchange="PickerChange_resume" value="{{PickerChange_index}}" range="{{work_place_data}}">
-    <view class='pa-zuoyou h4'>{{work_place_data[PickerChange_index]}}
-      <text class="iconfont icon-tabxiala index-css-xiala"></text>
-    </view>
-  </picker>
-</view>
+<block wx:if="{{jiazai}}">
 
 
-
-
-<block wx:for="{{resume}}" wx:key="">
-  <navigator url='/pages/resume/detail?id={{item.id}}' open-type='navigate'>
-    <view class='block flex  ma-xia'>
-
-      <view class='touxiang'>
-        <image src='{{item.resume_guanlian_user.avatar_url}}' class='touxiang-img'></image>
-        <text wx:if="{{item.resume_guanlian_user.gender == 1}}" class="iconfont icon-nan zidingyi-nan"></text>
-        <text wx:else class="iconfont icon-iconfontiocnnv2 zidingyi-nv"></text>
+  <!-- 地区选择 -->
+  <view class='text-zhong pa-shangxia'>
+    <picker class='index-css-yuan' bindchange="PickerChange_resume" value="{{PickerChange_index}}" range="{{work_place_data}}">
+      <view class='pa-zuoyou h4'>{{work_place_data[PickerChange_index]}}
+        <text class="iconfont icon-tabxiala index-css-xiala"></text>
       </view>
+    </picker>
+  </view>
 
-      <view class='flex-col-a ma-zuo40' style='width: 100%'>
 
-        <!-- <view class='flex-wanquanjuzhong'> -->
-        <!-- <view class="">id：{{item.id}}</view> -->
-        <view class="h4 flex-b">
-          <text>姓名:{{item.name}}</text>
-          <text class="resume-css-zuo desc">{{item.update_time}}</text>
+
+
+  <block wx:for="{{resume}}" wx:key="">
+    <navigator url='/pages/resume/detail?id={{item.id}}' open-type='navigate'>
+      <view class='block flex ma-xia'>
+
+        <!-- 头像 -->
+        <view class='touxiang'>
+          <image src='{{item.resume_guanlian_user.avatar_url}}' class='touxiang-img'></image>
+          <text wx:if="{{item.resume_guanlian_user.gender == 1}}" class="iconfont icon-nan zidingyi-nan"></text>
+          <text wx:else class="iconfont icon-iconfontiocnnv2 zidingyi-nv"></text>
         </view>
 
-        <view class='h4'>
-          <!-- 年龄 -->
-          <text class="ma-you">{{year - item.age}}岁</text>
-          <!-- 经验 -->
-          <text class="ma-you">{{work_exp_data[item.work_exp]}}</text>
-          <text class="">{{work_place_data[item.work_place]}}</text>
+
+        <view class='flex-col-a ma-zuo40' style='width: 100%'>
+
+          <!-- 姓名 -->
+          <view class="h4 flex-b">
+            <text>姓名:{{item.name}}</text>
+            <text class="resume-css-zuo desc">{{item.update_time}}</text>
+          </view>
+
+          <view class='h4'>
+            <!-- 年龄 -->
+            <text class="ma-you">{{year - item.age}}岁</text>
+            <!-- 经验 -->
+            <text class="ma-you">{{work_exp_data[item.work_exp]}}</text>
+            <text class="">{{work_place_data[item.work_place]}}</text>
+          </view>
+
+
+          <view class="h4">在找:{{expectation_position_data[item.expectation_position]}}</view>
+
+          <view class="h4">薪资:
+            <text class='col-tomato'>{{expectation_pay_data[item.expectation_pay]}}</text>
+          </view>
+
         </view>
 
-
-        <view class="h4">在找:{{expectation_position_data[item.expectation_position]}}</view>
-
-        <view class="h4">薪资:
-          <text class='col-tomato'>{{expectation_pay_data[item.expectation_pay]}}</text>
-        </view>
-
-        <!-- <view class="">工作性质：{{work_nature_data[item.work_nature]}}</view> -->
-        <!-- <view class="">性别{{sex_data[item.sex]}}</view> -->
-        <!-- <view class="">学历:{{education_data[item.education]}}</view> -->
-        <!-- <view class="">目前状态：{{current_state_data[item.current_state]}}</view> -->
-        <!-- <view class="">到岗时间：{{report_time_data[item.report_time]}}</view> -->
-        <!-- <view class="">个人描述：{{item.resume_description}}</view> -->
-        <!-- <view class="">电话：{{item.phone}}</view> -->
-        <!-- </view> -->
       </view>
+    </navigator>
+  </block>
 
-    </view>
-  </navigator>
 </block>

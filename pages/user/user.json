@@ -1,5 +1,6 @@
 {
   "usingComponents": {
     "my-cell": "/component/base/cell/cell"
-  }
+  },
+  "navigationBarTitleText": "我的"
 }

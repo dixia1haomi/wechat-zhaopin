@@ -6,5 +6,6 @@
     "my-sheetdown": "/component/sheetdown/sheetdown",
     "my-sheettextarea": "/component/sheet-textarea/sheet-textarea",
     "my-toptips": "/component/toptips/toptips"
-  }
+  },
+  "navigationBarTitleText": "编辑公司"
 }

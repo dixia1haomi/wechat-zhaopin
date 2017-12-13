@@ -1,7 +1,6 @@
 {
   "usingComponents": {
-    "my-cell": "/component/base/cell/cell",
     "zy-hengxian": "/component/base/zy-hengxian/zy-hengxian"
   },
-  "navigationBarTitleText": "我的公司"
+  "navigationBarTitleText": "公司详情"
 }

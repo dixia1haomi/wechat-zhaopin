@@ -45,7 +45,7 @@
   <my-sheetbox state="{{checkboxState}}" bind:itemEvent="checkboxitemE" cancel title></my-sheetbox>
 </my-cell>
 
-<my-cell catchtap="textareaTap" title="textarea" text="{{textarea || '请选择' }}" jiantou hover>
+<my-cell catchtap="textareaTap" title="textarea" text="{{textareaValue || '请选择' }}" jiantou hover>
   <my-sheettextarea state="{{textareaState}}" bind:textareaEvent="textarea" cancel title></my-sheettextarea>
 </my-cell>
 

@@ -15,7 +15,7 @@ Page({
     // 年龄
     age_data: Config.age_data,
     // 性别
-    sex_data: Config.sex_data,
+    // sex_data: Config.sex_data,
     // 经验
     work_exp_data: Config.work_exp_data,
     // 学历
@@ -35,8 +35,10 @@ Page({
     //地区选择器——
     PickerChange_index: 0,
     //当前年份
-    year: (new Date).getFullYear()
+    year: (new Date).getFullYear(),
 
+    //jiazai
+    jiazai: false
   },
 
 
@@ -44,6 +46,11 @@ Page({
     this.get_Resume_List()  //获取简历列表
     // console.log(this.data.year)
   },
+
+  onShow: function () {
+    // this.get_Resume_List()  //获取简历列表
+  },
+
 
   //获取简历列表
   get_Resume_List: function (pages = 1, callback) {
@@ -56,7 +63,7 @@ Page({
 
       for (let i in res) { res[i].update_time = base.time(res[i].update_time) } //处理更新时间
 
-      callback ? callback(res) : this.setData({ resume: res })
+      callback ? callback(res) : this.setData({ resume: res, jiazai: true })
       console.log('获取简历列表', res)
     })
   },
@@ -82,16 +89,11 @@ Page({
   },
 
 
-
-  onReady: function () { },
-
-  onShow: function () { },
-
-  onHide: function () { },
-
-  onUnload: function () { },
-
-  onPullDownRefresh: function () { },
+  //页面相关事件处理函数--监听用户下拉动作--重新获取数据并setData->成功后停止下拉动作
+  onPullDownRefresh: function () {
+    page = 1  //下一页的全局变量初始化->防止多次切换地区后上拉取值不对
+    this.get_Resume_List(1, (res) => { this.setData({ resume: res }, () => { wx.stopPullDownRefresh() }) })
+  },
 
 
   onShareAppMessage: function () { }

@@ -6,14 +6,14 @@ import WxValidate from '../../wx-validate/WxValidate.js'
 
 const validata = new Validata()
 const base = new Base()
-
+const resume = new Resume()
 
 //初始化表单验证
 const rules = {
   // 岗位名称
   name: {
     required: true,
-    maxlength: 2  //最多输入2个字符
+    rangelength: [2, 4]  //输入2-4个字符
   },
   // 电话号码
   phone: {
@@ -23,15 +23,15 @@ const rules = {
   // 岗位描述
   resume_description: {
     required: true,
-    minlength: 5  //最少输入5个字符
+    rangelength: [20, 1000]  //输入20-1000个字符
   }
 }
 
 const messages = {
   // 岗位名称
   name: {
-    required: '姓不能为空',
-    maxlength: '名称最多输入2个字符'
+    required: '名称不能为空',
+    rangelength: '名称在2-4个字之间'
   },
   // 电话号码
   phone: {
@@ -41,7 +41,7 @@ const messages = {
   // 个人描述
   resume_description: {
     required: '描述不能为空',
-    minlength: '描述最少输入5个字符'
+    rangelength: '描述在20-1000个字之间'
   }
 }
 
@@ -51,87 +51,203 @@ Page({
 
   data: {
     // 年龄
-    age_data: Config.age_data, age_key: 9,
+    age_list: Config.age_data, age_key: 9,
     // 性别
-    sex_data: Config.sex_data, sex_key: 0,
+    // sex_list: Config.sex_data, sex_key: 0,
     // 经验
-    work_exp_data: Config.work_exp_data, work_exp_key: 3,
+    work_exp_list: Config.work_exp_data, work_exp_key: 3,
     // 学历
-    education_data: Config.education_data, education_key: 2,
+    education_list: Config.education_data, education_key: 2,
     // 意向职位
-    expectation_position_data: Config.expectation_position_data, expectation_position_key: 3,
+    expectation_position_list: Config.expectation_position_data, expectation_position_key: 3,
     // 期望薪资
-    expectation_pay_data: Config.expectation_pay_data, expectation_pay_key: 2,
+    expectation_pay_list: Config.expectation_pay_data, expectation_pay_key: 2,
     // 求职区域
-    work_place_data: Config.work_place_data, work_place_key: 0,
+    work_place_list: Config.work_place_data, work_place_key: 0,
     // 工作性质
-    work_nature_data: Config.work_nature_data, work_nature_key: 0,
+    work_nature_list: Config.work_nature_data, work_nature_key: 0,
     // 到岗时间
-    report_time_data: Config.report_time_data, report_time_key: 0,
+    report_time_list: Config.report_time_data, report_time_key: 0,
     // 目前状态
-    current_state_data: Config.current_state_data, current_state_key: 0,
-    // textarea计数
-    textarea_cursor: 0
+    current_state_list: Config.current_state_data, current_state_key: 0,
+
+    resumeRes: {
+      id: '',
+      name: '',
+      // sex: 0,
+      age: 9,
+      work_exp: 2,
+      education: 0,
+      expectation_pay: 2,
+      work_nature: 0,
+      report_time: 0,
+      work_place: 0,
+      current_state: 0,
+      expectation_position: 0,
+      phone: '',
+      resume_description: '',
+    },
+
+    toptips_kaiguan: false,
+
+    // sheetState_sex: false,
+    sheetState_age: false,
+    sheetState_work_exp: false,
+    sheetState_education: false,
+    sheetState_expectation_pay: false,
+    sheetState_work_nature: false,
+    sheetState_report_time: false,
+    sheetState_work_place: false,
+    sheetState_current_state: false,
+    sheetState_expectation_position: false,
+    sheetState_resume_description: false,
+
+    // jiazai
+    jiazai: false
   },
 
-  /**
-   * 生命周期函数--监听页面加载
-   */
+  // 名称
+  nameEvent(e) {
+    console.log('nameEvent', e.detail)
+    this.setData({ 'resumeRes.name': e.detail.value })
+  },
+
+  // <!--性别 -->
+  // sheetState_sex() { this.setData({ sheetState_sex: true }) },
+  // sexEvent(e) {
+  //   console.log('sexEvent', e.detail)
+  //   e.detail.index !== false && this.setData({ 'resumeRes.sex': e.detail.index })
+  // },
+
+  // 出生年份
+  sheetState_age() { this.setData({ sheetState_age: true }) },
+  ageEvent(e) {
+    console.log('ageEvent', e.detail)
+    e.detail.index !== false && this.setData({ 'resumeRes.age': e.detail.index })
+  },
+
+  // 工作经验
+  sheetState_work_exp() { this.setData({ sheetState_work_exp: true }) },
+  work_expEvent(e) {
+    console.log('work_expEvent', e.detail)
+    e.detail.index !== false && this.setData({ 'resumeRes.work_exp': e.detail.index })
+  },
+
+  // 最高学历
+  sheetState_education() { this.setData({ sheetState_education: true }) },
+  educationEvent(e) {
+    console.log('educationEvent', e.detail)
+    e.detail.index !== false && this.setData({ 'resumeRes.education': e.detail.index })
+  },
+
+  // 期望薪资
+  sheetState_expectation_pay() { this.setData({ sheetState_expectation_pay: true }) },
+  expectation_payEvent(e) {
+    console.log('expectation_payEvent', e.detail)
+    e.detail.index !== false && this.setData({ 'resumeRes.expectation_pay': e.detail.index })
+  },
+
+  // 工作性质
+  sheetState_work_nature() { this.setData({ sheetState_work_nature: true }) },
+  work_natureEvent(e) {
+    console.log('work_natureEvent', e.detail)
+    e.detail.index !== false && this.setData({ 'resumeRes.work_nature': e.detail.index })
+  },
+
+  // <!--入职时间 -->
+  sheetState_report_time() { this.setData({ sheetState_report_time: true }) },
+  report_timeEvent(e) {
+    console.log('report_timeEvent', e.detail)
+    e.detail.index !== false && this.setData({ 'resumeRes.report_time': e.detail.index })
+  },
+
+  // <!--工作区域 -->
+  sheetState_work_place() { this.setData({ sheetState_work_place: true }) },
+  work_placeEvent(e) {
+    console.log('work_placeEvent', e.detail)
+    e.detail.index !== false && this.setData({ 'resumeRes.work_place': e.detail.index })
+  },
+
+  // <!--当前状态 -->
+  sheetState_current_state() { this.setData({ sheetState_current_state: true }) },
+  current_stateEvent(e) {
+    console.log('current_stateEvent', e.detail)
+    e.detail.index !== false && this.setData({ 'resumeRes.current_state': e.detail.index })
+  },
+
+  // <!--求职岗位 -->
+  sheetState_expectation_position() { this.setData({ sheetState_expectation_position: true }) },
+  expectation_positionEvent(e) {
+    console.log('expectation_positionEvent', e.detail)
+    e.detail.index !== false && this.setData({ 'resumeRes.expectation_position': e.detail.index })
+  },
+
+  // <!--联系电话 -->
+  phoneEvent(e) {
+    console.log('phoneEvent', e.detail)
+    this.setData({ 'resumeRes.phone': e.detail.value })
+  },
+
+  // <!--个人描述 -->
+  sheetState_resume_description() { this.setData({ sheetState_resume_description: true }) },
+  resume_descriptionEvent(e) {
+    console.log('resume_descriptionEvent', e.detail)
+    e.detail && this.setData({ 'resumeRes.resume_description': e.detail })
+  },
+
+  // 提交
+  submit() {
+    this.getFormdata(this.data.resumeRes)
+  },
+
   onLoad: function (op) {
-    if (op.id) { this.edit_resume(op.id) } // 跳转页面中转id
+    op.id ? this.edit_resume(op.id) : this.setData({ jiazai: true })  // 跳转页面中转id
   },
 
 
   //编辑简历 -》 取id -》 查简历信息 -》 传值给页面 -》 再提交
   edit_resume: function (id) {
-    new Resume().get_Resume_Detail(id, (res) => {
+    resume.get_Resume_Detail(id, (res) => {
       console.log('get_Resume_Detail', res)
       res.age = (new Date).getFullYear() - res.age - 18   //处理年龄，获取出生年对应的年龄数组下标
-      this.setData({
-        id: res.id,
-        name: res.name,
-        resume_description: res.resume_description,
-        phone: res.phone,
+      delete res.user_id                                  //删除user_id ,服务器不接受
+      delete res.resume_guanlian_user                     // 删除不需要的用户数据
 
-        age_key: res.age,
-        sex_key: res.sex,
-        education_key: res.education,
-        work_exp_key: res.work_exp,
-        expectation_pay_key: res.expectation_pay,
-        current_state_key: res.current_state,
-        expectation_position_key: res.expectation_position,
-        report_time_key: res.report_time,
-        work_nature_key: res.work_nature,
-        work_place_key: res.work_place,
-      })
+      this.setData({ resumeRes: res, jiazai: true })
     })
   },
 
 
-
   // 提交表单
-  getFormdata: function (e) {
-    console.log('form', e.detail.value)
-    let value = e.detail.value
+  getFormdata: function (resumeRes) {
 
     //验证数据 **********************************************************
-    if (!wxValidate.checkForm(e)) {
+    if (!wxValidate.checkForm(resumeRes)) {
       const error = wxValidate.errorList[0]
-      base.tip_Modal({ content: error.msg })
+      this.setData({ toptips_kaiguan: true, toptips_text: error.msg })
       return false
     }
 
-    // 组织数据 -》 判断是新增还是更新
-    value.age = this.data.age_data[value.age] //从年龄数组下标取对应的出生年份
+    // // 组织数据 -》 判断是新增还是更新
+    resumeRes.age = this.data.age_list[resumeRes.age] //从年龄数组下标取对应的出生年份
 
-    if (validata.isEmpty(value.id)) {
-      new Resume().create_resume(value, (res) => { 
+    if (validata.isEmpty(resumeRes.id)) {
+      resume.create_resume(resumeRes, (res) => {
         console.log('新增简历', res)
-        if (res.code == 201) { base.tip_Toast('发布成功') } else { base.tip_Toast('发布失败') } })
+        if (res.code == 201) {
+          resume.tip_Modal({ content: '发布成功' }, (Modal) => { if (Modal.confirm) { wx.navigateBack({ delta: 1 }) } })
+        } else {
+          base.tip_Toast('发布失败')
+        }
+      })
     } else {
-      new Resume().update_resume(value, (res) => {
-        console.log('更新简历',res)
-        if (res.code == 201) { base.tip_Toast('更新成功') } else { base.tip_Toast('更新失败') }
+      resume.update_resume(resumeRes, (res) => {
+        console.log('更新简历', res)
+        if (res.code == 201) {
+          resume.tip_Modal({ content: '更新成功' }, (Modal) => { if (Modal.confirm) { wx.navigateBack({ delta: 1 }) } })
+        } else {
+          base.tip_Toast('更新失败')
+        }
       })
     }
   },
@@ -140,101 +256,9 @@ Page({
 
 
 
-
-
-
-
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
   onShow: function () {
 
   },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
-  },
-
-
-
-
-
-
-
-  //简历-年龄-选择器
-  age_picker: function (e) { this.setData({ age_key: e.detail.value }) },
-
-  //性别
-  sex_picker: function (e) { this.setData({ sex_key: e.detail.value }) },
-
-  // 工作性质
-  work_nature_picker: function (e) { this.setData({ work_nature_key: e.detail.value }) },
-
-  //目前状态
-  current_state_picker: function (e) { this.setData({ current_state_key: e.detail.value }) },
-
-  //简历-经验-选择器
-  work_exp_picker: function (e) { this.setData({ work_exp_key: e.detail.value }) },
-
-  //简历-学历-选择器
-  education_picker: function (e) { this.setData({ education_key: e.detail.value }) },
-
-  //简历-期望薪资-选择器
-  expectation_pay_picker: function (e) { this.setData({ expectation_pay_key: e.detail.value }) },
-
-  //简历-到岗时间-选择器
-  report_time_picker: function (e) { this.setData({ report_time_key: e.detail.value }) },
-
-  //简历-求职区域-选择器
-  work_place_picker: function (e) { this.setData({ work_place_key: e.detail.value }) },
-
-  //简历-意向职业-选择器
-  expectation_position_picker: function (e) { this.setData({ expectation_position_key: e.detail.value }) },
-
-  // textarea输入计数
-  textarea(e) {
-    console.log('resume_textarea', e.detail.cursor)
-    this.setData({ textarea_cursor: e.detail.cursor })
-  }
 
 
 })

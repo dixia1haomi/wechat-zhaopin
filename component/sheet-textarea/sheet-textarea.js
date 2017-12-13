@@ -55,13 +55,18 @@ Component({
       value: true
     },
 
+    confirmValue: {
+      type: String,
+      value: ''
+    }
+
 
   },
 
   data: {
     donghua: '',  //动画-up-down
-    value:'',     //bindinput事件的value
-    confirmValue:'' // 用户点击完成后保存的value
+    value: '',     //bindinput事件的value
+    confirmValue: '' // 用户点击完成后保存的value
   },
 
   methods: {
@@ -91,7 +96,7 @@ Component({
       //   }, 300)
       // })
       this.setData({ state: false })
-      this.triggerEvent('textareaEvent',value)
+      this.triggerEvent('textareaEvent', value)
     },
 
 

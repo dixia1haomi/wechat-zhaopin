@@ -12,7 +12,7 @@
       </block>
     </scroll-view>
 
-    <view wx:if="{{cancel}}" class='cancel' catchtap='cancel'>cancel</view>
+    <view wx:if="{{cancel}}" class='cancel' catchtap='cancel'>取消</view>
   </view>
 
 

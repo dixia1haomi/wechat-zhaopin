@@ -1,8 +1,8 @@
-page {
+ page {
   /* height: 100%; */
-  background-color: #fff;
+  /* background-color: #fff; */
   /* display: flex; *//* flex-flow: column; *//* justify-content: center; *//* align-items: center; */
-}
+} 
 
 .flex-column {
   display: flex;

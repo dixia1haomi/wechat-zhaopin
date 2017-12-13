@@ -1,60 +1,51 @@
-<!-- 头像 -->
-<view class='block ma-xia'>
+<block wx:if="{{jiazai}}">
 
-  <view class='touxiang'>
-    <image src='{{resume_detail.resume_guanlian_user.avatar_url}}' class='touxiang-img'></image>
-    <text wx:if="{{resume_detail.resume_guanlian_user.gender == 1}}" class="iconfont icon-nan zidingyi-nan"></text>
-    <text wx:else class="iconfont icon-iconfontiocnnv2 zidingyi-nv"></text>
+  <!-- 头像 -->
+  <view class='block ma-xia'>
+
+    <view class='touxiang'>
+      <image src='{{resume_detail.resume_guanlian_user.avatar_url}}' class='touxiang-img'></image>
+      <text wx:if="{{resume_detail.resume_guanlian_user.gender == 1}}" class="iconfont icon-nan zidingyi-nan"></text>
+      <text wx:else class="iconfont icon-iconfontiocnnv2 zidingyi-nv"></text>
+    </view>
+
+    <view class="text-zhong ma-shangxia">{{resume_detail.name}}</view>
+
+    <view class='flex-zhong'>
+      <text class="ma-zuoyou">{{year - resume_detail.age}}岁</text>
+      <text class="ma-zuoyou">{{work_exp_data[resume_detail.work_exp]}}</text>
+      <text class="ma-zuoyou">{{education_data[resume_detail.education]}}</text>
+    </view>
+
   </view>
 
-  <view class="text-zhong ma-shangxia">{{resume_detail.name}}先生/女士</view>
-
-  <view class='flex-zhong'>
-    <text class="ma-zuoyou">{{year - resume_detail.age}}岁</text>
-    <text class="ma-zuoyou">{{work_exp_data[resume_detail.work_exp]}}</text>
-    <text class="ma-zuoyou">{{education_data[resume_detail.education]}}</text>
-    <!-- <view class="">性别：{{sex_data[resume_detail.sex]}}</view> -->
+  <!-- 求职意向 -->
+  <view class='block ma-xia'>
+    <view class='ma-xia'>求职意向</view>
+    <view class="h4 desc">求职区域：{{work_place_data[resume_detail.work_place]}}</view>
+    <view class="h4 desc">求职岗位：{{expectation_position_data[resume_detail.expectation_position]}}</view>
+    <view class="h4 desc">期望薪资：{{expectation_pay_data[resume_detail.expectation_pay]}}</view>
+    <view class="h4 desc">工作性质：{{work_nature_data[resume_detail.work_nature]}}</view>
+    <view class="h4 desc">目前状态：{{current_state_data[resume_detail.current_state]}}</view>
+    <view class="h4 desc">到岗时间：{{report_time_data[resume_detail.report_time]}}</view>
   </view>
 
-</view>
 
+  <!-- 个人信息 -->
+  <view class='block ma-xia'>
+    <view class='ma-xia'>个人描述</view>
+    <text class="h4 desc">{{resume_detail.resume_description}}</text>
 
-<!-- 求职意向 -->
-<view class='block ma-xia'>
-  <view class='ma-xia'>求职意向</view>
-  <view class="h4 desc">求职区域：{{work_place_data[resume_detail.work_place]}}</view>
-  <view class="h4 desc">求职岗位：{{expectation_position_data[resume_detail.expectation_position]}}</view>
-  <view class="h4 desc">期望薪资：{{expectation_pay_data[resume_detail.expectation_pay]}}</view>
-  <view class="h4 desc">工作性质：{{work_nature_data[resume_detail.work_nature]}}</view>
-  <view class="h4 desc">目前状态：{{current_state_data[resume_detail.current_state]}}</view>
-  <view class="h4 desc">到岗时间：{{report_time_data[resume_detail.report_time]}}</view>
-</view>
-
-<!-- 工作经验 -->
-<view class='block ma-xia'>
-  未实现
-</view>
-
-<!-- 教育经历 -->
-<view class='block ma-xia'>
-  未实现
-</view>
-
-<!-- 个人信息 -->
-<view class='block ma-xia'>
-  <view class='ma-xia'>个人信息</view>
-  <view class="h4 desc">描述：{{resume_detail.resume_description}}</view>
-
-</view>
-
-<!-- 固定在底部 -->
-<view class='flex job-css-flod'>
-  <view class='flex2 text-zhong' style='background-color:#fff;'>{{resume_detail.name}}</view>
-  <!-- 电话 -->
-  <view class='flex1 text-zhong' style='background-color:tomato;' bindtap='phone_tap'>
-    <text class="iconfont icon-phone" style='color:#fff;' />
   </view>
-</view>
 
-<!-- <view class="h4">电话：{{resume_detail.phone}}</view> -->
-<!-- <view class="">id：{{resume_detail.id}}</view> -->
+  <!-- 固定在底部 -->
+  <view class='flex job-css-flod'>
+    <view class='flex2 text-zhong' style='background-color:#fff;'>{{resume_detail.name}}</view>
+    <!-- 电话 -->
+    <view class='flex1 text-zhong' style='background-color:tomato;' bindtap='phone_tap'>
+      <text class="iconfont icon-phone" style='color:#fff;' />
+    </view>
+  </view>
+
+
+</block>

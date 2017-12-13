@@ -65,9 +65,8 @@ Page({
   },
 
   // 关于我
-  guanyuwo(){
-    // wx.navigateTo({ url: '/pages/user-resume/user-resume' })
-    console.log('关于我页面')
+  guanyuwo() {
+    wx.navigateTo({ url: '/pages/user-about/about' })
   },
 
 
@@ -80,11 +79,19 @@ Page({
   //生命周期函数--监听页面显示
   onShow: function () {
     console.log('onShow')
-    app.appData.authorizeUserInfo && this.setData({ login: true, userinfo: wx.getStorageSync('userinfo') })
+    if (app.appData.authorizeUserInfo) {
+      this.setData({ login: true, userinfo: wx.getStorageSync('userinfo') })
+    }else{
+      console.log('没有登录成功')
+    }
+    // app.appData.authorizeUserInfo && this.setData({ login: true, userinfo: wx.getStorageSync('userinfo') })
   },
 
   //页面相关事件处理函数--监听用户下拉动作
-  onPullDownRefresh: function () { },
+  onPullDownRefresh: function () {
+
+  },
+
   //页面上拉触底事件的处理函数
   onReachBottom: function () { },
   //用户点击右上角分享

@@ -72,7 +72,10 @@ Page({
     sheetState_industry: false,
     sheetState_description: false,
     toptips_kaiguan: false,
-    toptips_text: ''
+    toptips_text: '',
+
+    //jiazai
+    jiazai:false
   },
 
   // 公司名称
@@ -121,7 +124,7 @@ Page({
 
 
   onLoad: function (op) {
-    op.id && this.edit_company(op.id) // 有id就是编辑，没有就是新增
+    op.id ? this.edit_company(op.id) : this.setData({ jiazai: true }) // 有id就是编辑，没有就是新增
   },
 
 
@@ -130,7 +133,7 @@ Page({
     company.get_Company_Detail(id, (res) => {
       console.log('查公司信息', res)
       delete res.user_id
-      this.setData({ companyRes: res })
+      this.setData({ companyRes: res, jiazai: true })
     })
   },
 

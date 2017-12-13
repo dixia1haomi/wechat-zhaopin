@@ -1,0 +1,14 @@
+<zy-hengxian margin="25" text="关于我"></zy-hengxian>
+
+<view class='root'>
+  <view class="title">使用需知</view>
+  <text class='about'>
+因《袋鼠招聘》中招聘，简历信息免费发布，不排除出现虚假信息，需自行甄别，发现违法，违规，诈骗信息请报警.
+
+《袋鼠招聘》有权随时删除含有任何违反法律，法规，包含怀疑是虚假，诈骗的信息.
+
+用户的数据由用户自主决定全部或部分地编辑，删除.
+</text>
+
+  <view class='ft'>感谢您使用袋鼠招聘</view>
+</view>

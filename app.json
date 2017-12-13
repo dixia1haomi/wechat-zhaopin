@@ -1,26 +1,16 @@
-
-
-
-
-
-
 {
   "pages": [
     "pages/index/job",
-
-    "pages/user-job/user-job",
-    
-    "pages/user-job/creata_or_update/create_or_update_job",
-
     "pages/ceshi/ceshi",
-
-    
+    "pages/user-job/user-job",
+    "pages/user-job/creata_or_update/create_or_update_job",
     "pages/index/detail",
     "pages/index/in-company",
     "pages/resume/resume",
     "pages/resume/detail",
     "pages/user/user",
     "pages/user-company/company",
+    "pages/user-about/about",
     "pages/user-company/create_or_update",
     "pages/user-job/job-type/job-type",
     "pages/user-resume/user-resume",
@@ -29,24 +19,33 @@
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "WeChat",
+    "navigationBarTitleText": "",
     "navigationBarTextStyle": "black",
-    "onReachBottomDistance": 50,
-    "backgroundColor":"tomato"
+    "backgroundColor": "#fff"
   },
   "tabBar": {
+    "color": "#aaa",
+    "selectedColor": "#1296db",
+    "borderStyle": "black",
+    "backgroundColor": "#fff",
     "list": [
       {
         "pagePath": "pages/index/job",
-        "text": "找工作"
+        "text": "职位",
+        "iconPath": "/img/job.png",
+        "selectedIconPath": "/img/joba.png"
       },
       {
         "pagePath": "pages/resume/resume",
-        "text": "找人才"
+        "text": "简历",
+        "iconPath": "/img/resume.png",
+        "selectedIconPath": "/img/resumea.png"
       },
       {
         "pagePath": "pages/user/user",
-        "text": "我的"
+        "text": "我的",
+        "iconPath": "/img/my.png",
+        "selectedIconPath": "/img/mya.png"
       }
     ]
   }

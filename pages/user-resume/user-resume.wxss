@@ -1,6 +1,6 @@
-.page{
+/* page{
   background-color: #fff;
-}
+} */
 
 .meiyou{
   display: flex;
@@ -20,12 +20,13 @@
 .anniu-view {
   display: flex;
   justify-content: space-around;
-  margin: 10px 0 10px 0;
+  margin: 10px 0 30px 0;
 }
 
 .anniu {
   padding: 5px 20px 5px 20px;
   border: 1rpx solid #f2f2f2;
+  background-color: #fff;
 }
 
 .shixian-shang{

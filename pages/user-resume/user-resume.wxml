@@ -1,3 +1,5 @@
+<block wx:if="{{jiazai}}">
+
 <!-- 如果没有简历，显示新增按钮 -->
 <view class='block meiyou' wx:if="{{user_resume == null}}">
   <text class=''>你还没有简历.赶快新增简历</text>
@@ -9,10 +11,10 @@
 </view>
 
 <!-- 如果有简历，正常显示简历 -->
-<view wx:else class='block'>
-  <view class='h3'>
-    <!-- <view class='shixian-xia pa-shangxia'>id：{{user_resume.id}}</view> -->
-    <view class='shixian-xia pa-shangxia'>名字：{{user_resume.name}}</view>
+<!-- <view wx:else class='block'>
+  <view class='h3'> -->
+<!-- <view class='shixian-xia pa-shangxia'>id：{{user_resume.id}}</view> -->
+<!-- <view class='shixian-xia pa-shangxia'>名字：{{user_resume.name}}</view>
     <view class='shixian-xia pa-shangxia'>性别：{{sex_data[user_resume.sex]}}</view>
     <view class='shixian-xia pa-shangxia'>出生年份：{{user_resume.age}}</view>
     <view class='shixian-xia pa-shangxia'>工作经验：{{work_exp_data[user_resume.work_exp]}}</view>
@@ -35,6 +37,46 @@
 
     <view class='anniu h3' bindtap='delete_resume' id="{{user_resume.id}}">删除简历</view>
   </view>
+</view> -->
+
+<view wx:else>
+  <!-- title -->
+  <zy-hengxian margin="25" text="我的简历"></zy-hengxian>
+  <!-- 名称 -->
+  <my-cell title="名称" text="{{user_resume.name}}" jiantou="" hover=""></my-cell>
+  <!-- 性别 -->
+  <!-- <my-cell title="性别" text="{{sex_list[user_resume.sex]}}" jiantou="" hover=""></my-cell> -->
+  <!-- 出生年份 -->
+  <my-cell title="出生年份" text="{{user_resume.age}}" jiantou="" hover=""></my-cell>
+  <!-- 工作经验 -->
+  <my-cell title="工作经验" text="{{work_exp_list[user_resume.work_exp]}}" jiantou="" hover=""></my-cell>
+  <!-- 最高学历 -->
+  <my-cell title="最高学历" text="{{education_list[user_resume.education]}}" jiantou="" hover=""></my-cell>
+  <!-- 期望薪资 -->
+  <my-cell title="期望薪资" text="{{expectation_pay_list[user_resume.expectation_pay]}}" jiantou="" hover=""></my-cell>
+  <!-- 工作性质 -->
+  <my-cell title="工作性质" text="{{work_nature_list[user_resume.work_nature]}}" jiantou="" hover=""></my-cell>
+  <!-- 入职时间 -->
+  <my-cell title="入职时间" text="{{report_time_list[user_resume.report_time]}}" jiantou="" hover=""></my-cell>
+  <!-- 工作区域 -->
+  <my-cell title="工作区域" text="{{work_place_list[user_resume.work_place]}}" jiantou="" hover=""></my-cell>
+  <!-- 当前状态 -->
+  <my-cell title="当前状态" text="{{current_state_list[user_resume.current_state]}}" jiantou="" hover=""></my-cell>
+  <!-- 求职岗位 -->
+  <my-cell title="求职岗位" text="{{expectation_position_list[user_resume.expectation_position]}}" jiantou="" hover=""></my-cell>
+  <!-- 联系电话 -->
+  <my-cell title="联系电话" text="{{user_resume.phone}}" jiantou="" hover=""></my-cell>
+  <!-- 个人描述 -->
+  <my-cell title="个人描述" text="{{user_resume.resume_description}}" jiantou="" hover=""></my-cell>
+  <!-- 更新时间 -->
+  <my-cell title="更新时间" text="{{user_resume.update_time}}" jiantou="" hover=""></my-cell>
+
+  <view class='anniu-view'>
+    <navigator url='/pages/user-resume/create_or_update?id={{user_resume.id}}'>
+      <view class='anniu h3'>编辑简历</view>
+    </navigator>
+    <view class='anniu h3' bindtap='delete_resume' id="{{user_resume.id}}">删除简历</view>
+  </view>
 </view>
 
-
+</block>

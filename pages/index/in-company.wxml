@@ -1,29 +1,32 @@
 <view>
 
-  <view class='block'>
-    <!-- 公司名字 -->
-    <view class='ma-shang'>{{company_Data.company_name}}</view>
-    <!-- 所属行业 -->
-    <view class='h4 ma-shang-x'>所属行业:{{company_industry_data[company_Data.company_industry]}}</view>
-  </view>
+  <zy-hengxian margin="25" text="公司详细信息"></zy-hengxian>
 
-  <view class='block h4'>
-    <!-- 公司规模 -->
-    <view>公司规模:{{company_size_data[company_Data.company_size]}}</view>
-    <!-- 公司性质 -->
-    <view>公司性质:{{company_nature_data[company_Data.company_nature]}}</view>
-  </view>
+    <view class='block'>
+      <!-- 公司名字 -->
+      <view class='name'>{{company_Data.company_name}}</view>
+      <!-- 所属行业 -->
+      <view class='h4'>所属行业:{{company_industry_data[company_Data.company_industry]}}</view>
+      <!-- 公司规模 -->
+      <view class='h4'>公司规模:{{company_size_data[company_Data.company_size]}}</view>
+      <!-- 公司性质 -->
+      <view class='h4'>公司性质:{{company_nature_data[company_Data.company_nature]}}</view>
+    </view>
 
-  <view class='block h4'>
-    <!-- 公司描述 -->
-    <text class=''>公司简介:{{company_Data.company_description}}</text>
-  </view>
+    <!-- <view class='block h4'>
+    </view> -->
+    <view class='block'>
+      <view class='ma-xia'>公司地址</view>
+      <!-- 公司地址 -->
+      <view class='h4 desc'>{{company_Data.company_address}}</view>
+    </view>
 
-  <view class='block h4'>
-    <view>公司地址</view>
-    <!-- 公司地址 -->
-    <view>{{company_Data.company_address}}</view>
-  </view>
+    <view class='block'>
+      <!-- 公司描述 -->
+      <view class='ma-xia'>公司简介</view>
+      <text class='h4 desc'>{{company_Data.company_description}}</text>
+    </view>
+
 
 
 </view>
