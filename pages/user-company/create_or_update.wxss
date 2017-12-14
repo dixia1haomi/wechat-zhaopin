@@ -4,6 +4,7 @@
   background-color: #fff;
   padding: 0 20rpx 0 20rpx;
 }
+
 .gao{
   height: 80rpx;
 }

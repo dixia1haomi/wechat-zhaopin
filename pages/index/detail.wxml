@@ -1,17 +1,14 @@
-<!-- <view wx:if="{{jiazai}}" class='jiazai'>
-加载中...
-</view> -->
 
-<!-- ****************** -->
 <block wx:if="{{jiazai}}">
+
   <view style='margin-bottom: 100rpx;'>
 
     <view class="block ma-xia">
 
       <!-- 岗位名 -->
-      <view class='h2 pa-xia'>{{data.job_name}}</view>
+      <view class='h1 pa-shangxia'>{{data.job_name}}</view>
       <!-- 薪资 -->
-      <view class='h2 pa-xia col-tomato'>{{pay_level_data[data.pay_level]}}</view>
+      <view class='pa-xia col-tomato'>{{pay_level_data[data.pay_level]}}</view>
       <!-- 岗位福利 -->
       <view>
         <!-- <view class='h4'>岗位福利</view> -->
@@ -28,7 +25,7 @@
     <block wx:if="{{ data.job_type != 0 }}">
       <navigator url='/pages/index/in-company' class='block'>
         <view class=''>{{data.company.company_name}}</view>
-        <view class='h4 ma-shang-x'>
+        <view class='h4 ma-shang-x desc'>
           <text class='ma-you'>{{company_size_data[data.company.company_size]}}</text>
           <text>{{company_industry_data[data.company.company_industry]}}</text>
         </view>
@@ -37,9 +34,9 @@
 
     <!-- 要求 -->
 
-    <view class='block ma-xia'>
+    <view class='block'>
       <view class='ma-xia'>任职要求</view>
-      <view class=' flex-col'>
+      <view class='flex-col'>
         <icon class="iconfont icon-zhaopin">
           <text class='h4 desc'> 招聘:</text>
           <text class='h4'> {{data.ments_number}}人</text>
@@ -71,16 +68,17 @@
       <text class='h4 desc'>{{data.job_description}}</text>
     </view>
 
-
-
     <!-- ---------------  公司其他岗位  ---------------- -->
     <block wx:if="{{ data.job_type != 0 }}">
-      <view class='block'>
-        <view class='ma-shangxia'>该公司其他岗位</view>
+
+      <view class='block zuoyoufenkai' catchtap='companyTap'>
+        <text class=''>该公司其他岗位</text>
+        <text wx:if="{{zhankai_zhedie}}" class="iconfont icon-shouqi" style='font-size: 13px;'>收起</text>
+        <text wx:else class="iconfont icon-xiala" style='font-size: 13px;'>展开</text>
       </view>
 
-        <view class='aaa'>
-      <block wx:for="{{data.company.company_in_job}}" wx:key="">
+      <view class="{{zhankai_zhedie? 'kai':'shou'}}">
+        <block wx:for="{{data.company.company_in_job}}" wx:key="">
           <navigator url='/pages/index/detail?id={{item.id}}' open-type='redirect'>
             <view class='block ma-xia'>
 
@@ -120,8 +118,9 @@
 
             </view>
           </navigator>
-      </block>
-        </view>
+        </block>
+      </view>
+
     </block>
 
     <!-- 电话 -->

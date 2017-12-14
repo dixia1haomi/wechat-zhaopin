@@ -36,5 +36,4 @@
 .time,
 .page-view{
   font-size: 13px;
-  /* color: #aaa; */
 }

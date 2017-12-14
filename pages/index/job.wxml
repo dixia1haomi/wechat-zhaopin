@@ -1,10 +1,3 @@
-<!-- 地区选择器 -->
-<!-- <view class="block text-zhong">
-  <picker bindchange="bindPickerChange" value="{{PickerChange_index}}" range="{{work_place_data}}">
-    <view>{{work_place_data[PickerChange_index]}}</view>
-  </picker>
-</view> -->
-
 
 <!-- 介绍 -->
 <view class='jieshao-view'>
@@ -25,41 +18,39 @@
 </view>
 
 
-
 <!-- index列表 -->
 <block wx:for="{{job_list_data}}" wx:key="">
 
-
     <view class='block ma-xia' data-id='{{item.id}}' catchtap='_navigate'>
       <!-- 岗位名称 -->
-      <view class="pa-xia">{{item.job_name}}</view>
+      <view class="pa-xia h2">{{item.job_name}}</view>
 
       <!-- 薪资-时间-浏览量 -->
       <view class='pa-xia flex-zhong'>
-        <text class='col-tomato flex1'>{{pay_level_data[item.pay_level]}}</text>
+        <text class='col-tomato flex1 desc'>{{pay_level_data[item.pay_level]}}</text>
         <text class="h4 desc flex1 text-zhong">{{item.update_time}}</text>
         <text class="h4 desc flex1 text-you">浏览:{{item.page_view}}</text>
       </view>
 
       <!-- 福利 -->
-      <view class='text-shenglve'>
+      <view class='text-shenglve pa-xia'>
         <block wx:for="{{item.welfare}}" wx:for-item="welfare_item" wx:key="">
           <text class='box ma-you-x'>{{welfare_item}}</text>
         </block>
       </view>
 
       <!-- 个人-公司-地址 -->
-      <view class='xuxian-shang flex-b'>
+      <view class='shixian flex-b'>
         <!-- 判断显示-有公司 -->
         <view wx:if="{{item.job_type != 0}}">
-          <icon class="iconfont icon-qiye" style='color:#1296db;'></icon>
-          <text class='h4'> {{item.company_name}}</text>
+          <icon class="iconfont icon-qiye desc" style='color:#1296db;'></icon>
+          <text class='h4 desc'> {{item.company_name}}</text>
         </view>
         <!-- 个人发布-没有公司 -->
         <view wx:else>
-          <icon class="iconfont icon-qiye1" style='color:#e0620d;'>
+          <icon class="iconfont icon-qiye1 desc" style='color:#e0620d;'>
           </icon>
-          <text class='h4'> {{item.job_user_name}}</text>
+          <text class='h4 desc'> {{item.job_user_name}}</text>
         </view>
         <!-- 地址 -->
         <icon class="h4 desc iconfont icon-dizhi">
@@ -68,6 +59,5 @@
       </view>
 
     </view>
-
 
 </block>

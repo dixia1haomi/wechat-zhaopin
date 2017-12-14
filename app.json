@@ -1,7 +1,7 @@
+
 {
   "pages": [
     "pages/index/job",
-    "pages/ceshi/ceshi",
     "pages/user-job/user-job",
     "pages/user-job/creata_or_update/create_or_update_job",
     "pages/index/detail",

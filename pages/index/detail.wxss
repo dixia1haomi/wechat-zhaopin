@@ -1,11 +1,12 @@
-.jiazai{
-  position: fixed;
-  height: 100%;
-  width: 100%;
-  background-color: antiquewhite;
-  z-index: 1
+page{
+  padding-bottom: 80rpx;
 }
 
+.zuoyoufenkai {
+  display: flex;
+  justify-content: space-between;
+   align-items: center; 
+}
 
 .zhedie {
   max-height: 0px;
@@ -20,15 +21,15 @@
   opacity: 1;
   visibility: visible;
   /* transform: translate(0, 0px);  */
-  transition: all .8s ease;
+  transition: all 0.8s ease;
 }
 
-.flex-col{
+.flex-col {
   display: flex;
-  flex-flow: column
+  flex-flow: column;
 }
 
-.job-css-flod{
+.job-css-flod {
   height: 100rpx;
   width: 100%;
   /* background-color: antiquewhite; */
@@ -37,6 +38,10 @@
   line-height: 100rpx;
 }
 
-.aaa{
-  margin-bottom: 100px;
+.kai {
+  display: block;
+}
+
+.shou {
+  display: none;
 }

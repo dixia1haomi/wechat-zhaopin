@@ -110,15 +110,12 @@ class Base {
 
     // 计算相差时间
     let now = new Date().getTime();   //当前时间
-    console.log('now', now)
     let diffValue = now - timestamp;   //时间差 = 当前时间 - 数据库取出的时间
-    console.log('diffValue', diffValue)
     // let monthC = diffValue / month;     //相差多少月 = 时间差 / 月
     // let weekC = diffValue / (7 * day);    //相差多少周 = 时间差 / 7天
     // let dayC = diffValue / day;   //相差多少天 = 时间差 / 天
     // let hourC = diffValue / hour;   //相差多少小时 = 时间差 / 小时
     let minC = parseInt(diffValue / minute);  //相差多少分钟 = 时间差 / 分钟 (parseInt转成整数..后面有很多小数点)
-    console.log('minC', minC)
     if (diffValue < 0) { return; }   //意外 -> 没有时间差？？？
 
 

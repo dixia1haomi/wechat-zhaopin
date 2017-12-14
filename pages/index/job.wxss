@@ -41,3 +41,11 @@
   font-size: 24rpx;
   color: #888;
 }
+
+.job_name{
+  font-weight: 500;
+}
+
+.shixian{
+  border-top: 1rpx solid #e5e5e5;
+}

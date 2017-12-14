@@ -28,9 +28,15 @@ Page({
     company_industry_data: Config.company_industry_data,
 
     //---------
-    jiazai: false
+    jiazai: false,
+
+    zhankai_zhedie: false
   },
 
+  // 展开折叠公司其他岗位
+  companyTap() {
+    this.setData({ zhankai_zhedie: !this.data.zhankai_zhedie })
+  },
 
   //生命周期函数--监听页面加载
   onLoad: function (op) {

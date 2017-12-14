@@ -30,22 +30,3 @@
 
 
 </view>
-
-
-<!-- 公司id -->
-<!-- <view>{{company_Data.id}}</view> -->
-
-<!-- 更新时间 -->
-<!-- <view>{{company_Data.update_time}}</view> -->
-
-
-<!-- 公司关联的岗位 -->
-<!-- <block wx:for="{{company_Data.company_in_job}}" wx:key="">
-    <view>{{item.id}}</view>
-    <view>{{item.job_name}}</view>
-    <view>{{item.job_user_name}}</view>
-    <view>{{item.pay_level}}</view>
-    <view>{{item.phone}}</view>
-    <view>{{item.work_area}}</view>
-    <view>{{item.ments_number}}</view>
-  </block> -->

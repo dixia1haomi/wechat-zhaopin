@@ -1,18 +1,4 @@
-<!-- <view class='root'> -->
 
-<!-- type=0 代表个人岗位 -->
-<!-- <view class=''>
-    <view class='xinzeng' bindtap='jobType_geren' data-type='0'>新增个人岗位</view>
-    <view class='h4 desc ma-shang'>可以直接发布岗位，不会展示店铺/公司信息</view>
-  </view> -->
-
-<!-- type=1 代表公司/店铺岗位 -->
-<!-- <view class=''>
-    <view class='xinzeng' bindtap='jobType_company' data-type='1'>新增公司/店铺岗位</view>
-    <view class='h4 desc ma-shang'>需要先创建公司/店铺</view>
-  </view> -->
-
-<!-- </view> -->
 
 <zy-hengxian margin="40" text="新增岗位"></zy-hengxian>
 <my-cell catchtap="jobType_geren" title="个人岗位" text="前往发布" jiantou hover></my-cell>

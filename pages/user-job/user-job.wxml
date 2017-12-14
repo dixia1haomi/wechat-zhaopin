@@ -1,4 +1,5 @@
 <block wx:if="{{jiazai}}">
+
   <!-- 横线 -->
   <zy-hengxian margin="25" text="我的岗位"></zy-hengxian>
 
@@ -8,12 +9,9 @@
     </navigator>
   </view>
 
-
-
   <!-- 岗位卡片列表 -->
   <block wx:for="{{user_job}}" wx:key="">
     <view class='block ma-xia'>
-
 
       <view class='one'>
         <!-- 岗位名称 -->
@@ -22,7 +20,6 @@
           <view class='anniu h5'>编辑</view>
         </navigator>
       </view>
-
 
       <view class='tow'>
         <!-- 浏览量-时间 -->

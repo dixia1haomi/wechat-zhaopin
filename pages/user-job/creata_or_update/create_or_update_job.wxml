@@ -1,67 +1,55 @@
-<!-- <view class="beijing"> -->
-<!-- <form bindsubmit='getFormdata'> -->
-<!-- 岗位id -->
-<!-- <input hidden="true" name="id" value="{{id}}"></input> -->
-<!-- 公司id -->
-<!-- <input hidden="true" name="company_id" value="{{company_id}}"></input> -->
-<!-- 岗位type-个人0-公司1 -->
-<!-- <input hidden="true" name="job_type" value="{{job_type}}"></input> -->
-<!-- 我的公司-类型为1才显示 -->
-<!-- <block wx:if="{{ job_type == 1 }}"> -->
-<!-- <view hidden="{{company_id == 0}}"> -->
-<!-- <view class="flex-shangxia-zhong shixian-shang gao"> -->
-<!-- <text class="flex1">我的公司</text> -->
-<!-- <view class="flex3">{{company_name}}</view> -->
-<!-- </view> -->
-<!-- </view> -->
-<!-- </block> -->
 <block wx:if="{{jiazai}}">
 
-<view class="{{rootSheetState && 'page-noscroll'}}">
+  <!-- 蒙层出现不允许背后的page页滚动 -->
+  <view class="{{rootSheetState && 'page-noscroll'}}">
 
-  <my-toptips state="{{toptips_kaiguan}}" tipsText="{{toptips_text}}"></my-toptips>
+    <!-- toptip -->
+    <my-toptips state="{{toptips_kaiguan}}" tipsText="{{toptips_text}}"></my-toptips>
 
-  <zy-hengxian margin="25" text="发布岗位"></zy-hengxian>
+    <!-- 横线 -->
+    <zy-hengxian margin="25" text="发布岗位"></zy-hengxian>
 
-  <block wx:if="{{job_type != 0}}">
-    <my-cell title="公司名称" text="{{company_name}}" jiantou="" hover=""></my-cell>
-  </block>
+    <!-- 公司名称 -->
+    <block wx:if="{{job_type != 0}}">
+      <my-cell title="公司名称" text="{{company_name}}" jiantou="" hover=""></my-cell>
+    </block>
 
-  <my-input bind:inputEvent="jobname_Event" text="岗位名称" value="{{job_name}}" zhanwei="输入岗位名称"></my-input>
+    <!-- 岗位名称 -->
+    <my-input bind:inputEvent="jobname_Event" text="岗位名称" value="{{job_name}}" zhanwei="输入岗位名称"></my-input>
 
-  <my-cell catchtap="sheetState_pay" title="岗位薪资" text="{{pay_list[pay_level]}}" jiantou hover>
-    <my-sheetdown state="{{sheetState_pay}}" bind:itemEvent="sheet_pay" list="{{pay_list}}" cancel title></my-sheetdown>
-  </my-cell>
+    <my-cell catchtap="sheetState_pay" title="岗位薪资" text="{{pay_list[pay_level]}}" jiantou hover>
+      <my-sheetdown state="{{sheetState_pay}}" bind:itemEvent="sheet_pay" list="{{pay_list}}" cancel title></my-sheetdown>
+    </my-cell>
 
-  <my-cell catchtap="welfareState" title="福利" text="{{welfareStr}}" jiantou hover>
-    <my-sheetbox state="{{welfareState}}" bind:itemEvent="welfare" list="{{welfare_list}}" confirmCheckValue="{{welfare}}" cancel title></my-sheetbox>
-  </my-cell>
+    <my-cell catchtap="welfareState" title="福利" text="{{welfareStr}}" jiantou hover>
+      <my-sheetbox state="{{welfareState}}" bind:itemEvent="welfare" list="{{welfare_list}}" confirmCheckValue="{{welfare}}" cancel title></my-sheetbox>
+    </my-cell>
 
-  <my-input bind:inputEvent="numberEvent" text="招聘人数" zhanwei="输入招聘人数" value="{{ments_number}}" input_type="number"></my-input>
+    <my-input bind:inputEvent="numberEvent" text="招聘人数" zhanwei="输入招聘人数" value="{{ments_number}}" input_type="number"></my-input>
 
-  <my-cell catchtap="sheetState_exp" title="经验要求" text="{{exp_list[ments_exp]}}" jiantou hover>
-    <my-sheetdown state="{{sheetState_exp}}" bind:itemEvent="sheet_exp" list="{{exp_list}}" cancel title></my-sheetdown>
-  </my-cell>
+    <my-cell catchtap="sheetState_exp" title="经验要求" text="{{exp_list[ments_exp]}}" jiantou hover>
+      <my-sheetdown state="{{sheetState_exp}}" bind:itemEvent="sheet_exp" list="{{exp_list}}" cancel title></my-sheetdown>
+    </my-cell>
 
-  <my-cell catchtap="sheetState_education" title="学历要求" text="{{education_list[ments_education]}}" jiantou hover>
-    <my-sheetdown state="{{sheetState_education}}" bind:itemEvent="sheet_education" list="{{education_list}}" cancel title></my-sheetdown>
-  </my-cell>
+    <my-cell catchtap="sheetState_education" title="学历要求" text="{{education_list[ments_education]}}" jiantou hover>
+      <my-sheetdown state="{{sheetState_education}}" bind:itemEvent="sheet_education" list="{{education_list}}" cancel title></my-sheetdown>
+    </my-cell>
 
-  <my-cell catchtap="openMap" title="地址" text="{{map_address || '选择地址'}}" jiantou hover></my-cell>
+    <my-cell catchtap="openMap" title="地址" text="{{map_address || '选择地址'}}" jiantou hover></my-cell>
 
-  <my-cell title="地址名称" text="{{map_name || '自动添加'}}" jiantou="" hover=""></my-cell>
+    <my-cell title="地址名称" text="{{map_name || '自动添加'}}" jiantou="" hover=""></my-cell>
 
-  <my-cell catchtap="sheetState_description" title="岗位描述" text="{{job_description}}" jiantou hover>
-    <my-sheettextarea state="{{sheetState_description}}" bind:textareaEvent="sheet_description" confirmValue="{{job_description}}"></my-sheettextarea>
-  </my-cell>
+    <my-cell catchtap="sheetState_description" title="岗位描述" text="{{job_description}}" jiantou hover>
+      <my-sheettextarea state="{{sheetState_description}}" bind:textareaEvent="sheet_description" confirmValue="{{job_description}}"></my-sheettextarea>
+    </my-cell>
 
 
-  <my-input bind:inputEvent="jobUserName_Event" text="你的称呼" value="{{job_user_name}}" zhanwei="输入你的称呼"></my-input>
+    <my-input bind:inputEvent="jobUserName_Event" text="你的称呼" value="{{job_user_name}}" zhanwei="输入你的称呼"></my-input>
 
-  <my-input bind:inputEvent="phone_Event" text="联系电话" value="{{phone}}" zhanwei="输入联系电话" input_type="number"></my-input>
+    <my-input bind:inputEvent="phone_Event" text="联系电话" value="{{phone}}" zhanwei="输入联系电话" input_type="number"></my-input>
 
-  <button class="tijiao" catchtap="submit">提交</button>
+    <button class="tijiao" catchtap="submit">提交</button>
 
-</view>
+  </view>
 
 </block>
