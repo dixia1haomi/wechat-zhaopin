@@ -30,3 +30,7 @@ page{
   color: white;
   margin: 20px;
 }
+
+.huanmoban{
+  margin: 6px 5% 6px 5%;
+}

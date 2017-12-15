@@ -58,7 +58,9 @@
 
   <!-- 个人描述 -->
   <my-cell catchtap="sheetState_resume_description" title="个人描述" text="{{resumeRes.resume_description}}" jiantou hover>
-    <my-sheettextarea state="{{sheetState_resume_description}}" bind:textareaEvent="resume_descriptionEvent" confirmValue="{{resumeRes.resume_description}}"></my-sheettextarea>
+    <my-sheettextarea state="{{sheetState_resume_description}}" bind:textareaEvent="resume_descriptionEvent" value="{{resumeRes.resume_description}}">
+      <button class='huanmoban' catchtap='huanmoban'>填充描述</button>
+    </my-sheettextarea>
   </my-cell>
 
   <!-- 提交 -->

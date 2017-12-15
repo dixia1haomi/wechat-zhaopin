@@ -10,6 +10,8 @@ const validata = new Validata()
 const job = new Job()
 const user = new User()
 
+let moban = 0
+
 
 //初始化表单验证
 const rules = {
@@ -135,8 +137,20 @@ Page({
     toptips_kaiguan: false,
     toptips_text: '',
 
+    // 岗位描述模板
+    miaoshumoban: Config.job_miaoshumoban,
+
     //加载
-    jiazai: false
+    jiazai: false,
+
+  },
+
+  // 换描述模板事件
+  huanmoban() {
+    let l = this.data.miaoshumoban.length
+    let i = moban++
+    if (moban >= l) { moban = 0 }
+    this.setData({ job_description: this.data.miaoshumoban[i].value })
   },
 
   // ------------------------组件事件-------------------------
@@ -193,7 +207,8 @@ Page({
   sheetState_description() { this.setData({ sheetState_description: true }) },
   sheet_description(e) {
     console.log('sheetState_description', e.detail)
-    e.detail && this.setData({ job_description: e.detail })
+    // e.detail && this.setData({ job_description: e.detail })   用户删除原来的数据后e.detail为false，导致不会清空job_description
+    e.detail != undefined && this.setData({ job_description: e.detail })
   },
 
   // 联系电话

@@ -55,7 +55,13 @@ Component({
       value: true
     },
 
-    confirmValue: {
+    // confirmValue: {
+    //   type: String,
+    //   value: ''
+    // },
+
+    // textarea的value值
+    value: {
       type: String,
       value: ''
     }
@@ -66,20 +72,21 @@ Component({
   data: {
     donghua: '',  //动画-up-down
     value: '',     //bindinput事件的value
-    confirmValue: '' // 用户点击完成后保存的value
+    // count:''
+    // confirmValue: '' // 用户点击完成后保存的value
   },
 
   methods: {
 
     // 取消按钮
-    quxiao() {
-      this.hid()  // 隐藏菜单
-    },
+    // quxiao() {
+    //   this.hid()  // 隐藏菜单
+    // },
 
     // 完成
     wancheng() {
       // this.triggerEvent('textareaEvent', this.data.value)
-      this.setData({ confirmValue: this.data.value })  //保存确定后的值，用来显示到textarea的value里，确保用户改变了value却点了取消下次在进入显示错误
+      // this.setData({ confirmValue: this.data.value })  //保存确定后的值，用来显示到textarea的value里，确保用户改变了value却点了取消下次在进入显示错误
       this.hid(this.data.value)
       console.log('wancheng')
     },

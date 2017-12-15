@@ -3,20 +3,23 @@
 
     <zy-hengxian text="{{hengxianText}}" margin="15"></zy-hengxian>
 
-    <textarea bindconfirm='wancheng' bindinput='textareaEvent' value='{{confirmValue}}' class='textarea' placeholder="请输入内容，不超过1000字" maxlength="1000" fixed>
+    <textarea bindconfirm='wancheng' bindinput='textareaEvent' value='{{value}}' class='textarea' placeholder="请输入内容，不超过1000字" maxlength="1000" fixed>
       <text class='count'>{{count || '0'}}/1000</text>
     </textarea>
 
     <button class='wancheng' catchtap="wancheng">完成</button>
-    <button class='quxiao' catchtap="quxiao">取消</button>
+
+    <slot></slot>
+
+    <!-- <button class='quxiao' catchtap="quxiao">取消</button> -->
 
     <view class='ft' wx:if="{{ft_tips}}">
-      <text class='ft_tips'>如果你要退出本次编辑，请点击取消按钮
-    直接返回将会退出整个页面</text>
+      <text class='ft_tips'>如果你要退出本次编辑，请点击完成按钮
+    直接返回将会退出整个页面
+    </text>
     </view>
   </view>
 </view>
-
 <!-- <slot></slot> -->
 
 <!-- <button catchtap='show'>show</button>

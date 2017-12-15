@@ -22,7 +22,9 @@
   <my-cell catchtap="openMap" title="公司地址" text="{{companyRes.company_address || '选择地址'}}" jiantou hover></my-cell>
   <!-- 描述 -->
   <my-cell catchtap="sheetState_description" title="公司描述" text="{{companyRes.company_description}}" jiantou hover>
-    <my-sheettextarea state="{{sheetState_description}}" bind:textareaEvent="company_descriptionEvent" confirmValue="{{companyRes.company_description}}"></my-sheettextarea>
+    <my-sheettextarea state="{{sheetState_description}}" bind:textareaEvent="company_descriptionEvent" value="{{companyRes.company_description}}">
+      <button class='huanmoban' catchtap='huanmoban'>填充描述</button>
+    </my-sheettextarea>
   </my-cell>
   <!-- 提交 -->
   <button class="tijiao" catchtap="submit">提交</button>

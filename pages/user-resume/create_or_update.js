@@ -8,6 +8,9 @@ const validata = new Validata()
 const base = new Base()
 const resume = new Resume()
 
+// 描述模板全局变量
+let moban = 0
+
 //初始化表单验证
 const rules = {
   // 岗位名称
@@ -103,7 +106,10 @@ Page({
     sheetState_resume_description: false,
 
     // jiazai
-    jiazai: false
+    jiazai: false,
+
+    // 简历描述模板
+    miaoshumoban: Config.resume_miaoshumoban
   },
 
   // 名称
@@ -192,7 +198,15 @@ Page({
   sheetState_resume_description() { this.setData({ sheetState_resume_description: true }) },
   resume_descriptionEvent(e) {
     console.log('resume_descriptionEvent', e.detail)
-    e.detail && this.setData({ 'resumeRes.resume_description': e.detail })
+    e.detail != undefined && this.setData({ 'resumeRes.resume_description': e.detail })
+  },
+
+  // 换描述模板事件
+  huanmoban() {
+    let l = this.data.miaoshumoban.length
+    let i = moban++
+    if (moban >= l) { moban = 0 }
+    this.setData({ 'resumeRes.resume_description': this.data.miaoshumoban[i].value })
   },
 
   // 提交

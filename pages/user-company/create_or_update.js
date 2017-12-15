@@ -8,6 +8,9 @@ const authorize = new Authorize()
 const company = new Company
 const validata = new Validata()
 
+// 公司描述模板全局变量
+let moban = 0 
+
 //初始化表单验证
 const rules = {
   // 公司名称
@@ -75,7 +78,10 @@ Page({
     toptips_text: '',
 
     //jiazai
-    jiazai:false
+    jiazai:false,
+
+    //公司描述模板
+    miaoshumoban:Config.company_miaoshumoban
   },
 
   // 公司名称
@@ -115,6 +121,13 @@ Page({
   company_descriptionEvent(e) {
     console.log('company_descriptionEvent', e.detail)
     e.detail && this.setData({ 'companyRes.company_description': e.detail })
+  },
+  // 换描述模板事件
+  huanmoban() {
+    let l = this.data.miaoshumoban.length
+    let i = moban++
+    if (moban >= l) { moban = 0 }
+    this.setData({ 'companyRes.company_description': this.data.miaoshumoban[i].value })
   },
 
   // <!--提交 -->
